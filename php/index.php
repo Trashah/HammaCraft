@@ -153,12 +153,6 @@
             });
         </script>
 
-        
-
-       <!-- Vinculación del archivo JavaScript justo antes del cierre del body -->
-
-        <script src="carrusel_index.js"></script>
-
     <!-- Sección "Sobre la tienda" -->
     <section class="about">
         <h2>Sobre nosotros</h2>
