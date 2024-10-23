@@ -1,102 +1,160 @@
+<?php
+include '.gitignore/config.php';
+
+$sql = "SELECT * FROM products";
+$result = $connection->query($sql);
+?>
+
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HammaCraft</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/styles.css">
+
 </head>
+
 <body>
 
-    <!-- Cabecera -->
     <header>
+
         <div class="logo">
+
             <img src="logo hammacraft.png" alt="Logo de la tienda">
         </div>
+
         <nav>
+
             <ul>
+
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Sobre nosotros</a></li>
                 <li><a href="#">Tienda</a></li>
                 <li><a href="#">Contacto</a></li>
+
             </ul>
+
         </nav>
+
         <div class="search-cart">
+
             <input type="text" placeholder="Buscar...">
             <button>Carrito</button>
+
         </div>
+
     </header>
 
     <!-- Banner principal -->
     <section class="banner">
+
         <h1>HammaCraft</h1>
         <button class="shop-btn">Compra ahora</button>
+
     </section>
 
     <!-- Productos destacados -->
     <section class="featured-products">
+
         <h2>Productos Destacados</h2>
-        <div class="product-list">
-            <div class="product">
-                <img src="metaknight.png">
-                <h3>Producto 1</h3>
-                <p>$100</p>
-            </div>
-            <div class="product">
-                <img src="trifuerza.png">
-                <h3>Producto 2</h3>
-                <p>$150</p>
-            </div>
+
+        <div class = "product-list">
+
+            <?php
+            $featuredProductsCount = 3;
+            $sql = "SELECT * FROM products LIMIT $featuredProductsCount";
+            $result = $connection->query($sql);
+
+            while ($row = $result->fetch_assoc()): ?>
+
+                <div class="product">
+
+                    <img src="images/<?php echo $row['image']; ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
+                    <h3><?php echo htmlspecialchars($row['name']); ?></h3>
+                    <p>$<?php echo number_format($row['price'], 2); ?></p>
+
+                </div>
+
+            <?php endwhile; ?>
+
         </div>
+
     </section>
 
     <!-- Newsletter -->
     <section class="newsletter">
+
         <h2>¡Suscribete!</h2>
         <p>Suscríbete para recibir actualizaciones y promociones especiales.</p>
         <input type="email" placeholder="Introduce tu email">
         <button>Subscribe</button>
+
     </section>
 
 
      <!-- Carrusel de productos -->
     <section class="product-carousel">
+
         <h2>Más productos</h2>
         <div class="carousel">
+
             <div class="carousel-inner">
+
                 <div class="product">
                     <img src="gallade.png" >
                     <h3>Product 1</h3>
                     <p>$200</p>
+
                 </div>
+
                 <div class="product">
+
                     <img src="kirby.png"Producto 2">
                     <h3>Product 2</h3>
                     <p>$150</p>
+
                 </div>
+
                 <div class="product">
+
                     <img src="metaknight.png" alt="Producto 3">
                     <h3>Product 3</h3>
                     <p>$120</p>
+
                 </div>
+
                 <div class="product">
+
                     <img src="phoenix wright.png" alt="Producto 4">
                     <h3>Product 4</h3>
                     <p>$80</p>
+
                 </div>
+
                 <div class="product">
+
                     <img src="trifuerza.png" alt="Producto 5">
                     <h3>Product 5</h3>
                     <p>$120</p>
+
                 </div>
+
             </div>
+
         </div>
+
         <!-- Botones para navegar por el carrusel -->
         <button id="prevBtn">Prev</button>
         <button id="nextBtn">Next</button>
+
         </section>
 
         <script>
+
             document.addEventListener('DOMContentLoaded', () => {
                 const carouselInner = document.querySelector('.carousel-inner');
                 const products = document.querySelectorAll('.carousel .product');
@@ -151,42 +209,65 @@
     
                 showSlide(currentIndex);
             });
+
         </script>
 
     <!-- Sección "Sobre la tienda" -->
     <section class="about">
+
         <h2>Sobre nosotros</h2>
         <p>Breve presentación sobre la tienda, tu misión y los productos que ofreces.</p>
+
     </section>
 
     <!-- Pie de página -->
     <footer>
+
         <div class="footer-content">
+
             <div class="menu">
+
                 <h3>Menu</h3>
                 <ul>
+
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Tienda</a></li>
                     <li><a href="#">Contacto</a></li>
+
                 </ul>
+
             </div>
+
             <div class="company">
+
                 <h3>Compania</h3>
                 <ul>
+
                     <li><a href="#">Sobre nosotros</a></li>
                     <li><a href="#">Privacidad</a></li>
+
                 </ul>
+
             </div>
+
             <div class="newsletter-footer">
+
                 <h3>Suscribete</h3>
                 <input type="email" placeholder="Introduce tu email">
                 <button>Subscribe</button>
+
             </div>
+
         </div>
+
         <p>© 2024 HammaCraft. Todos los derechos reservados.</p>
+
     </footer>
 
-
-
 </body>
+
 </html>
+
+<?php
+$connection->close();
+?>
