@@ -34,7 +34,7 @@ include '.gitignore/config.php';
 
             </div>
 
-            <div class="nav-links">
+            <div class = "nav-links">
 
                 <a href="#home">Pantalla principal</a>
                 <a href="#sobre nosotros">Sobre nosotros</a>
@@ -55,19 +55,19 @@ include '.gitignore/config.php';
 
     <main>
 
-        <section class="hero">
+        <section class = "hero">
             
-            <button class="shop-now">¡Compra ya!</button>       
+            <button class = "shop-now">¡Compra ya!</button>       
 
         </section>
 
-        <section class="featured-products">
+        <section class = "featured-products">
 
             <h2>Productos Destacados </h2>
 
-            <div class="carousel-container">
+            <div class = "carousel-container">
 
-                <button class="carousel-btn prev">&lt;</button>
+                <button class = "carousel-btn prev">&lt;</button>
 
                 <div class="carousel-track">
 
