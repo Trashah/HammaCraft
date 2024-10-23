@@ -1,8 +1,5 @@
 <?php
 include '.gitignore/config.php';
-
-$sql = "SELECT * FROM products";
-$result = $connection->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -66,16 +63,16 @@ $result = $connection->query($sql);
 
             <?php
             $featuredProductsCount = 3;
-            $sql = "SELECT * FROM products LIMIT $featuredProductsCount";
+            $sql = "SELECT * FROM productos LIMIT $featuredProductsCount";
             $result = $connection->query($sql);
 
             while ($row = $result->fetch_assoc()): ?>
 
                 <div class="product">
 
-                    <img src="images/<?php echo $row['image']; ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
-                    <h3><?php echo htmlspecialchars($row['name']); ?></h3>
-                    <p>$<?php echo number_format($row['price'], 2); ?></p>
+                    <img src="images/<?php echo $row['Imagen']; ?>" alt="<?php echo htmlspecialchars($row['NombreProducto']); ?>">
+                    <h3><?php echo htmlspecialchars($row['NombreProducto']); ?></h3>
+                    <p>$<?php echo number_format($row['Precio'], 2); ?></p>
 
                 </div>
 
@@ -104,44 +101,22 @@ $result = $connection->query($sql);
 
             <div class="carousel-inner">
 
-                <div class="product">
-                    <img src="gallade.png" >
-                    <h3>Product 1</h3>
-                    <p>$200</p>
+                <?php
+                $carouselProductCount = 12;
+                $sql = "SELECT * FROM productos LIMIT $featuredProductsCount, $carouselProductCount";
+                $result = $connection->query($sql);
 
-                </div>
-
-                <div class="product">
-
-                    <img src="kirby.png"Producto 2">
-                    <h3>Product 2</h3>
-                    <p>$150</p>
-
-                </div>
+                while ($row = $result->fetch_assoc()): ?>
 
                 <div class="product">
 
-                    <img src="metaknight.png" alt="Producto 3">
-                    <h3>Product 3</h3>
-                    <p>$120</p>
+                    <img src="images/<?php echo $row['Imagen']; ?>" alt="<?php echo htmlspecialchars($row['NombreProducto']); ?>">
+                    <h3><?php echo htmlspecialchars($row['NombreProducto']); ?></h3>
+                    <p>$<?php echo number_format($row['Precio'], 2); ?></p>
 
                 </div>
 
-                <div class="product">
-
-                    <img src="phoenix wright.png" alt="Producto 4">
-                    <h3>Product 4</h3>
-                    <p>$80</p>
-
-                </div>
-
-                <div class="product">
-
-                    <img src="trifuerza.png" alt="Producto 5">
-                    <h3>Product 5</h3>
-                    <p>$120</p>
-
-                </div>
+                <?php endwhile; ?>
 
             </div>
 

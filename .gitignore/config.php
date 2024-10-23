@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "hammacraft-prueba";
+$dbname = "HammaCraft";
 
 //Create connection
 $connection = new mysqli($servername, $username, $password, $dbname);
