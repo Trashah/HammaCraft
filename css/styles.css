@@ -110,25 +110,25 @@ header .search-cart input {
     cursor: pointer;
 }
 
-/* Carrusel de productos */
 .product-carousel {
     padding: 50px 20px;
+    text-align: center;
+    justify-content: center;
 }
 
 .carousel {
     display: flex;
     justify-content: center;
+    text-align: center;
     gap: 30px;
 }
 
-/* Sobre la tienda */
 .about {
     padding: 50px 20px;
     background-color: #ccc;
     text-align: center;
 }
 
-/* Pie de página */
 footer {
     background-color: #333;
     color: white;
@@ -157,13 +157,15 @@ footer p {
 
 .carousel-inner {
     display: flex;
+    justify-content: center;
+    text-align: center;
     transition: transform 0.5s ease-in-out;  /* Animación para el deslizamiento suave */
 }
 
 .product {
-    flex: 0 0 33.33%;  /* Cada producto ocupa un tercio del ancho */
+    flex: 0 0 33.33%;
     box-sizing: border-box;
-    padding: 10px;  /* Opcional, para espaciar los productos */
+    padding: 10px;
 }
 
 button {

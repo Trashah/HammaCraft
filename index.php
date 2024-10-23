@@ -215,7 +215,7 @@ include '.gitignore/config.php';
 
             <div class="company">
 
-                <h3>Compania</h3>
+                <h3>Compañia</h3>
                 <ul>
 
                     <li><a href="#">Sobre nosotros</a></li>
