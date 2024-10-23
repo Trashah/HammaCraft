@@ -1,0 +1,266 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-item{
+    width: 150px;
+    height: 55px;
+    
+}
+.search-bar input {
+    padding: 0.5rem;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+.cart-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    border: 3px solid #ddd;
+    width: 100%;
+    height: 300px; /* O establece una altura fija */
+    text-align: center;
+    padding: 4rem 1rem;
+    overflow: hidden; /* Para ocultar partes de la imagen si es necesario */
+}
+
+.hero::before {
+    content: '';
+    position: absolute; /* Posiciona el pseudo-elemento */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../home/img/hammacraft.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7; /* Opacidad solo para la imagen de fondo */
+    z-index: -1; /* Asegura que esté detrás del contenido */
+}
+
+
+.shop-now {
+    margin-top: 10rem;
+    padding: 1rem 2rem;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Featured Products Carousel */
+.featured-products {
+    display:grid;
+    align-content: space-;
+    justify-content: center;
+    justify-items: center;
+    padding: 4rem 1rem;
+}
+
+.card-1{
+    width: 80%;
+    height: 50%;
+}
+.card-2{
+    width: 80%;
+    height: 50%;
+}
+.card-3{
+    width: 80%;
+    height: 50%;
+}
+.card-4{
+    width: 80%;
+    height: 50%;
+}
+.card-5{
+    width: 80%;
+    height: 50%;
+}
+.card-6{
+    width: 80%;
+    height: 50%;
+}
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-btn {
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+.product-card {
+    flex: 0 0 300px;
+    padding: 1rem;
+    text-align: center;
+    width: 150px;
+    height: 300px;
+}
+
+/* Newsletter section */
+.newsletter {
+    background: #f5f5f5;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    display: flex;
+    gap: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.newsletter-form button {
+    padding: 0.5rem 2rem;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    text-align: center;
+}
+.cardg-1{
+    width: 220px;
+    height: 200px;
+}
+.rating {
+    color: gold;
+    margin: 0.5rem 0;
+}
+
+/* About section */
+.about-shop {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 4rem 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    line-height: 2;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
