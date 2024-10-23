@@ -8,10 +8,10 @@ include '.gitignore/config.php';
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HammaCraft</title>
-    <link rel="stylesheet" href="css/stylesHenrry.css">
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title> HammaCraft </title>
+    <link rel = "stylesheet" href = "css/stylesHenrry.css">
 
 </head>
 
@@ -19,9 +19,10 @@ include '.gitignore/config.php';
 
     <header>
 
-        <div class="logo">
+        <div class = "logo">
 
-            <img src="logo hammacraft.png" alt="Logo de la tienda">
+            <img src = "logo hammacraft.png" alt = "Logo de la tienda">
+
         </div>
 
         <nav>
@@ -47,7 +48,7 @@ include '.gitignore/config.php';
     </header>
 
     <!-- Banner principal -->
-    <section class="banner">
+    <section class = "banner">
 
         <h1>HammaCraft</h1>
         <button class="shop-btn">Compra ahora</button>
