@@ -199,7 +199,6 @@ nav {
     display: flex;
     transition: transform 0.3s ease-in-out;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 .carousel-btn {
