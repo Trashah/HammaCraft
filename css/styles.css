@@ -104,9 +104,11 @@ nav {
     justify-content: center;
     justify-items: center;
     overflow: hidden;
-    width: 50px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 1rem;
+    box-sizing: border-box;
 }
 
 .card-1{
@@ -136,15 +138,16 @@ nav {
 
 .carousel-container {
     position: relative;
-    max-width: 80%;
+    max-width: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
 
 .carousel-track {
-    max-width: 500px;
+    width: 100%;
     display: flex;
     transition: transform 0.3s ease-in-out;
+    box-sizing: border-box;
     overflow: hidden;
 }
 
