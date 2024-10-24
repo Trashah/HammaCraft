@@ -121,17 +121,10 @@ nav {
     cursor: pointer;
 }
 
-.catalogo {
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
-    overflow: hidden;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 4rem 1rem;
-    box-sizing: border-box;
+.catalogo h2 {
+    text-align: center;
+    font-size: 2rem; /* Tamaño de fuente ajustable */
+    margin-bottom: 2rem; /* Espacio debajo del título */
 }
 
 /* Featured Products Carousel */
@@ -245,11 +238,11 @@ nav {
 
 .product-grid-catalogo {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual ancho */
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
     gap: 2rem; /* Espacio entre productos */
     padding: 2rem;
-    max-width: 1200px; /* O ajusta según el ancho deseado */
-    margin: 0 auto; /* Centrar la cuadrícula */
+    max-width: 1200px; /* Limitar el ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
 }
 
 /* Product Grid */
