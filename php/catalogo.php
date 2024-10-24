@@ -58,7 +58,7 @@ include '../php/functions.php'
 
         <section class="catalogo">
 
-            <h2>Catálogo</h2>
+            <h2> Catálogo </h2>
 
             <div class="product-grid-catalogo">
                
