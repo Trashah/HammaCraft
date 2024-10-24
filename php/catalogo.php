@@ -132,7 +132,7 @@ include '../php/functions.php';
                 <?php
                     $lowerLimit = 0;
                     $rowCount =20;
-                    function getProductsCards($connection, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass);
+                    echo getProductsCards($connection, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass);
                 ?>
 
             </div>
