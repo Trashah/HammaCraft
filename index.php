@@ -1,5 +1,8 @@
 <?php
+
 include '.gitignore/config.php';
+include 'php/functions.php'
+
 ?>
 
 <!DOCTYPE html>
@@ -67,79 +70,22 @@ include '.gitignore/config.php';
 
             <div class = "carousel-container">
 
-                <button class = "carousel-btn prev">&lt;</button>
+                <button class = "carousel-btn prev"> &lt; </button>
 
                 <div class="carousel-track">
 
-                    <div class="product-card">
+                    <?php
+                    $lowerLimit = 0;
+                    $rowCount = 10;
+                    echo getProducts($connection, $lowerLimit, $rowCount);
+                    ?>
 
-                        <img class="card-1" src="/images/elbicho.jpg" alt="Product">
-                        <h3>El bicho</h3>
-                        <p class="price">$599</p>
-
-                    </div>
-
-                    <div class="product-card">
-                        <img class="card-2" src="/images/elbicho.jpg" alt="Product">
-                        <h3>el bicho x2</h3>
-                        <p class="price">$499</p>
-
-                    </div>
-
-                    <div class="product-card">
-
-                        <img class="card-3" src="/images/elbicho.jpg" alt="Product">
-                        <h3>El bicho</h3>
-                        <p class="price">$599</p>
-
-                    </div>
-
-                    <div class="product-card">
-
-                        <img class="card-4" src="/images/elbicho.jpg" alt="Product">
-                        <h3>El bicho</h3>
-                        <p class="price">$599</p>
-
-                    </div>
-
-                    <div class="product-card">
-
-                        <img class="card-5" src="/images/elbicho.jpg" alt="Product">
-                        <h3>El bicho</h3>
-                        <p class="price">$599</p>
-
-                    </div>
-
-                    <div class="product-card">
-
-                        <img class="card-5" src="/images/elbicho.jpg" alt="Product">
-                        <h3>El bicho</h3>
-                        <p class="price">$599</p>
-
-                    </div>
-
-                    <div class="product-card">
-
-                        <img class="card-6" src="/images/elbicho.jpg" alt="Product">
-                        <h3>El bicho</h3>
-                        <p class="price">$599</p>
-
-                    </div>
-
-                    <div class="product-card">
-
-                        <img class="card-7" src="/images/elbicho.jpg" alt="Product">
-                        <h3>El bicho</h3>
-                        <p class="price">$999</p>
-
-                    </div>
-                    <!-- Add more product cards as needed -->
                 </div>
 
-                <button class="carousel-btn next">&gt;</button>
+                <button class = "carousel-btn next"> &gt; </button>
 
             </div>
-
+c
         </section>
 
         <section class="newsletter">
