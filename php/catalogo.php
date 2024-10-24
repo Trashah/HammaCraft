@@ -162,9 +162,8 @@ include '../php/functions.php';
 <main>
 
     <div class="container my-5">
-        <div class="row justify-content-center">
-            
-            <div class="catalogo">
+        
+         <div class="catalogo">
 
                 <?php
                     $lowerLimit = 0;
