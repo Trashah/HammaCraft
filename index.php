@@ -59,7 +59,7 @@ include 'php/functions.php'
 
         <section class = "hero">
 
-            <img src = "../images/hammacraft.png" alt = "HammaCraft Fondo" class = "hero-image">
+            
             <button class = "shop-now">¡Compra ya!</button>       
 
         </section>
