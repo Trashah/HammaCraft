@@ -79,7 +79,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: '../images/hammacraft.png';
+    background-image: url('../images/hammacraft.png');
     background-size: cover;
     background-position: center;
     opacity: 0.7; /* Opacidad solo para la imagen de fondo */
