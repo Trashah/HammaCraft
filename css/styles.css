@@ -128,8 +128,11 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 20px;
     flex: 0 1 auto;
+}
+
+.catalogo > div {
+    padding: 50;
 }
 
 /* Featured Products Carousel */
