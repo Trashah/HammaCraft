@@ -175,7 +175,7 @@ nav {
 }
 
 .carousel-track {
-    width: 100%;
+    width: 300%;
     display: flex;
     transition: transform 0.3s ease-in-out;
     box-sizing: border-box;
