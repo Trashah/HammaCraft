@@ -23,23 +23,58 @@ include '../php/functions.php';
     </style>
 
 </head>
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
 
-            <!-- Logo a la izquierda -->
+<body>
+
+<header>
+
+        <nav>
+
+            <div>
+
+                <img class = "logo-item" src="../images/logo.png" alt="Logo"> 
+
+            </div>
+
+            <div class = "search-bar">
+
+                <input type = "text" placeholder = "Search...">
+
+            </div>
+
+            <div class = "nav-links">
+
+                <a href="https://www.hammacraft.lat/">Pantalla principal</a>
+                <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
+
+                <button class="cart-btn">
+
+                    <i class="fas fa-shopping-cart"></i> Cart
+
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+<!-- <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid"> 
+
+            Logo a la izquierda 
             <a class="navbar-brand" href="https://www.hammacraft.lat/">
                 <img src="C:\Users\29312\OneDrive\Desktop\logo2.png" alt="Logo" class="logo-item" style="width: 100px;">
             </a>
 
-            <!-- Barra de búsqueda y botón de filtros centrados -->
+            Barra de búsqueda y botón de filtros centrados 
             <div class="d-flex mx-auto align-items-center">
                 <form class="d-flex me-2">
                     <input class="form-control" type="search" placeholder="Search..." aria-label="Search">
                 </form>
 
-                <!-- Botón de filtros -->
+                Botón de filtros
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="filtersDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         Filtros
@@ -52,7 +87,7 @@ include '../php/functions.php';
                 </div>
             </div>
 
-            <!-- Enlaces de navegación y botón de carrito a la derecha -->
+            Enlaces de navegación y botón de carrito a la derecha 
             <div class="d-flex ms-auto">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -69,7 +104,7 @@ include '../php/functions.php';
         </div>
     </nav>
 
-    <!-- Modal para seleccionar filtros -->
+    Modal para seleccionar filtros 
     <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -122,7 +157,7 @@ include '../php/functions.php';
         </div>
     </nav>
 
-</header>
+</header> -->
 
 
     <div class="container my-5">
