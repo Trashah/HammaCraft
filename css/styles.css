@@ -122,6 +122,13 @@ nav {
     cursor: pointer;
 }
 
+.catalogo {
+    max-width: 1200px; /* Ancho máximo para centrar */
+    margin: 0 auto; /* Centra la sección en la página */
+    padding: 2rem; /* Espacio interno opcional */
+    text-align: center; /* Centra el texto y los elementos dentro
+}
+
 .catalogo h2 {
     text-align: center;
     font-size: 2rem; /* Tamaño de fuente ajustable */
@@ -253,6 +260,8 @@ nav {
     padding: 2rem;
     max-width: 100%; /* Ocupar todo el ancho disponible */
     margin: 0 auto; /* Centrar el contenedor */
+    justify-items: center;
+    align-items: center;
 }
 
 /* Product Grid */

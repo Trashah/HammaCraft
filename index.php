@@ -76,7 +76,7 @@ include 'php/functions.php';
 
                     <?php
                     $lowerLimit = 0;
-                    $rowCount = 20;
+                    $rowCount = 10;
                     echo getProducts($connection, $lowerLimit, $rowCount);
                     ?>
 
