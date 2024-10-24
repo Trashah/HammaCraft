@@ -129,7 +129,7 @@ nav {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    flex: 1;
+    flex: 0 1 auto;
 }
 
 /* Featured Products Carousel */
