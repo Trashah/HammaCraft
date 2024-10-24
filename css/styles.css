@@ -128,10 +128,13 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    padding: 20px;
     flex: 0 1 auto;
 }
 
 .catalogo > div {
+    margin: 50px;
     padding: 50px;
 }
 

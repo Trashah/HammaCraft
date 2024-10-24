@@ -167,17 +167,17 @@ include '../php/functions.php';
 
     <div class="catalogo">
 
-                <?php
-                    $lowerLimit = 0;
-                    $rowCount = 20;
-                    $colClass = "";
-                    $cardClass = "card";
-                    $imgClass = "card-img-top";
-                    $buttonClass = "btn btn-primary";
-                    echo getProductsCards($connection, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass);
-                ?>
+        <?php
+            $lowerLimit = 0;
+            $rowCount = 20;
+            $colClass = "";
+            $cardClass = "card";
+            $imgClass = "card-img-top";
+            $buttonClass = "btn btn-primary";
+            echo getProductsCards($connection, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass);
+        ?>
 
-            </div>
+    </div>
 
     <div class="container my-5">
           
