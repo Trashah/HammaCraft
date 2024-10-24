@@ -109,11 +109,6 @@ nav {
     padding: 4rem 1rem;
 }
 
-#carousel-container {
-    width: 500px;
-    margin: 0 auto;
- }
-
 .card-1{
     width: 80%;
     height: 50%;
@@ -147,6 +142,7 @@ nav {
 }
 
 .carousel-track {
+    max-width: 500px;
     display: flex;
     transition: transform 0.3s ease-in-out;
     overflow: hidden;

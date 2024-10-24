@@ -67,7 +67,7 @@ include 'php/functions.php'
 
             <h2>Productos Destacados </h2>
 
-            <div class = "carousel-container" id="carousel-container">
+            <div class = "carousel-container">
 
                 <button class = "carousel-btn prev"> &lt; </button>
 
