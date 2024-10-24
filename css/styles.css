@@ -66,7 +66,7 @@ nav {
     position: relative; /* Necessary for positioning the image */
     border: 3px solid #ddd; /* Optional: adds a border around the hero section */
     width: 100%;
-    height: 300px; /* Set a fixed height */
+    height: 700px; /* Set a fixed height */
     text-align: center;
     padding: 4rem 1rem; /* Padding for content */
     overflow: hidden; /* To hide parts of the image if necessary */
