@@ -40,7 +40,7 @@ include '../php/functions.php'
             <div class = "nav-links">
 
                 <a href="https://www.hammacraft.lat/">Pantalla principal</a>
-                <a href="php/catalogo.php">Catálogo</a>
+                <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
 
                 <button class="cart-btn">
 
