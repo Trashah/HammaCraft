@@ -126,47 +126,16 @@ include '../php/functions.php';
 
     <div class="container my-5">
         <div class="row justify-content-center">
-            <!-- Primera columna con tarjeta -->
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Adachi</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza grande</p>
-                        <p class="card-text">$40.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
             
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Phoniex Wright</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Kirby</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="catalogo">
 
+                <?php
+                    $lowerLimit = 0;
+                    $rowCount =20;
+                    function getProductsCards($connection, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass)
+                ?>
+
+            </div>
                        
         <div class="row justify-content-center mt-4">
             <!-- Primera columna con tarjeta -->

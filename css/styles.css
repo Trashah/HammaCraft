@@ -124,17 +124,10 @@ nav {
 
 .catalogo {
     display: flex;
-    width: 100%; /* Ancho máximo para centrar */
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    padding: 2rem; /* Espacio interno opcional */
-    text-align: center; /* Centra el texto y los elementos dentro*/
-}
-
-.catalogo h2 {
-    text-align: center;
-    font-size: 2rem; /* Tamaño de fuente ajustable */
-    margin-bottom: 2rem; /* Espacio debajo del título */
-    font-weight: bold; /* Asegurar que el título sea más destacado */
+    align-items: center;
 }
 
 /* Featured Products Carousel */
