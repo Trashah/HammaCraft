@@ -8,6 +8,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    width: 100%;
 }
 
 /* Header styles */
@@ -78,7 +79,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../home/img/hammacraft.png');
+    background-image: '../images/hammacraft.png';
     background-size: cover;
     background-position: center;
     opacity: 0.7; /* Opacidad solo para la imagen de fondo */
@@ -97,11 +98,14 @@ nav {
 }
 
 /* Featured Products Carousel */
-.featured-products {
-    display:grid;
-    align-content: space-;
+#featured-products {
+    display: grid;
+    align-content: center;
     justify-content: center;
     justify-items: center;
+    overflow: hidden;
+    width: 50px;
+    margin: 0 auto;
     padding: 4rem 1rem;
 }
 
@@ -129,9 +133,10 @@ nav {
     width: 80%;
     height: 50%;
 }
+
 .carousel-container {
     position: relative;
-    max-width: 1200px;
+    max-width: 80%;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -139,6 +144,7 @@ nav {
 .carousel-track {
     display: flex;
     transition: transform 0.3s ease-in-out;
+    overflow: hidden;
 }
 
 .carousel-btn {
@@ -158,6 +164,8 @@ nav {
 
 .product-card {
     flex: 0 0 300px;
+    max-width: 300px;
+    margin: 0 10 px;
     padding: 1rem;
     text-align: center;
     width: 150px;
