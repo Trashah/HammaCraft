@@ -35,7 +35,7 @@ function getProductsCatalogo($connection, $lowerLimit, $rowCount) {
     $output = '';
     while ($row = $result->fetch_assoc()) {
         $output .= '<div class = "product-card-catalogo">';
-        $output .= '<img class = "card-1" src = "../images/' . htmlspecialchars($row['Imagen']) . '" alt = "' . htmlspecialchars($row['NombreProducto']) . '">';
+        $output .= '<img class = "card-1-catalogo" src = "../images/' . htmlspecialchars($row['Imagen']) . '" alt = "' . htmlspecialchars($row['NombreProducto']) . '">';
         $output .= '<h3>' . htmlspecialchars($row['NombreProducto']) . '</h3>';
         $output .= '<p>$' . number_format($row['Precio'], 2) . '</p>';
         $output .= '</div>';
