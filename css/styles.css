@@ -128,7 +128,8 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 20px 20px;
+    row-gap: 20px;
+    column-gap: 20px;
     flex: 1;
 }
 
