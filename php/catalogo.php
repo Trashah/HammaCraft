@@ -1,7 +1,7 @@
 <?php
 
 include '../.gitignore/config.php';
-include '../php/functions.php'
+include '../php/functions.php';
 
 ?>
 
