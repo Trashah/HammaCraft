@@ -121,7 +121,7 @@ nav {
     cursor: pointer;
 }
 
-#catalogo {
+.catalogo {
     display: grid;
     align-content: center;
     justify-content: center;
