@@ -56,7 +56,7 @@ include '../php/functions.php'
 
     <main>
 
-        <section class="catalogo">
+        <section>
 
             <h2> Catálogo </h2>
 
