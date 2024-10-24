@@ -123,6 +123,7 @@ nav {
 }
 
 .catalogo {
+    display: flex;
     max-width: 1200px; /* Ancho máximo para centrar */
     justify-content: center;
     margin: 0 auto; /* Centra la sección en la página */
