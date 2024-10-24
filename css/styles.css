@@ -152,7 +152,27 @@ nav {
 
 .card-1-catalogo{
     width: 80%;
-    height: 80%;
+    height: 60%;
+}
+
+.card-2-catalogo{
+    width: 80%;
+    height: 60%;
+}
+
+.card-3-catalogo{
+    width: 80%;
+    height: 60%;
+}
+
+.card-4-catalogo{
+    width: 80%;
+    height: 60%;
+}
+
+.card-5-catalogo{
+    width: 80%;
+    height: 60%;
 }
 
 .card-1{
