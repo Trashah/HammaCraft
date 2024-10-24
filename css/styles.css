@@ -128,7 +128,7 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    flex-basis: 30%;
+    flex: 1;
 }
 
 /* Featured Products Carousel */
