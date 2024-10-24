@@ -253,6 +253,8 @@ nav {
     padding: 2rem;
     max-width: 100%; /* Ocupar todo el ancho disponible */
     margin: 0 auto; /* Centrar el contenedor */
+    justify-items: center;
+    align-items: center;
 }
 
 /* Product Grid */
