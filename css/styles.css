@@ -167,7 +167,7 @@ nav {
 .next { right: 0; }
 
 .product-card {
-    flex: 0 0 300px;
+    flex: 0 0 auto;
     max-width: 300px;
     margin: 0 10 px;
     padding: 1rem;
