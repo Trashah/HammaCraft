@@ -12,10 +12,11 @@ include 'php/functions.php'
 <head>
 
     <meta charset="UTF-8">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
     <title> HammaCraft </title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src = "javascript/script.js" defer> </script>
 
 </head>
 
@@ -70,7 +71,7 @@ include 'php/functions.php'
 
                 <button class = "carousel-btn prev"> &lt; </button>
 
-                <div class="carousel-track">
+                <div class = "carousel-track">
 
                     <?php
                     $lowerLimit = 0;
@@ -190,8 +191,6 @@ include 'php/functions.php'
         </div>
 
     </footer>
-
-    <script src = "javascript/script.js"> </script>
 
 </body>
 

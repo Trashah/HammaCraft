@@ -1,29 +1,32 @@
-// Carousel functionality
 class Carousel {
     constructor() {
         this.track = document.querySelector('.carousel-track');
         this.slides = Array.from(this.track.children);
         this.nextButton = document.querySelector('.next');
         this.prevButton = document.querySelector('.prev');
-        this.slideWidth = this.slides[0].getBoundingClientRect().width;
         this.currentIndex = 0;
-        this.slidesToShow = Math.floor(window.innerWidth / this.slideWidth);
-        
+
+        // Initialize carousel properties
+        this.updateSlideDimensions();
         this.initializeCarousel();
         this.addEventListeners();
         this.updateButtonsState();
     }
 
+    updateSlideDimensions() {
+        this.slideWidth = this.slides[0].getBoundingClientRect().width;
+        this.slidesToShow = Math.floor(window.innerWidth / this.slideWidth);
+    }
+
     initializeCarousel() {
-        // Position slides next to each other
         this.slides.forEach((slide, index) => {
-            slide.style.left = this.slideWidth * index + 'px';
+            slide.style.left = `${this.slideWidth * index}px`;
         });
     }
 
     moveToSlide(targetIndex) {
         if (targetIndex < 0 || targetIndex > this.slides.length - this.slidesToShow) return;
-        
+
         this.track.style.transform = `translateX(-${targetIndex * this.slideWidth}px)`;
         this.currentIndex = targetIndex;
         this.updateButtonsState();
@@ -36,21 +39,42 @@ class Carousel {
     }
 
     addEventListeners() {
-        this.nextButton.addEventListener('click', () => {
-            this.moveToSlide(this.currentIndex + 1);
-        });
+        this.nextButton.addEventListener('click', () => this.moveToSlide(this.currentIndex + 1));
+        this.prevButton.addEventListener('click', () => this.moveToSlide(this.currentIndex - 1));
 
-        this.prevButton.addEventListener('click', () => {
-            this.moveToSlide(this.currentIndex - 1);
-        });
-
-        // Handle window resize
         window.addEventListener('resize', () => {
-            this.slidesToShow = Math.floor(window.innerWidth / this.slideWidth);
-            this.updateButtonsState();
+            this.handleResize();
         });
     }
+
+    handleResize() {
+        const containerWidth = this.track.getBoundingClientRect().width;
+        this.updateSlideDimensions(); // Update slide width and slides to show
+
+        // Reposition slides
+        this.slides.forEach((slide, index) => {
+            slide.style.left = `${this.slideWidth * index}px`;
+        });
+
+        // Adjust currentIndex if necessary
+        if (this.currentIndex > this.slides.length - this.slidesToShow) {
+            this.currentIndex = this.slides.length - this.slidesToShow;
+        }
+
+        this.moveToSlide(this.currentIndex); // Move to updated position
+    }
 }
+
+// Initialize the carousel after the DOM has loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = new Carousel();
+});
+
+
+// Initialize the carousel after the DOM has loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = new Carousel();
+});
 
 // Newsletter form handling
 class Newsletter {
