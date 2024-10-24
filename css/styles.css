@@ -126,7 +126,7 @@ nav {
     max-width: 1200px; /* Ancho máximo para centrar */
     margin: 0 auto; /* Centra la sección en la página */
     padding: 2rem; /* Espacio interno opcional */
-    text-align: center; /* Centra el texto y los elementos dentro
+    text-align: center; /* Centra el texto y los elementos dentro*/
 }
 
 .catalogo h2 {
@@ -153,26 +153,13 @@ nav {
 .card-1{
     width: 80%;
     height: 50%;
+    border: 2px solid #333;
+    border-radius: 4px;
 }
-.card-2{
-    width: 80%;
-    height: 50%;
-}
-.card-3{
-    width: 80%;
-    height: 50%;
-}
-.card-4{
-    width: 80%;
-    height: 50%;
-}
-.card-5{
-    width: 80%;
-    height: 50%;
-}
-.card-6{
-    width: 80%;
-    height: 50%;
+.card-1:hover{
+    box-shadow: 5px 5px 5px black;
+    transition: all 0.3s ease;
+
 }
 
 .carousel-container {
