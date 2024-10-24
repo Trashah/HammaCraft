@@ -60,7 +60,16 @@ include '../php/functions.php'
 
             <h2>Catálogo</h2>
 
+            <div class="product-grid-catalogo">
+                <?php
+                // Parámetros para controlar los límites de los productos a mostrar
+                $lowerLimit = 0;   // Desde el primer producto
+                $rowCount = 20;    // Cantidad de productos a mostrar (ajusta según lo que desees)
 
+                // Llamar a la función para mostrar los productos
+                echo getProducts($connection, $lowerLimit, $rowCount);
+                ?>
+            </div>
 
         </section>
     
