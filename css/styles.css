@@ -82,7 +82,7 @@ nav {
     background-image: url('../images/hammacraft.png');
     background-size: cover;
     background-position: center;
-    opacity: 0.7; /* Opacidad solo para la imagen de fondo */
+    opacity: 1; /* Opacidad solo para la imagen de fondo */
     z-index: -1; /* Asegura que esté detrás del contenido */
 }
 
