@@ -97,6 +97,19 @@ nav {
     cursor: pointer;
 }
 
+#catalogo {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    box-sizing: border-box;
+}
+
 /* Featured Products Carousel */
 #featured-products {
     display: grid;

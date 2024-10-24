@@ -56,6 +56,14 @@ include '../php/functions.php'
 
     <main>
 
+         <section class="catalogo">
+
+            <h2>Catálogo</h2>
+
+
+
+        </section>
+    
         <section class="newsletter">
 
             <h2> Newsletter </h2>
