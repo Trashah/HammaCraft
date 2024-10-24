@@ -41,7 +41,7 @@ include 'php/functions.php'
             <div class = "nav-links">
 
                 <a href="https://www.hammacraft.lat/">Pantalla principal</a>
-                <a href="php/catalogo.php">Catálogo</a>
+                <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
 
                 <button class="cart-btn">
 
@@ -58,7 +58,8 @@ include 'php/functions.php'
     <main>
 
         <section class = "hero">
-            
+
+            <img src = "../images/hammacraft.png" alt = "HammaCraft Fondo" class = "hero-image">
             <button class = "shop-now">¡Compra ya!</button>       
 
         </section>
@@ -67,7 +68,7 @@ include 'php/functions.php'
 
             <h2>Productos Destacados </h2>
 
-            <div class = "carousel-container" id="carousel-container">
+            <div class = "carousel-container">
 
                 <button class = "carousel-btn prev"> &lt; </button>
 

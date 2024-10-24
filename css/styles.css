@@ -63,22 +63,46 @@ nav {
 
 /* Hero section */
 .hero {
-    position: relative; /* Necesario para posicionar el pseudo-elemento */
-    border: 3px solid #ddd;
+    position: relative; /* Necessary for positioning the image */
+    border: 3px solid #ddd; /* Optional: adds a border around the hero section */
     width: 100%;
-    height: 300px; /* O establece una altura fija */
+    height: 20px; /* Set a fixed height */
     text-align: center;
-    padding: 4rem 1rem;
-    overflow: hidden; /* Para ocultar partes de la imagen si es necesario */
+    padding: 4rem 1rem; /* Padding for content */
+    overflow: hidden; /* To hide parts of the image if necessary */
 }
 
-.hero::before {
-    content: '';
-    position: absolute; /* Posiciona el pseudo-elemento */
+.hero-image {
+    position: absolute; /* Position the image absolutely */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%; /* Full width */
+    height: 20px; /* Full height */
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+    opacity: 0.7; /* Opacity for the background image */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+/* Button styles */
+.shop-now {
+    background-color: #ff5722; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    padding: 1rem 2rem; /* Padding around the button */
+    font-size: 1.2rem; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.shop-now:hover {
+    background-color: #e64a19; /* Darken on hover */
+}
+
+.shop-now:hover {
+    background-color: #e64a19; /* Darken on hover */
     background-image: url('../images/hammacraft.png');
     background-size: cover;
     background-position: center;
@@ -97,6 +121,19 @@ nav {
     cursor: pointer;
 }
 
+#catalogo {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    box-sizing: border-box;
+}
+
 /* Featured Products Carousel */
 #featured-products {
     display: grid;
@@ -104,15 +141,12 @@ nav {
     justify-content: center;
     justify-items: center;
     overflow: hidden;
-    width: 50px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 1rem;
+    box-sizing: border-box;
 }
-
-#carousel-container {
-    width: 500px;
-    margin: 0 auto;
- }
 
 .card-1{
     width: 80%;
@@ -141,14 +175,16 @@ nav {
 
 .carousel-container {
     position: relative;
-    max-width: 80%;
+    max-width: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
 
 .carousel-track {
+    width: 100%;
     display: flex;
     transition: transform 0.3s ease-in-out;
+    box-sizing: border-box;
     overflow: hidden;
 }
 
@@ -168,7 +204,7 @@ nav {
 .next { right: 0; }
 
 .product-card {
-    flex: 0 0 300px;
+    flex: 0 0 auto;
     max-width: 300px;
     margin: 0 10 px;
     padding: 1rem;

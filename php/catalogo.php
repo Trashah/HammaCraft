@@ -39,10 +39,8 @@ include '../php/functions.php'
 
             <div class = "nav-links">
 
-                <a href="#home">Pantalla principal</a>
-                <a href="#sobre nosotros">Sobre nosotros</a>
-                <a href="#catalogo">Catálogo</a>
-                <a href="#ayuda">Ayuda</a>
+                <a href="https://www.hammacraft.lat/">Pantalla principal</a>
+                <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
 
                 <button class="cart-btn">
 
@@ -58,6 +56,14 @@ include '../php/functions.php'
 
     <main>
 
+         <section class="catalogo">
+
+            <h2>Catálogo</h2>
+
+
+
+        </section>
+    
         <section class="newsletter">
 
             <h2> Newsletter </h2>
