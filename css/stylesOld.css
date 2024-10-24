@@ -1,0 +1,179 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Cabecera */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+header .logo img {
+    width: 100px;
+}
+
+header nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white;
+}
+
+header .search-cart {
+    display: flex;
+    gap: 10px;
+}
+
+header .search-cart input {
+    padding: 5px;
+}
+
+/* Banner principal */
+.banner {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #ccc;
+}
+
+.shop-btn {
+    padding: 10px 20px;
+    background-color: #000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Productos destacados */
+.featured-products {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.product-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.product img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.product h3, .product p {
+    margin: 10px 0;
+}
+
+/* Newsletter */
+.newsletter {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #eee;
+}
+
+.newsletter input {
+    padding: 10px;
+    width: 250px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.product-carousel {
+    padding: 50px 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.about {
+    padding: 50px 20px;
+    background-color: #ccc;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
+
+footer ul li a {
+    color: white;
+}
+
+footer p {
+    text-align: center;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;  /* El ancho del contenedor del carrusel */
+}
+
+.carousel-inner {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;  /* Animación para el deslizamiento suave */
+}
+
+.product {
+    flex: 0 0 33.33%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.product img {
+    display: block;
+    margin: 0 auto;  /* Centra la imagen dentro del contenedor */
+    max-width: 100%;  /* Asegúrate de que la imagen no sea más grande que su contenedor */
+}
