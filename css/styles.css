@@ -124,6 +124,7 @@ nav {
 
 .catalogo {
     max-width: 1200px; /* Ancho máximo para centrar */
+    justify-content: center;
     margin: 0 auto; /* Centra la sección en la página */
     padding: 2rem; /* Espacio interno opcional */
     text-align: center; /* Centra el texto y los elementos dentro*/
