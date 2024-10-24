@@ -40,7 +40,7 @@ include 'php/functions.php'
 
             <div class = "nav-links">
 
-                <a href="index.php">Pantalla principal</a>
+                <a href="https://www.hammacraft.lat/">Pantalla principal</a>
                 <a href="php/catalogo.php">Catálogo</a>
 
                 <button class="cart-btn">
@@ -67,7 +67,7 @@ include 'php/functions.php'
 
             <h2>Productos Destacados </h2>
 
-            <div class = "carousel-container">
+            <div class = "carousel-container" id="carousel-container">
 
                 <button class = "carousel-btn prev"> &lt; </button>
 
