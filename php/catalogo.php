@@ -1,7 +1,7 @@
 <?php
 
 include '../.gitignore/config.php';
-include '../php/functions.php'
+include '../php/functions.php';
 
 ?>
 
@@ -162,8 +162,6 @@ include '../php/functions.php'
         </div>
 
     </footer>
-
-    <script src = "javascript/script.js"> </script>
 
 </body>
 
