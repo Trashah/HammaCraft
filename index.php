@@ -76,7 +76,7 @@ include 'php/functions.php'
 
                     <?php
                     $lowerLimit = 0;
-                    $rowCount = 10;
+                    $rowCount = 20;
                     echo getProducts($connection, $lowerLimit, $rowCount);
                     ?>
 
@@ -85,7 +85,7 @@ include 'php/functions.php'
                 <button class = "carousel-btn next"> &gt; </button>
 
             </div>
-c
+
         </section>
 
         <section class="newsletter">
@@ -193,7 +193,7 @@ c
 
     </footer>
 
-    <script src="script.js"></script>
+    <script src = "javascript/script.js"> </script>
 
 </body>
 
