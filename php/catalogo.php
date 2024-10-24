@@ -56,7 +56,7 @@ include '../php/functions.php'
 
     <main>
 
-        <section>
+        <section class="catalogo">
 
             <h2> Catálogo </h2>
 
@@ -162,8 +162,6 @@ include '../php/functions.php'
         </div>
 
     </footer>
-
-    <script src = "javascript/script.js"> </script>
 
 </body>
 
