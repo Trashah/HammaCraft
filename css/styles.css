@@ -103,6 +103,11 @@ nav {
 
 .shop-now:hover {
     background-color: #e64a19; /* Darken on hover */
+    background-image: url('../images/hammacraft.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 1; /* Opacidad solo para la imagen de fondo */
+    z-index: -1; /* Asegura que esté detrás del contenido */
 }
 
 
@@ -116,6 +121,19 @@ nav {
     cursor: pointer;
 }
 
+#catalogo {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    box-sizing: border-box;
+}
+
 /* Featured Products Carousel */
 #featured-products {
     display: grid;
@@ -123,9 +141,11 @@ nav {
     justify-content: center;
     justify-items: center;
     overflow: hidden;
-    width: 50px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 1rem;
+    box-sizing: border-box;
 }
 
 .card-1{
@@ -155,14 +175,16 @@ nav {
 
 .carousel-container {
     position: relative;
-    max-width: 80%;
+    max-width: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
 
 .carousel-track {
+    width: 100%;
     display: flex;
     transition: transform 0.3s ease-in-out;
+    box-sizing: border-box;
     overflow: hidden;
 }
 
@@ -182,7 +204,7 @@ nav {
 .next { right: 0; }
 
 .product-card {
-    flex: 0 0 300px;
+    flex: 0 0 auto;
     max-width: 300px;
     margin: 0 10 px;
     padding: 1rem;
