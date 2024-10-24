@@ -6,14 +6,18 @@ include '../php/functions.php';
 ?>
 
 <!DOCTYPE html>
-<html>
+
+<html lang="es">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	
+    <meta charset="utf-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1">
+	<title> HammaCraft </title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <style>
+    <script src = "../javascript/script.js" defer> </script>
+    <style>
         body {
             background-color: #e5fefe; /* Morado claro */
         }
@@ -161,9 +165,7 @@ include '../php/functions.php';
 
 <main>
 
-    <div class="container my-5">
-        
-         <div class="catalogo">
+    <div class="catalogo">
 
                 <?php
                     $lowerLimit = 0;
@@ -176,6 +178,9 @@ include '../php/functions.php';
                 ?>
 
             </div>
+
+    <div class="container my-5">
+          
                        
         <div class="row justify-content-center mt-4">
             <!-- Primera columna con tarjeta -->
