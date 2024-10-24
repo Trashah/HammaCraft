@@ -131,7 +131,11 @@ include '../php/functions.php';
 
                 <?php
                     $lowerLimit = 0;
-                    $rowCount =20;
+                    $rowCount = 20;
+                    $colClass = "";
+                    $cardClass = "card";
+                    $imgClass = "card-img-top";
+                    $buttonClass = "btn btn-primary";
                     echo getProductsCards($connection, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass);
                 ?>
 
