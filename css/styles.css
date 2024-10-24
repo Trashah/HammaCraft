@@ -316,3 +316,21 @@ footer {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
+
+@media (max-width: 1200px) {
+    .product-grid-catalogo {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas para pantallas medianas */
+    }
+}
+
+@media (max-width: 900px) {
+    .product-grid-catalogo {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas para pantallas pequeñas */
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid-catalogo {
+        grid-template-columns: 1fr; /* 1 columna para pantallas muy pequeñas */
+    }
+}
