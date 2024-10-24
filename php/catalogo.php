@@ -56,11 +56,19 @@ include '../php/functions.php'
 
     <main>
 
-         <section class="catalogo">
+        <section class="catalogo">
 
-            <h2>Catálogo</h2>
+            <h2> Catálogo </h2>
 
-
+            <div class="product-grid-catalogo">
+               
+               <?php
+                $lowerLimit = 0;
+                $rowCount = 20;
+                echo getProductsCatalogo($connection, $lowerLimit, $rowCount);
+                ?>
+          
+            </div>
 
         </section>
     
