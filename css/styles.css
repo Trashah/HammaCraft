@@ -122,7 +122,6 @@
 }
 
 .catalogo {
-    max-width: 600px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
