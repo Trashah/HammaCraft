@@ -35,7 +35,7 @@ function getProductsCards($connection, $lowerLimit, $rowCount, $colClass, $cardC
     $output = '';
     while ($row = $result->fetch_assoc()) {
         $output .= '<div class="' . htmlspecialchars($colClass) . '">';
-        $output .= '<div class="' . htmlspecialchars($cardClass) . '" style="width: 18rem; margin: 30px;">';
+        $output .= '<div class="' . htmlspecialchars($cardClass) . '" style="width: 18rem; margin: 60px;">';
 
         // Image
         $output .= '<img class="' . htmlspecialchars($imgClass) . '" src="../images/' . htmlspecialchars($row['Imagen']) . '" width="150" height="250" alt="' . htmlspecialchars($row['NombreProducto']) . '">';
