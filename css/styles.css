@@ -127,7 +127,7 @@ nav {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: space-around;
+    align-items: flex-start;
     gap: 20px;
     padding: 20px;
     flex: 0 1 auto;
