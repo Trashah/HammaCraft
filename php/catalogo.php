@@ -171,7 +171,7 @@ include '../php/functions.php';
             $lowerLimit = 0;
             $rowCount = 20;
             $colClass = "";
-            $cardClass = "card style = 'margin: 20px;'";
+            $cardClass = "card style = \"margin 20px;\"";
             $imgClass = "card-img-top";
             $buttonClass = "btn btn-primary";
             echo getProductsCards($connection, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass);
