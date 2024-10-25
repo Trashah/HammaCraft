@@ -5,22 +5,21 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    width: 100%;
+.body-hammacraft {
+    font-family: Arial, sans-serif !important;
+    line-height: 1.6 !important;
+    width: 100% !important;
 }
 
-/* Header styles */
-header {
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.header-hammacraft {
+    background: #fff !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
 }
 
-nav {
+.nav-hammacraft {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
@@ -34,25 +33,25 @@ nav {
     height: 55px;
     
 }
-.search-bar input {
+.search-bar-hammacraft input {
     padding: 0.5rem;
     width: 300px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
-.nav-links {
+.nav-hammacraft-links {
     display: flex;
     gap: 2rem;
     align-items: center;
 }
 
-.nav-links a {
+.nav-hammacraft-links a {
     text-decoration: none;
     color: #333;
 }
 
-.cart-btn {
+.cart-btn-hammacraft {
     background: #333;
     color: white;
     border: none;

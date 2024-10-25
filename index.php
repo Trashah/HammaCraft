@@ -22,9 +22,9 @@ include 'php/functions.php';
 
 <body>
 
-    <header>
+    <header class = "header-hammacraft">
 
-        <nav>
+        <nav class = "nav-hammacraft">
 
             <div>
 
@@ -32,18 +32,18 @@ include 'php/functions.php';
 
             </div>
 
-            <div class = "search-bar">
+            <div class = "search-bar-hammacraft">
 
                 <input type = "text" placeholder = "Search...">
 
             </div>
 
-            <div class = "nav-links">
+            <div class = "nav-hammacraft-links">
 
                 <a href="https://www.hammacraft.lat/">Pantalla principal</a>
                 <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
 
-                <button class="cart-btn">
+                <button class = "cart-btn-hammacraft">
 
                     <i class="fas fa-shopping-cart"></i> Cart
 
@@ -59,14 +59,13 @@ include 'php/functions.php';
 
         <section class = "hero">
 
-            
             <button class = "shop-now">¡Compra ya!</button>       
 
         </section>
 
         <section class = "featured-products">
 
-            <h2>Productos Destacados </h2>
+            <h2 align = "center">Productos Destacados</h2>
 
             <div class = "carousel-container">
 

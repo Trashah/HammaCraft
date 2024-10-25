@@ -14,8 +14,8 @@ include '../php/functions.php';
     <meta charset="utf-8">
 	<meta name = "viewport" content="width=device-width, initial-scale=1">
 	<title> HammaCraft </title>
-    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <script src = "../javascript/script.js" defer> </script>
     <style>
         body {
@@ -28,11 +28,11 @@ include '../php/functions.php';
 
 </head>
 
-<body>
+<body class = "body-hammacraft">
 
-    <header>
+    <header class = "header-hammacraft">
 
-        <nav>
+        <nav class = "nav-hammacraft">
 
             <div>
 
@@ -40,18 +40,18 @@ include '../php/functions.php';
 
             </div>
 
-            <div class = "search-bar">
+            <div class = "search-bar-hammacraft">
 
                 <input type = "text" placeholder = "Search...">
 
             </div>
 
-            <div class = "nav-links">
+            <div class = "nav-hammacraft-links">
 
                 <a href="https://www.hammacraft.lat/">Pantalla principal</a>
                 <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
 
-                <button class="cart-btn">
+                <button class = "cart-btn-hammacraft">
 
                     <i class="fas fa-shopping-cart"></i> Cart
 
