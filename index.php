@@ -14,7 +14,7 @@ include 'php/functions.php';
     <meta charset="UTF-8">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1">
     <title> HammaCraft </title>
-    <<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src = "javascript/script.js" defer> </script>
@@ -27,11 +27,9 @@ include 'php/functions.php';
 
         <nav class = "nav-hammacraft">
 
-            <div>
-
+                <a href = "https://www.hammacraft.lat/">
                 <img class = "logo-item" src="../images/logo.png" alt="Logo"> 
-
-            </div>
+                </a>
 
             <div class = "search-bar-hammacraft">
 
@@ -60,7 +58,9 @@ include 'php/functions.php';
 
         <section class = "hero">
 
-            <button class = "shop-now">¡Compra ya!</button>       
+            <a href = "https://www.hammacraft.lat/php/catalogo.php">
+            <button class = "shop-now">¡Compra ya!</button>
+            </a>
 
         </section>
 
