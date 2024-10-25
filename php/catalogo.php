@@ -179,11 +179,11 @@ include '../php/functions.php';
 
     </div>
 
+<!--
     <div class="container my-5">
           
                        
         <div class="row justify-content-center mt-4">
-            <!-- Primera columna con tarjeta -->
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
@@ -209,7 +209,6 @@ include '../php/functions.php';
                 </div>
             </div>
 
-            <!-- Primera Fila-->
 
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
@@ -226,7 +225,6 @@ include '../php/functions.php';
         </div>
                     
         <div class="row justify-content-center mt-4">
-            <!-- Primera columna con tarjeta -->
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
@@ -266,9 +264,7 @@ include '../php/functions.php';
             </div>
         </div>
 
-                        <!-- Cuarta fila de tarjetas (añadida) -->
         <div class="row justify-content-center mt-4">
-            <!-- Primera columna con tarjeta -->
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
@@ -308,9 +304,7 @@ include '../php/functions.php';
             </div>
         </div>
 
-                        <!-- Quinta fila de tarjetas (añadida) -->
         <div class="row justify-content-center mt-4">
-            <!-- Primera columna con tarjeta -->
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
@@ -350,9 +344,7 @@ include '../php/functions.php';
             </div>
         </div>
 
-                        <!-- Sexta fila de tarjetas (añadida) -->
         <div class="row justify-content-center mt-4">
-            <!-- Primera columna con tarjeta -->
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
@@ -392,9 +384,7 @@ include '../php/functions.php';
             </div>
         </div>
 
-                        <!-- Septima fila de tarjetas (añadida) -->
         <div class="row justify-content-center mt-4">
-            <!-- Primera columna con tarjeta -->
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
@@ -434,6 +424,8 @@ include '../php/functions.php';
             </div>
         </div>
     </div>
+
+-->
 
 </main>
 
