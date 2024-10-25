@@ -14,7 +14,7 @@ include 'php/functions.php';
     <meta charset="UTF-8">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1">
     <title> HammaCraft </title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src = "javascript/script.js" defer> </script>
@@ -66,6 +66,7 @@ include 'php/functions.php';
 
         <section class = "featured-products">
 
+            <br><br>
             <h2 align = "center">Productos Destacados</h2>
 
             <div class = "carousel-container">
@@ -77,7 +78,7 @@ include 'php/functions.php';
                     <?php
                     $lowerLimit = 0;
                     $rowCount = 20;
-                    echo getProductsCards($connection, $lowerLimit, $rowCount, 'col-md-4', 'card' ,'card-img-top', 'btn btn-primary');
+                    echo getProductsCards($connection, $lowerLimit, $rowCount, '', 'card' ,'card-img-top', 'btn btn-primary');
                     ?>
 
                 </div>
