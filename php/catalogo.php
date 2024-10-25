@@ -165,7 +165,7 @@ include '../php/functions.php';
 
 <main>
 
-    <div class="catalogo">
+    <div class = "catalogo">
 
         <?php
             $lowerLimit = 0;
