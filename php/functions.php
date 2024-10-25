@@ -42,11 +42,11 @@ function getProductsCards($connection, $lowerLimit, $rowCount, $colClass, $cardC
 
         // Card body
         $output .= '<div class="card-body">';
-        $output .= '<h5 class="card-title">' . htmlspecialchars($row['NombreProducto']) . '</h5>';
-        $output .= '<h6 class="card-title">Descripción</h6>';
-        // $output .= '<p class="card-text">' . htmlspecialchars($row['Descripcion']) . '</p>'; 
-        $output .= '<h6 class="card-title">Categoría</h6>';
-        $output .= '<p class="card-text">' . htmlspecialchars($row['Categoria']) . '</p>'; 
+        $output .= '<h2 class="card-title font-weight-bold">' . htmlspecialchars($row['NombreProducto']) . '</h2>';
+        $output .= '<h5 class="card-title font-weight-bold">Descripción</h5>';
+        $output .= '<p class="card-text">' . htmlspecialchars($row['Descripcion']) . '</p>'; 
+        $output .= '<h5 class="card-title font-weight-bold">Categorías</h5>';
+        $output .= '<p class="card-text">' . htmlspecialchars($row['Categoria1']) . ', ' . htmlspecialchars($row['Categoria2']) .'</p>'; 
         $output .= '<p class="card-text">$' . number_format($row['Precio'], 2) . '</p>';
         
         // Button
