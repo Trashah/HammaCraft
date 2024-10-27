@@ -98,10 +98,6 @@
 }
 
 .shop-now:hover {
-    background-color: #e64a19; /* Darken on hover */
-}
-
-.shop-now:hover {
     background-color: #929292; /* Darken on hover */
     transition: all 0.3s ease;
 }
