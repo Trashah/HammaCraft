@@ -27,12 +27,14 @@ function getProducts($connection, $lowerLimit, $rowCount) {
 function getProductsCards($connection, $category, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass) {
     if ($category == "Todos") {
         $sql = "SELECT * FROM productos LIMIT ?, ?";
+        statement = $connection->prepare($sql);
+        $statement->bind_param("ii", $lowerLimit, $rowCount);
     }
     else {
         $sql = "SELECT * FROM productos LIMIT ?, ? WHERE categoria = ?";
+        statement = $connection->prepare($sql);
+        $statement->bind_param("iis", $lowerLimit, $rowCount, $category);
     }
-    $statement = $connection->prepare($sql);
-    $statement->bind_param("iis", $lowerLimit, $rowCount, $category);
     $statement->execute();
     $result = $statement->get_result();
 
