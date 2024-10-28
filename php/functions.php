@@ -27,7 +27,7 @@ function getProducts($connection, $lowerLimit, $rowCount) {
 function getProductsCards($connection, $category, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass) {
     if ($category == "Todos") {
         $sql = "SELECT * FROM productos LIMIT ?, ?";
-        statement = $connection->prepare($sql);
+        $statement = $connection->prepare($sql);
         $statement->bind_param("ii", $lowerLimit, $rowCount);
     }
     else {
