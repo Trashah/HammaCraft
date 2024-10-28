@@ -221,19 +221,31 @@
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    padding: 4rem 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 3fr;
+    max-width: 1500px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 40px auto;
+    gap: 10px;
 }
 
 .grid-item {
     text-align: center;
 }
-.cardg-1{
-    width: 100%;
-    height: 100%;
+.grid-cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.grid-cards .texts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.crad-img{
+    width: 90%;
+    height: 50%;
 }
 .rating {
     color: gold;

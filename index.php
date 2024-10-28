@@ -107,11 +107,64 @@ include 'php/functions.php';
 
             <div class="grid-item">
 
-                <img class="cardg-1" src="images/elbicho.jpg" alt="Product">
-                <h3>EL BICHO XD</h3>
-                <div class="rating">★★★★☆</div>
-                <p class="price">$199</p>
+                <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                <div class="texts">
+                    <h3>EL BICHO XD</h3>
+                    <div class="rating">★★★★☆</div>
+                    <p class="price">$199</p>
+                </div>
 
+            </div>
+
+            <div class="grid-cards">
+                <div class="cards">
+                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <div class="texts">
+                        <h3>EL BICHO XD</h3>
+                        <div class="rating">★★★★☆</div>
+                        <p class="price">$199</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <div class="texts">
+                        <h3>EL BICHO XD</h3>
+                        <div class="rating">★★★★☆</div>
+                        <p class="price">$199</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <div class="texts">
+                        <h3>EL BICHO XD</h3>
+                        <div class="rating">★★★★☆</div>
+                        <p class="price">$199</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <div class="texts">
+                        <h3>EL BICHO XD</h3>
+                        <div class="rating">★★★★☆</div>
+                        <p class="price">$199</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <div class="texts">
+                        <h3>EL BICHO XD</h3>
+                        <div class="rating">★★★★☆</div>
+                        <p class="price">$199</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <div class="texts">
+                        <h3>EL BICHO XD</h3>
+                        <div class="rating">★★★★☆</div>
+                        <p class="price">$199</p>
+                    </div>
+                </div>
             </div>
             
         </section>
