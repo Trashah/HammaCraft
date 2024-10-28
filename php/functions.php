@@ -32,7 +32,7 @@ function getProductsCards($connection, $category, $lowerLimit, $rowCount, $colCl
     }
     else {
         $sql = "SELECT * FROM productos LIMIT ?, ? WHERE categoria = ?";
-        statement = $connection->prepare($sql);
+        $statement = $connection->prepare($sql);
         $statement->bind_param("iis", $lowerLimit, $rowCount, $category);
     }
     $statement->execute();
