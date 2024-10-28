@@ -78,7 +78,8 @@ include 'php/functions.php';
                     <?php
                     $lowerLimit = 0;
                     $rowCount = 20;
-                    echo getProductsCards($connection, $lowerLimit, $rowCount, '', 'card' ,'card-img-top', 'btn btn-primary');
+                    $category = "Todos";
+                    echo getProductsCards($connection, $category, $lowerLimit, $rowCount, '', 'card' ,'card-img-top', 'btn btn-primary');
                     ?>
 
                 </div>
