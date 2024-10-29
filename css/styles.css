@@ -5,10 +5,11 @@
     box-sizing: border-box;
 }
 
-.body-hammacraft {
-    font-family: Arial, sans-serif !important;
-    line-height: 1.6 !important;
-    width: 100% !important;
+.body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    width: 100%;
+    background-color: #e5fefe;
 }
 
 .header-hammacraft {
@@ -50,7 +51,7 @@
     color: #333;
 }
 
-.cart-btn-hammacraft {
+.btn-hammacraft {
     background: #333;
     color: white;
     border: none;
