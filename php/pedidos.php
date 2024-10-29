@@ -44,12 +44,12 @@ include '../php/functions.php';
                 <a href="https://www.hammacraft.lat/">Pantalla principal</a>
                 <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
                 <a href="https://www.hammacraft.lat/php/pedidos.php">Pedidos</a>
-                <button class = "cart-btn-hammacraft">
+                    <button class = "btn btn-dark">
                     <i class="fas fa-shopping-cart"></i> Carrito
                 </button>
                 <a href="https://www.hammacraft.lat/php/login.php">
-                    <button class = "cart-btn-hammacraft">
-                    <i class="fa-solid fa-user"></i> Iniciar Sesión
+                    <button class = "btn btn-dark">
+                    <i class="fa-solid fa-user"></i> Iniciar sesión
                     </button>
                 </a>
             </div>
