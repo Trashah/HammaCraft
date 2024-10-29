@@ -176,14 +176,9 @@ include '../php/functions.php';
         <div class = "catalogo">
 
             <?php
-                $category = "Todos";
-                $lowerLimit = 0;
-                $rowCount = 24;
-                $colClass = "";
-                $cardClass = "card";
-                $imgClass = "card-img-top";
-                $buttonClass = "btn btn-primary";
-                echo getProductsCards($connection, $category, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass);
+                $category1 = "Todos"; //Todos, Chicos, Medianos, Grandes
+                $category2 = "Todos"; //Todos, Anime, Videojuegos
+                echo getProductsCards($connection, $category1, $category2);
             ?>
 
         </div>

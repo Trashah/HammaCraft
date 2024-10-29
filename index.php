@@ -94,10 +94,9 @@ include 'php/functions.php';
                 <div class = "carousel-track">
 
                     <?php
-                    $lowerLimit = 0;
-                    $rowCount = 20;
-                    $category = "Todos";
-                    echo getProductsCards($connection, $category, $lowerLimit, $rowCount, '', 'card' ,'card-img-top', 'btn btn-primary');
+                    $category1 = "Todos";
+                    $category2 = "Todos";
+                    echo getProductsCards($connection, $category1, $category2);
                     ?>
 
                 </div>
