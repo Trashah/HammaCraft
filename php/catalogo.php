@@ -171,13 +171,14 @@ include '../php/functions.php';
     <div class = "catalogo">
 
         <?php
+	    $category = "Todos";
             $lowerLimit = 0;
             $rowCount = 24;
             $colClass = "";
             $cardClass = "card";
             $imgClass = "card-img-top";
             $buttonClass = "btn btn-primary";
-            echo getProductsCards($connection, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass);
+            echo getProductsCards($connection, $category, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass);
         ?>
 
     </div>
