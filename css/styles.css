@@ -68,6 +68,7 @@
     text-align: center;
     padding: 4rem 1rem; /* Padding for content */
     overflow: hidden; /* To hide parts of the image if necessary */
+    align-items: end;
 }
 
 .hero::before {
@@ -86,7 +87,7 @@
 
 /* Button styles */
 .shop-now {
-    background-color: #ff5722; /* Button color */
+    background-color: black; /* Button color */
     color: white; /* Text color */
     border: none; /* Remove default border */
     padding: 1rem 2rem; /* Padding around the button */
@@ -97,7 +98,7 @@
 }
 
 .shop-now:hover {
-    background-color: #929292; /* Darken on hover */
+    background-color: #252525; /* Darken on hover */
     transition: all 0.3s ease;
 }
 
