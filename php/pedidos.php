@@ -48,7 +48,7 @@ include '../php/functions.php';
                 <button class = "cart-btn-hammacraft">
                     <i class="fas fa-shopping-cart"></i> Carrito
                 </button>
-                <a href="https://www.hammacraft.lat/php/login.html">
+                <a href="https://www.hammacraft.lat/php/login.php">
                     <button class = "cart-btn-hammacraft">
                     <i class="fa-solid fa-user"></i> Iniciar Sesión
                     </button>

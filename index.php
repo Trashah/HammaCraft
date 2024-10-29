@@ -57,7 +57,7 @@ include 'php/functions.php';
 
                 </button>
 
-                <a href="https://www.hammacraft.lat/php/login.html">
+                <a href="https://www.hammacraft.lat/php/login.php">
 
                     <button class = "cart-btn-hammacraft">
 
