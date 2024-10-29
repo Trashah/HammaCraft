@@ -108,7 +108,7 @@ include 'php/functions.php';
 
             <div class="grid-item">
 
-                <img class="card-image" src="images/elbicho.jpg" alt="Product">
+                <img class="card-img" src="images/elbicho.jpg" alt="Product">
                 <div class="texts">
                     <h3>EL BICHO XD</h3>
                     <div class="rating">★★★★☆</div>
