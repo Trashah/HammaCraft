@@ -78,7 +78,8 @@ include 'php/functions.php';
                     <?php
                     $lowerLimit = 0;
                     $rowCount = 20;
-                    echo getProductsCards($connection, $lowerLimit, $rowCount, '', 'card' ,'card-img-top', 'btn btn-primary');
+                    $category = "Todos";
+                    echo getProductsCards($connection, $category, $lowerLimit, $rowCount, '', 'card' ,'card-img-top', 'btn btn-primary');
                     ?>
 
                 </div>
@@ -203,16 +204,16 @@ include 'php/functions.php';
 
                 <ul>
 
-                    <li><a href="#pantalla principal">Pantalla principal</a></li>
-                    <li><a href="#sobre nosotros">Sobre nosotros</a></li>
-                    <li><a href="#tienda">Tienda</a></li>
-                    <li><a href="#ayuda">Ayuda</a></li>
+                    <li><a href="https://www.hammacraft.lat">Pantalla principal</a></li>
+                    <li><a href="https://www.hammacraft.lat/php/catalogo.php">Tienda</a></li>
+                    <!-- <li><a href="#sobre nosotros">Sobre nosotros</a></li>
+                    <li><a href="#ayuda">Ayuda</a></li> -->
 
                 </ul>
 
             </div>
 
-            <div class="footer-section">
+            <!-- <div class="footer-section">
 
                 <h3> HammaCraft </h3>
 
@@ -226,7 +227,7 @@ include 'php/functions.php';
 
             </div>
 
-            <!--
+            
             <div class="footer-section">
 
                 <h3>CONÉCTATE</h3>
