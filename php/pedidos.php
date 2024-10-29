@@ -43,7 +43,6 @@ include '../php/functions.php';
             <div class = "nav-hammacraft-links">
                 <a href="https://www.hammacraft.lat/">Pantalla principal</a>
                 <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
-                <a href="https://www.hammacraft.lat/php/login.php">Iniciar Sesión</a>
                 <a href="https://www.hammacraft.lat/php/pedidos.php">Pedidos</a>
                 <button class = "cart-btn-hammacraft">
                     <i class="fas fa-shopping-cart"></i> Carrito
