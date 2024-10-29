@@ -118,7 +118,9 @@ include 'php/functions.php';
 
             <div class="grid-cards">
                 <div class="cards">
-                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <figure>
+                        <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    </figure>
                     <div class="texts">
                         <h3>EL BICHO XD</h3>
                         <div class="rating">★★★★☆</div>
@@ -126,7 +128,9 @@ include 'php/functions.php';
                     </div>
                 </div>
                 <div class="cards">
-                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <figure>
+                        <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    </figure>
                     <div class="texts">
                         <h3>EL BICHO XD</h3>
                         <div class="rating">★★★★☆</div>
@@ -134,7 +138,9 @@ include 'php/functions.php';
                     </div>
                 </div>
                 <div class="cards">
+                    <figure>
                     <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    </figure>
                     <div class="texts">
                         <h3>EL BICHO XD</h3>
                         <div class="rating">★★★★☆</div>
@@ -142,7 +148,9 @@ include 'php/functions.php';
                     </div>
                 </div>
                 <div class="cards">
+                    <figure>
                     <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    </figure>
                     <div class="texts">
                         <h3>EL BICHO XD</h3>
                         <div class="rating">★★★★☆</div>
@@ -150,7 +158,9 @@ include 'php/functions.php';
                     </div>
                 </div>
                 <div class="cards">
+                    <figure>
                     <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    </figure>
                     <div class="texts">
                         <h3>EL BICHO XD</h3>
                         <div class="rating">★★★★☆</div>
@@ -158,7 +168,9 @@ include 'php/functions.php';
                     </div>
                 </div>
                 <div class="cards">
+                    <figure>
                     <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    </figure>
                     <div class="texts">
                         <h3>EL BICHO XD</h3>
                         <div class="rating">★★★★☆</div>
