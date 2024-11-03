@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <!-- saved from url=(0042)https://www.hammacraft.lat/php/pedidos.php -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="es">
+
+<head>
 	
-    
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> HammaCraft - Pedidos </title>
-    <link rel="stylesheet" href="./HammaCraft_files/bootstrap.min.css">
-    <link rel="stylesheet" href="./HammaCraft_files/all.min.css">
-    <link rel="stylesheet" href="./HammaCraft_files/styles.css">
-    <script src="./HammaCraft_files/script.js.descarga" defer=""> </script>
+    <meta charset="utf-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1">
+	<title> HammaCraft </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src = "../javascript/script.js" defer> </script>
     <style>
         body {
             background-color: #e5fefe; /* Morado claro */
@@ -20,35 +22,50 @@
 
 </head>
 
-<body>
+<body class = "body-hammacraft">
 
-    <header class="header-hammacraft">
+    <header class = "header-hammacraft">
 
-        <nav class="nav-hammacraft">
-                <a href="https://www.hammacraft.lat/">
-                <img class="logo-item" src="./HammaCraft_files/logo.png" alt="Logo"> 
+        <nav class = "nav-hammacraft">
+
+            <div>
+
+                <a href = "https://www.hammacraft.lat/">
+                <img class = "logo-item" src="../images/logo.png" alt="Logo"> 
                 </a>
-            <div class="search-bar-hammacraft">
-                <input type="text" placeholder="Buscar...">
+
             </div>
-            <div class="nav-hammacraft-links">
+
+            <div class = "search-bar-hammacraft">
+
+                <input type = "text" placeholder = "Buscar...">
+
+            </div>
+
+            <div class = "nav-hammacraft-links">
+
                 <a href="https://www.hammacraft.lat/">Pantalla principal</a>
                 <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
                 <a href="https://www.hammacraft.lat/php/pedidos.php">Pedidos</a>
-                <button class="cart-btn-hammacraft">
+
+
+                <button class = "btn btn-dark">
                     <i class="fas fa-shopping-cart"></i> Carrito
                 </button>
                 <a href="https://www.hammacraft.lat/php/login.php">
-                    <button class="cart-btn-hammacraft">
-                    <i class="fa-solid fa-user"></i> Iniciar Sesión
+                    <button class = "btn btn-dark">
+                        <i class="fa-solid fa-user"></i> Iniciar sesión
                     </button>
                 </a>
+
             </div>
+
         </nav>
 
     </header>
 
     <main>
+
         <center>
         <h1>¿Tiene algún pedido en especifico?</h1>
         <br>
@@ -68,13 +85,10 @@
             <br>
             <input type="file">
             <br>
-            <br>
             <input type="submit" value="Enviar pedido">
+            <br><br>
         </form>
-    </center>
-
-
-
+        </center>
 
     </main>
 
