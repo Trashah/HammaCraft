@@ -60,7 +60,7 @@ function getProductsCards($connection, $category1, $category2) {
     while ($row = $result->fetch_assoc()) {
         $output .= '<div class="' . htmlspecialchars($colClass) . '">';
         $output .= '<div class="' . htmlspecialchars($cardClass) . '" style="width: 18rem; margin: 50px;">';
-        $output .= '<img class="' . htmlspecialchars($imgClass) . '" src="../images/' 
+        $output .= '<img class="' . htmlspecialchars($imgClass) . '" src="/images/' 
                     . htmlspecialchars($row['Imagen']) . '" width="150" height="250" alt="' 
                     . htmlspecialchars($row['NombreProducto']) . '">';
         $output .= '<div class="card-body">';
