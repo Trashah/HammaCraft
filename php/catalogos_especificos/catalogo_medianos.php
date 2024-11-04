@@ -77,6 +77,7 @@ include '../../php/functions.php';
             <form class="menu-catalogo">
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                     <option value="">Seleccione una opción...</option>
+                    <option value="https://www.hammacraft.lat/php/catalogo.php">Todos</option>
                     <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_chicos.php">Chicos</option>
                     <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_medianos.php">Medianos</option>
                     <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_grandes.php">Grandes</option>
