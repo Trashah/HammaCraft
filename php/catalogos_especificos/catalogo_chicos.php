@@ -74,13 +74,13 @@ include '../../php/functions.php';
     <main>
 
         <div>
-            <form>
+            <form class="menu-catalogo">
                 <select>
-                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_chicos.php">Chicos</a></option>
-                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_medianos.php">Medianos</a></option>
-                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_grandes.php">Grandes</a></option>
-                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_anime.php">Anime</a></option>
-                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_videojuegos.php">Videojuegos</a></option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_chicos.php">Chicos</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_medianos.php">Medianos</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_grandes.php">Grandes</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_anime.php">Anime</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_videojuegos.php">Videojuegos</option>
                 </select>
             </form>
         </div>
