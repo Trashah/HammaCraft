@@ -1,7 +1,7 @@
 <?php
 
-include '../.gitignore/config.php';
-include '../php/functions.php';
+include '../../.gitignore/config.php';
+include '../../php/functions.php';
 
 ?>
 
@@ -16,8 +16,8 @@ include '../php/functions.php';
 	<title> HammaCraft </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src = "../javascript/script.js" defer> </script>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src = "../../javascript/script.js" defer> </script>
     <style>
         body {
             background-color: #e5fefe; /* Morado claro */
@@ -38,7 +38,7 @@ include '../php/functions.php';
             <div>
 
                 <a href = "https://www.hammacraft.lat/">
-                <img class = "logo-item" src="../images/logo.png" alt="Logo"> 
+                <img class = "logo-item" src="../../images/logo.png" alt="Logo"> 
                 </a>
 
             </div>
@@ -74,13 +74,13 @@ include '../php/functions.php';
     <main>
 
         <div>
-            <form>
+            <form class="menu-catalogo">
                 <select>
-                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_chicos.php">Chicos</a></option>
-                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_medianos.php">Medianos</a></option>
-                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_grandes.php">Grandes</a></option>
-                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_anime.php">Anime</a></option>
-                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_videojuegos.php">Videojuegos</a></option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_chicos.php">Chicos</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_medianos.php">Medianos</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_grandes.php">Grandes</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_anime.php">Anime</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_videojuegos.php">Videojuegos</option>
                 </select>
             </form>
         </div>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0042)https://www.hammacraft.lat/php/pedidos.php -->
 <html lang="es">
+<<<<<<< HEAD
 
 <head>
 	
@@ -11,6 +12,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <script src = "../javascript/script.js" defer> </script>
+=======
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> HammaCraft - Pedidos </title>
+    <link rel="stylesheet" href="./HammaCraft_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./HammaCraft_files/all.min.css">
+    <link rel="stylesheet" href="./HammaCraft_files/styles.css">
+    <script src="./HammaCraft_files/script.js.descarga" defer=""> </script>
+>>>>>>> 32c431caacb4218465ab5788ec26bb2ad4b06e81
     <style>
         body {
             background-color: #e5fefe; /* Morado claro */

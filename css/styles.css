@@ -318,3 +318,10 @@ footer {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
+
+.menu-catalogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* vh stands for viewport height */
+  }
