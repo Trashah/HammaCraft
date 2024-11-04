@@ -68,7 +68,7 @@
             <br>
             <input type="file">
             <br>
-            
+
             <input type="submit" value="Enviar pedido">
         </form>
     </center>
