@@ -173,6 +173,18 @@ include '../php/functions.php';
 
     <main>
 
+        <div>
+            <form>
+                <select>
+                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_chicos.php">Chicos</a></option>
+                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_medianos.php">Medianos</a></option>
+                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_grandes.php">Grandes</a></option>
+                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_anime.php">Anime</a></option>
+                    <option><a href="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_videojuegos.php">Videojuegos</a></option>
+                </select>
+            </form>
+        </div>
+
         <div class = "catalogo">
 
             <?php
