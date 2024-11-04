@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <!-- saved from url=(0042)https://www.hammacraft.lat/php/pedidos.php -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
+<html lang="es">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title> HammaCraft - Pedidos </title>
