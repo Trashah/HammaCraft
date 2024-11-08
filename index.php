@@ -122,7 +122,7 @@ include 'php/functions.php';
         </section>
 
         <section class="product-grid">
-
+<!--
             <div class="grid-item">
                 <figure>
                 <img class="card-img" src="images/elbicho.jpg" alt="Product">
@@ -132,68 +132,67 @@ include 'php/functions.php';
                     <div class="rating">★★★★☆</div>
                     <p class="price">$199</p>
                 </div>
-
             </div>
-
+    -->
             <div class="grid-cards">
                 <div class="cards">
                     <figure>
-                        <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                        <img class="card-img" src="images/Adachi.png" alt="Product">
                     </figure>
                     <div class="texts">
-                        <h3>EL BICHO XD</h3>
+                        <h3>Adachi</h3>
                         <div class="rating">★★★★☆</div>
-                        <p class="price">$199</p>
+                        <p class="price">$40</p>
                     </div>
                 </div>
                 <div class="cards">
                     <figure>
-                        <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                        <img class="card-img" src="images/Angemon.png" alt="Product">
                     </figure>
                     <div class="texts">
-                        <h3>EL BICHO XD</h3>
+                        <h3>Angemon</h3>
                         <div class="rating">★★★★☆</div>
-                        <p class="price">$199</p>
+                        <p class="price">$55</p>
                     </div>
                 </div>
                 <div class="cards">
                     <figure>
-                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <img class="card-img" src="images/Foxy.png" alt="Product">
                     </figure>
                     <div class="texts">
-                        <h3>EL BICHO XD</h3>
+                        <h3>Foxy</h3>
                         <div class="rating">★★★★☆</div>
-                        <p class="price">$199</p>
+                        <p class="price">$45</p>
                     </div>
                 </div>
                 <div class="cards">
                     <figure>
-                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <img class="card-img" src="images/Farfadox.png" alt="Product">
                     </figure>
                     <div class="texts">
-                        <h3>EL BICHO XD</h3>
+                        <h3>Farfadox</h3>
                         <div class="rating">★★★★☆</div>
-                        <p class="price">$199</p>
+                        <p class="price">$40</p>
                     </div>
                 </div>
                 <div class="cards">
                     <figure>
-                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <img class="card-img" src="images/Kirby.png" alt="Product">
                     </figure>
                     <div class="texts">
-                        <h3>EL BICHO XD</h3>
+                        <h3>Kirby</h3>
                         <div class="rating">★★★★☆</div>
-                        <p class="price">$199</p>
+                        <p class="price">$15</p>
                     </div>
                 </div>
                 <div class="cards">
                     <figure>
-                    <img class="card-img" src="images/elbicho.jpg" alt="Product">
+                    <img class="card-img" src="images/KoroSensei.png" alt="Product">
                     </figure>
                     <div class="texts">
-                        <h3>EL BICHO XD</h3>
+                        <h3>KoroSensei</h3>
                         <div class="rating">★★★★☆</div>
-                        <p class="price">$199</p>
+                        <p class="price">$90</p>
                     </div>
                 </div>
             </div>

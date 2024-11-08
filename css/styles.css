@@ -222,7 +222,7 @@
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     max-width: 1500px;
     width: 90%;
     margin: 20px auto;
