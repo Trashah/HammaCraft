@@ -4,15 +4,32 @@ class Carousel {
         this.slides = Array.from(this.track.children);
         this.nextButton = document.querySelector('.next');
         this.prevButton = document.querySelector('.prev');
-        this.currentIndex = 0;
+        this.currentIndex = 1; // Empezamos en 1 por el slide clonado
         this.autoSlideInterval = 3000; // 3 segundos para el cambio automático
         this.intervalId = null; // Para almacenar el ID del intervalo
 
-        // Initialize carousel properties
+        // Clonar slides
+        this.cloneSlides();
         this.updateSlideDimensions();
         this.initializeCarousel();
         this.addEventListeners();
         this.startAutoSlide(); // Iniciar la reproducción automática
+    }
+
+    cloneSlides() {
+        const firstSlide = this.slides[0];
+        const lastSlide = this.slides[this.slides.length - 1];
+
+        // Clonamos el primer y último slide
+        const firstClone = firstSlide.cloneNode(true);
+        const lastClone = lastSlide.cloneNode(true);
+
+        // Añadimos clones al track
+        this.track.appendChild(firstClone);
+        this.track.insertBefore(lastClone, firstSlide);
+
+        // Actualizamos la lista de slides
+        this.slides = Array.from(this.track.children);
     }
 
     updateSlideDimensions() {
@@ -24,57 +41,55 @@ class Carousel {
         this.slides.forEach((slide, index) => {
             slide.style.left = `${this.slideWidth * index}px`;
         });
+
+        // Mover el track al primer slide original (posición inicial)
+        this.track.style.transform = `translateX(-${this.slideWidth}px)`;
     }
 
     moveToSlide(targetIndex) {
-        // Hacer que el carrusel sea infinito
-        if (targetIndex < 0) {
-            this.currentIndex = this.slides.length - this.slidesToShow;
-            this.track.style.transform = `translateX(-${this.currentIndex * this.slideWidth}px)`;
-        } else if (targetIndex > this.slides.length - this.slidesToShow) {
-            this.currentIndex = 0;
-            this.track.style.transform = `translateX(0px)`;
-        } else {
-            this.track.style.transform = `translateX(-${targetIndex * this.slideWidth}px)`;
-            this.currentIndex = targetIndex;
-        }
+        this.track.style.transition = 'transform 0.5s ease-in-out';
+        this.track.style.transform = `translateX(-${targetIndex * this.slideWidth}px)`;
+        this.currentIndex = targetIndex;
 
-        this.updateButtonsState();
-    }
+        // Esperar a que termine la animación para ajustar el índice si es necesario
+        this.track.addEventListener('transitionend', () => {
+            if (this.currentIndex === 0) {
+                // Estamos en el clon del último slide, saltamos al último slide original
+                this.track.style.transition = 'none';
+                this.currentIndex = this.slides.length - 2;
+                this.track.style.transform = `translateX(-${this.currentIndex * this.slideWidth}px)`;
+            }
 
-    updateButtonsState() {
-        this.prevButton.style.display = this.currentIndex <= 0 ? 'none' : 'block';
-        this.nextButton.style.display =
-            this.currentIndex >= this.slides.length - this.slidesToShow ? 'none' : 'block';
+            if (this.currentIndex === this.slides.length - 1) {
+                // Estamos en el clon del primer slide, saltamos al primer slide original
+                this.track.style.transition = 'none';
+                this.currentIndex = 1;
+                this.track.style.transform = `translateX(-${this.currentIndex * this.slideWidth}px)`;
+            }
+        });
     }
 
     addEventListeners() {
         this.nextButton.addEventListener('click', () => {
             this.moveToSlide(this.currentIndex + 1);
-            this.resetAutoSlide(); // Reiniciar el intervalo si se hace clic
+            this.resetAutoSlide();
         });
         this.prevButton.addEventListener('click', () => {
             this.moveToSlide(this.currentIndex - 1);
-            this.resetAutoSlide(); // Reiniciar el intervalo si se hace clic
+            this.resetAutoSlide();
         });
 
         window.addEventListener('resize', () => this.handleResize());
     }
 
     handleResize() {
-        this.updateSlideDimensions(); // Actualizar ancho del slide y número de slides visibles
-
-        // Reposicionar slides
+        this.updateSlideDimensions();
         this.slides.forEach((slide, index) => {
             slide.style.left = `${this.slideWidth * index}px`;
         });
 
-        // Ajustar índice actual si es necesario
-        if (this.currentIndex > this.slides.length - this.slidesToShow) {
-            this.currentIndex = this.slides.length - this.slidesToShow;
-        }
-
-        this.moveToSlide(this.currentIndex); // Mover a la posición actualizada
+        // Mover a la posición actualizada
+        this.track.style.transform = `translateX(-${this.currentIndex * this.slideWidth}px)`;
     }
 
     startAutoSlide() {
