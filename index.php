@@ -15,9 +15,17 @@ include 'php/functions.php';
     <meta name = "viewport" content = "width = device-width, initial-scale = 1">
     <title> HammaCraft </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <script src = "javascript/script.js" defer> </script>
+    <style>
+        body {
+            background-color: #e5fefe; /* Morado claro */
+        }
+        .navbar {
+            background-color: #fbffff; /* Azul celeste */
+        }
+    </style>
 
 </head>
 
@@ -33,7 +41,7 @@ include 'php/functions.php';
 
             <div class = "search-bar-hammacraft">
 
-                <input type = "text" placeholder = "Search...">
+                <input type = "text" placeholder = "Buscar...">
 
             </div>
 
@@ -41,12 +49,22 @@ include 'php/functions.php';
 
                 <a href="https://www.hammacraft.lat/">Pantalla principal</a>
                 <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
+                <a href="https://www.hammacraft.lat/php/pedidos.php">Pedidos</a>
 
-                <button class = "cart-btn-hammacraft">
+                <button class = "btn btn-dark">
 
-                    <i class="fas fa-shopping-cart"></i> Cart
+                    <i class="fas fa-shopping-cart"></i> Carrito
 
                 </button>
+
+                <a href="https://www.hammacraft.lat/php/login.php">
+
+                    <button class = "btn btn-dark">
+
+                    <i class="fa-solid fa-user"></i> Iniciar sesión
+
+                    </button>
+                </a>
 
             </div>
 
@@ -76,10 +94,9 @@ include 'php/functions.php';
                 <div class = "carousel-track">
 
                     <?php
-                    $lowerLimit = 0;
-                    $rowCount = 20;
-                    $category = "Todos";
-                    echo getProductsCards($connection, $category, $lowerLimit, $rowCount, '', 'card' ,'card-img-top', 'btn btn-primary');
+                    $category1 = "Todos";
+                    $category2 = "Todos";
+                    echo getProductsCards($connection, $category1, $category2);
                     ?>
 
                 </div>

@@ -1,5 +1,11 @@
+<?php
+
+include "../php/functions.php";
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -14,18 +20,18 @@
     <div class="container">
         <div class="signin-signup">
             <form action="" class="sign-in-form">
-                <h2 class="title">Sing in</h2>
+                <h2 class="title">Inicia Sesión</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Username">
+                    <input type="text" placeholder="Nombre de usuario">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Contraseña">
                 </div>
-                <input type="submit" value="Login" class="btn">
-                <p class="social-text">Or Sign in with social platform</p>
+                <input type="submit" value="Inicia sesión" class="btn">
                 <div class="social-media">
+                    <!--
                     <a href="#" class="social-icon">
                         <i class="fab fa-facebook"></i>
                     </a>
@@ -38,26 +44,27 @@
                     <a href="" class="social-icon">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
+                    -->
                 </div>
-                <p class="account-text">Don't have an account? <a href="#" id="sign-up-btn2">Sign up</a></p>
+                <p class="account-text">¿No tienes una cuenta? <a href="#" id="sign-up-btn2">Regístrate</a></p>
             </form>
             <form action="" class="sign-up-form">
-                <h2 class="title">Sign up</h2>
+                <h2 class="title">Regístrate</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Username">
+                    <input type="text" placeholder="Nombre de usuario">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Correo electrónico">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Contraseña">
                 </div>
-                <input type="submit" value="Sign up" class="btn">
-                <p class="social-text">Or Sign in with social platform</p>
+                <input type="submit" value="Regístrate" class="btn">
                 <div class="social-media">
+                    <!--
                     <a href="#" class="social-icon">
                         <i class="fab fa-facebook"></i>
                     </a>
@@ -70,8 +77,9 @@
                     <a href="" class="social-icon">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
+                    -->
                 </div>
-                <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p>
+                <p class="account-text">¿Ya tienes una cuenta? <a href="#" id="sign-in-btn2">Inicia sesión</a></p>
             </form>
         </div>
         <div class="panels-container">
@@ -79,15 +87,15 @@
                 <div class="content">
                     <h3>¿Ya estas registrado?</h3>
                     <p>Accede a tu cuenta con un solo clic y disfruta de una experiencia personalizada.</p>
-                    <button class="btn" id="sign-in-btn">Sign in</button>
+                    <button class="btn" id="sign-in-btn">Inicia sesión</button>
                 </div>
                 <img src="signin.svg" alt="" class="image">
             </div>
             <div class="panel right-panel">
                 <div class="content">
-                    <h3>Te gusta el arte de Hama Beads?</h3>
+                    <h3>¿Te gusta el arte de Hama Beads?</h3>
                     <p>Regístrate para recibir tutoriales exclusivos y descuentos especiales en todos nuestros productos.</p>
-                    <button class="btn" id="sign-up-btn">Sign up</button>
+                    <button class="btn" id="sign-up-btn">Regístrate</button>
                 </div>
                 <img src="signup.svg" alt="" class="image">
             </div>

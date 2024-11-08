@@ -15,8 +15,8 @@ include '../php/functions.php';
 	<meta name = "viewport" content="width=device-width, initial-scale=1">
 	<title> HammaCraft </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <script src = "../javascript/script.js" defer> </script>
     <style>
         body {
@@ -45,7 +45,7 @@ include '../php/functions.php';
 
             <div class = "search-bar-hammacraft">
 
-                <input type = "text" placeholder = "Search...">
+                <input type = "text" placeholder = "Buscar...">
 
             </div>
 
@@ -53,12 +53,17 @@ include '../php/functions.php';
 
                 <a href="https://www.hammacraft.lat/">Pantalla principal</a>
                 <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
+                <a href="https://www.hammacraft.lat/php/pedidos.php">Pedidos</a>
 
-                <button class = "cart-btn-hammacraft">
 
-                    <i class="fas fa-shopping-cart"></i> Cart
-
+                <button class = "btn btn-dark">
+                    <i class="fas fa-shopping-cart"></i> Carrito
                 </button>
+                <a href="https://www.hammacraft.lat/php/login.php">
+                    <button class = "btn btn-dark">
+                        <i class="fa-solid fa-user"></i> Iniciar sesión
+                    </button>
+                </a>
 
             </div>
 
@@ -166,272 +171,281 @@ include '../php/functions.php';
 
 </header> -->
 
-<main>
+    <main>
 
-    <div class = "catalogo">
+        <div>
+            <form class="menu-catalogo">
+                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                    <option value="">Seleccione una opción...</option>
+                    <option value="https://www.hammacraft.lat/php/catalogo.php">Todos</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_chicos.php">Chicos</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_medianos.php">Medianos</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_grandes.php">Grandes</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_anime.php">Anime</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_videojuegos.php">Videojuegos</option>
+                </select>
+            </form>
+        </div>
 
-        <?php
-	    $category = "Todos";
-            $lowerLimit = 0;
-            $rowCount = 24;
-            $colClass = "";
-            $cardClass = "card";
-            $imgClass = "card-img-top";
-            $buttonClass = "btn btn-primary";
-            echo getProductsCards($connection, $category, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass);
-        ?>
+        <div class = "catalogo">
 
-    </div>
+            <?php
+                $category1 = "Todos"; //Todos, Chicos, Medianos, Grandes
+                $category2 = "Todos"; //Todos, Anime, Videojuegos
+                echo getProductsCards($connection, $category1, $category2);
+            ?>
 
-<!--
-    <div class="container my-5">
-          
-                       
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Adachi</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza grande</p>
-                        <p class="card-text">$40.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+        </div>
+
+    <!--
+        <div class="container my-5">
+            
+                        
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Adachi</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza grande</p>
+                            <p class="card-text">$40.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Phoniex Wright</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Kirby</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Phoniex Wright</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Adachi</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza grande</p>
+                            <p class="card-text">$40.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Phoniex Wright</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Kirby</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Adachi</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza grande</p>
+                            <p class="card-text">$40.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Phoniex Wright</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Kirby</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Kirby</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Adachi</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza grande</p>
+                            <p class="card-text">$40.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Phoniex Wright</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Kirby</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Adachi</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza grande</p>
+                            <p class="card-text">$40.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Phoniex Wright</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Kirby</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Adachi</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza grande</p>
+                            <p class="card-text">$40.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Phoniex Wright</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Kirby</h5>
+                            <h6 class="card-title">Descripción</h6>
+                            <p class="card-text">Pieza pequeña</p>
+                            <p class="card-text">$15.00</p>
+                            <a href="#" class="btn btn-primary">Añadir a Carrito</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-                    
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Adachi</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza grande</p>
-                        <p class="card-text">$40.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Phoniex Wright</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Kirby</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    -->
 
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Adachi</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza grande</p>
-                        <p class="card-text">$40.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Phoniex Wright</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Kirby</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Adachi</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza grande</p>
-                        <p class="card-text">$40.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Phoniex Wright</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Kirby</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Adachi</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza grande</p>
-                        <p class="card-text">$40.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Phoniex Wright</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Kirby</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Adachi</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza grande</p>
-                        <p class="card-text">$40.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Phoniex Wright</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://i.pinimg.com/236x/eb/e2/b9/ebe2b93d0c318c661924176d43772371.jpg" width="150" height="250" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Kirby</h5>
-                        <h6 class="card-title">Descripción</h6>
-                        <p class="card-text">Pieza pequeña</p>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
--->
-
-</main>
+    </main>
 
 <footer>
 
@@ -443,16 +457,16 @@ include '../php/functions.php';
 
                 <ul>
 
-                    <li><a href="#pantalla principal">Pantalla principal</a></li>
-                    <li><a href="#sobre nosotros">Sobre nosotros</a></li>
-                    <li><a href="#tienda">Tienda</a></li>
-                    <li><a href="#ayuda">Ayuda</a></li>
+                    <li><a href="https://www.hammacraft.lat">Pantalla principal</a></li>
+                    <li><a href="https://www.hammacraft.lat/php/catalogo.php">Tienda</a></li>
+                    <!-- <li><a href="#sobre nosotros">Sobre nosotros</a></li>
+                    <li><a href="#ayuda">Ayuda</a></li> -->
 
                 </ul>
 
             </div>
 
-            <div class="footer-section">
+            <!-- <div class="footer-section">
 
                 <h3> HammaCraft </h3>
 
@@ -466,7 +480,7 @@ include '../php/functions.php';
 
             </div>
 
-            <!--
+            
             <div class="footer-section">
 
                 <h3>CONÉCTATE</h3>

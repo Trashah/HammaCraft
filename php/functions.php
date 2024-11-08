@@ -24,17 +24,35 @@ function getProducts($connection, $lowerLimit, $rowCount) {
     return $output;
 }
 
-function getProductsCards($connection, $category, $lowerLimit, $rowCount, $colClass, $cardClass, $imgClass, $buttonClass) {
-    if ($category == "Todos") {
-        $sql = "SELECT * FROM productos LIMIT ?, ?";
+function getProductsCards($connection, $category1, $category2) {
+
+    $colClass = "";
+    $cardClass = "card";
+    $imgClass = "card-img-top";
+    $buttonClass = "btn btn-primary";
+
+    if ($category1 == "Todos" and $category2 == "Todos") {
+        $sql = "SELECT * FROM productos";
         $statement = $connection->prepare($sql);
-        $statement->bind_param("ii", $lowerLimit, $rowCount);
+    }
+    else if ($category1 != "Todos" and $category2 == "Todos") {
+        $sql = "SELECT * FROM productos WHERE categoria1 = ?";
+        $statement = $connection->prepare($sql);
+        $statement->bind_param("s", $category1);
+
+    }
+    else if ($category1 == "Todos" and $category2 != "Todos") {
+        $sql = "SELECT * FROM productos WHERE categoria2 = ?";
+        $statement = $connection->prepare($sql);
+        $statement->bind_param("s", $category2);
+
     }
     else {
-        $sql = "SELECT * FROM productos LIMIT ?, ? WHERE categoria = ?";
+        $sql = "SELECT * FROM productos WHERE categoria1 = ? AND categoria2 = ?";
         $statement = $connection->prepare($sql);
-        $statement->bind_param("iis", $lowerLimit, $rowCount, $category);
+        $statement->bind_param("ss", $category1, $category2);
     }
+
     $statement->execute();
     $result = $statement->get_result();
 
@@ -42,11 +60,9 @@ function getProductsCards($connection, $category, $lowerLimit, $rowCount, $colCl
     while ($row = $result->fetch_assoc()) {
         $output .= '<div class="' . htmlspecialchars($colClass) . '">';
         $output .= '<div class="' . htmlspecialchars($cardClass) . '" style="width: 18rem; margin: 50px;">';
-
-        // Image
-        $output .= '<img class="' . htmlspecialchars($imgClass) . '" src="../images/' . htmlspecialchars($row['Imagen']) . '" width="150" height="250" alt="' . htmlspecialchars($row['NombreProducto']) . '">';
-
-        // Card body
+        $output .= '<img class="' . htmlspecialchars($imgClass) . '" src="/images/' 
+                    . htmlspecialchars($row['Imagen']) . '" width="150" height="250" alt="' 
+                    . htmlspecialchars($row['NombreProducto']) . '">';
         $output .= '<div class="card-body">';
         $output .= '<h2 class="card-title font-weight-bold">' . htmlspecialchars($row['NombreProducto']) . '</h2>';
         $output .= '<h5 class="card-title font-weight-bold">Descripción</h5>';
@@ -57,10 +73,9 @@ function getProductsCards($connection, $category, $lowerLimit, $rowCount, $colCl
         
         // Button
         $output .= '<a href="#" class="' . htmlspecialchars($buttonClass) . '">Añadir a Carrito</a>';
-        $output .= '</div>'; // Close card-body
-
-        $output .= '</div>'; // Close card
-        $output .= '</div>'; // Close col
+        $output .= '</div>';
+        $output .= '</div>';
+        $output .= '</div>';
     }
 
     $statement->close();
