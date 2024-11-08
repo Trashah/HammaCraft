@@ -226,8 +226,8 @@
     max-width: 1500px;
     width: 90%;
     margin: 20px auto;
-    padding: 40px auto;
-    gap: 10px;
+    padding: auto;
+    gap: auto;
 }
 
 .grid-item {
