@@ -222,7 +222,7 @@
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
     max-width: 1500px;
     width: 90%;
     margin: 20px auto;
@@ -338,6 +338,6 @@ footer {
     overflow: hidden;
     height: 0px;
     opacity: 0;  
-      z-index: -1;
+    z-index: -1;
     }
-  }
+}
