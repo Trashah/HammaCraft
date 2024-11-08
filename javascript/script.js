@@ -5,12 +5,14 @@ class Carousel {
         this.nextButton = document.querySelector('.next');
         this.prevButton = document.querySelector('.prev');
         this.currentIndex = 0;
+        this.autoSlideInterval = 3000; // 3 segundos para el cambio automático
+        this.intervalId = null; // Para almacenar el ID del intervalo
 
         // Initialize carousel properties
         this.updateSlideDimensions();
         this.initializeCarousel();
         this.addEventListeners();
-        this.updateButtonsState();
+        this.startAutoSlide(); // Iniciar la reproducción automática
     }
 
     updateSlideDimensions() {
@@ -25,51 +27,67 @@ class Carousel {
     }
 
     moveToSlide(targetIndex) {
-        if (targetIndex < 0 || targetIndex > this.slides.length - this.slidesToShow) return;
+        // Hacer que el carrusel sea infinito
+        if (targetIndex < 0) {
+            this.currentIndex = this.slides.length - this.slidesToShow;
+            this.track.style.transform = `translateX(-${this.currentIndex * this.slideWidth}px)`;
+        } else if (targetIndex > this.slides.length - this.slidesToShow) {
+            this.currentIndex = 0;
+            this.track.style.transform = `translateX(0px)`;
+        } else {
+            this.track.style.transform = `translateX(-${targetIndex * this.slideWidth}px)`;
+            this.currentIndex = targetIndex;
+        }
 
-        this.track.style.transform = `translateX(-${targetIndex * this.slideWidth}px)`;
-        this.currentIndex = targetIndex;
         this.updateButtonsState();
     }
 
     updateButtonsState() {
         this.prevButton.style.display = this.currentIndex <= 0 ? 'none' : 'block';
-        this.nextButton.style.display = 
+        this.nextButton.style.display =
             this.currentIndex >= this.slides.length - this.slidesToShow ? 'none' : 'block';
     }
 
     addEventListeners() {
-        this.nextButton.addEventListener('click', () => this.moveToSlide(this.currentIndex + 1));
-        this.prevButton.addEventListener('click', () => this.moveToSlide(this.currentIndex - 1));
-
-        window.addEventListener('resize', () => {
-            this.handleResize();
+        this.nextButton.addEventListener('click', () => {
+            this.moveToSlide(this.currentIndex + 1);
+            this.resetAutoSlide(); // Reiniciar el intervalo si se hace clic
         });
+        this.prevButton.addEventListener('click', () => {
+            this.moveToSlide(this.currentIndex - 1);
+            this.resetAutoSlide(); // Reiniciar el intervalo si se hace clic
+        });
+
+        window.addEventListener('resize', () => this.handleResize());
     }
 
     handleResize() {
-        const containerWidth = this.track.getBoundingClientRect().width;
-        this.updateSlideDimensions(); // Update slide width and slides to show
+        this.updateSlideDimensions(); // Actualizar ancho del slide y número de slides visibles
 
-        // Reposition slides
+        // Reposicionar slides
         this.slides.forEach((slide, index) => {
             slide.style.left = `${this.slideWidth * index}px`;
         });
 
-        // Adjust currentIndex if necessary
+        // Ajustar índice actual si es necesario
         if (this.currentIndex > this.slides.length - this.slidesToShow) {
             this.currentIndex = this.slides.length - this.slidesToShow;
         }
 
-        this.moveToSlide(this.currentIndex); // Move to updated position
+        this.moveToSlide(this.currentIndex); // Mover a la posición actualizada
+    }
+
+    startAutoSlide() {
+        this.intervalId = setInterval(() => {
+            this.moveToSlide(this.currentIndex + 1);
+        }, this.autoSlideInterval);
+    }
+
+    resetAutoSlide() {
+        clearInterval(this.intervalId);
+        this.startAutoSlide();
     }
 }
-
-// Initialize the carousel after the DOM has loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const carousel = new Carousel();
-});
-
 
 // Initialize the carousel after the DOM has loaded
 document.addEventListener('DOMContentLoaded', () => {
