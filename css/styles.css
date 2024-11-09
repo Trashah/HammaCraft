@@ -222,6 +222,7 @@
 /* Product Grid */
 .product-grid {
     display: grid;
+    grid-template-columns: none;
     max-width: 1500px;
     width: 90%;
     margin: 20px auto;
