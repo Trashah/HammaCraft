@@ -122,18 +122,6 @@ include 'php/functions.php';
         </section>
 
         <section class="product-grid">
-<!--
-            <div class="grid-item">
-                <figure>
-                <img class="card-img" src="images/elbicho.jpg" alt="Product">
-                </figure>
-                <div class="texts">
-                    <h3>EL BICHO XD</h3>
-                    <div class="rating">★★★★☆</div>
-                    <p class="price">$199</p>
-                </div>
-            </div>
-    -->
             <div class="grid-cards">
                 <div class="cards">
                     <figure>
