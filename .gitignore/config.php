@@ -6,9 +6,9 @@ $password = "";
 $dbname = "HammaCraft";
 
 //Create connection
-$connection = new mysqli($servername, $username, $password, $dbname);
-
-//Check connection
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
+function connectToDatabase () {
+    global $servername, $username, $password, $dbname;
+    static $connection;
+    if ($connection == NULL) $connection = new mysqli($servername, $username, $password, $dbname);
+    return $connection;
 }

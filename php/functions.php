@@ -2,8 +2,8 @@
 
 include __DIR__ . '/../.gitignore/config.php';
 
-function getProducts($connection, $lowerLimit, $rowCount) {
-    
+function getProducts($lowerLimit, $rowCount) {
+    $connection = connectToDatabase();
     $sql = "SELECT * FROM productos LIMIT ?, ?";
     $statement = $connection->prepare($sql);
     $statement->bind_param("ii", $lowerLimit, $rowCount);
@@ -24,8 +24,9 @@ function getProducts($connection, $lowerLimit, $rowCount) {
     return $output;
 }
 
-function getProductsCards($connection, $category1, $category2) {
+function getProductsCards($category1, $category2) {
 
+    $connection = connectToDatabase();
     $colClass = "";
     $cardClass = "card";
     $imgClass = "card-img-top";
@@ -81,4 +82,18 @@ function getProductsCards($connection, $category1, $category2) {
     $statement->close();
 
     return $output;
+}
+
+function loginUser() {
+    $connection = connectToDatabase();
+    $username = $_POST["loginUsername"];
+    $password = $_POST["loginPassword"];
+
+}
+
+function signupUser() {
+    $connection = connectToDatabase();
+    $username = $_POST["signupUsername"];
+    $emal = $_POST["signupUsername"];
+    $password = $_POST["signupPassword"];
 }

@@ -1,9 +1,3 @@
-<?php
-
-include "../php/functions.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,21 +7,21 @@ include "../php/functions.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/login.css">
-    <title>signin-signup</title>
+    <title>Inicia Sesión</title>
 </head>
 
 <body>
     <div class="container">
         <div class="signin-signup">
-            <form action="" class="sign-in-form">
+            <form action="functions.php" method = "POST" class="sign-in-form">
                 <h2 class="title">Inicia Sesión</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Nombre de usuario">
+                    <input type="text" name = "loginUsername" placeholder="Nombre de usuario">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Contraseña">
+                    <input type="password" name = "loginPassword" placeholder="Contraseña">
                 </div>
                 <input type="submit" value="Inicia sesión" class="btn">
                 <div class="social-media">
@@ -48,19 +42,19 @@ include "../php/functions.php";
                 </div>
                 <p class="account-text">¿No tienes una cuenta? <a href="#" id="sign-up-btn2">Regístrate</a></p>
             </form>
-            <form action="" class="sign-up-form">
+            <form action = "functions.php" method = "POST" class="sign-up-form">
                 <h2 class="title">Regístrate</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Nombre de usuario">
+                    <input type="text" name = "signupUsername" placeholder="Nombre de usuario">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Correo electrónico">
+                    <input type="text" name = "signupEmail" placeholder="Correo electrónico">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Contraseña">
+                    <input type="password" name = "signupPassword" placeholder="Contraseña">
                 </div>
                 <input type="submit" value="Regístrate" class="btn">
                 <div class="social-media">

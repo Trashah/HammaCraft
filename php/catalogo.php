@@ -1,6 +1,5 @@
 <?php
 
-include '../.gitignore/config.php';
 include '../php/functions.php';
 
 ?>
@@ -192,7 +191,7 @@ include '../php/functions.php';
             <?php
                 $category1 = "Todos"; //Todos, Chicos, Medianos, Grandes
                 $category2 = "Todos"; //Todos, Anime, Videojuegos
-                echo getProductsCards($connection, $category1, $category2);
+                echo getProductsCards($category1, $category2);
             ?>
 
         </div>
