@@ -1,7 +1,8 @@
 <?php
 
-include '../../.gitignore/config.php';
 include '../../php/functions.php';
+
+session_start();
 
 ?>
 
@@ -31,45 +32,7 @@ include '../../php/functions.php';
 
 <body class = "body-hammacraft">
 
-    <header class = "header-hammacraft">
-
-        <nav class = "nav-hammacraft">
-
-            <div>
-
-                <a href = "https://www.hammacraft.lat/">
-                <img class = "logo-item" src="../../images/logo.png" alt="Logo"> 
-                </a>
-
-            </div>
-
-            <div class = "search-bar-hammacraft">
-
-                <input type = "text" placeholder = "Buscar...">
-
-            </div>
-
-            <div class = "nav-hammacraft-links">
-
-                <a href="https://www.hammacraft.lat/">Pantalla principal</a>
-                <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
-                <a href="https://www.hammacraft.lat/php/pedidos.php">Pedidos</a>
-
-
-                <button class = "btn btn-dark">
-                    <i class="fas fa-shopping-cart"></i> Carrito
-                </button>
-                <a href="https://www.hammacraft.lat/php/login.php">
-                    <button class = "btn btn-dark">
-                        <i class="fa-solid fa-user"></i> Iniciar sesión
-                    </button>
-                </a>
-
-            </div>
-
-        </nav>
-
-    </header>
+    <?php include '../header.php'; ?>
 
     <main>
 
@@ -92,7 +55,7 @@ include '../../php/functions.php';
             <?php
                 $category1 = "Chicos"; //Todos, Chicos, Medianos, Grandes
                 $category2 = "Todos"; //Todos, Anime, Videojuegos
-                echo getProductsCards($connection, $category1, $category2);
+                echo getProductsCards($category1, $category2);
             ?>
 
         </div>

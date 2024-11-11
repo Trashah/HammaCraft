@@ -84,16 +84,3 @@ function getProductsCards($category1, $category2) {
     return $output;
 }
 
-function loginUser() {
-    $connection = connectToDatabase();
-    $username = $_POST["loginUsername"];
-    $password = $_POST["loginPassword"];
-
-}
-
-function signupUser() {
-    $connection = connectToDatabase();
-    $username = $_POST["signupUsername"];
-    $emal = $_POST["signupUsername"];
-    $password = $_POST["signupPassword"];
-}

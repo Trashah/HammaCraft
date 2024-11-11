@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <div class="signin-signup">
-            <form action="functions.php" method = "POST" class="sign-in-form">
+            <form action="login-process.php" method = "POST" class="sign-in-form">
                 <h2 class="title">Inicia Sesión</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
@@ -23,7 +23,7 @@
                     <i class="fas fa-lock"></i>
                     <input type="password" name = "loginPassword" placeholder="Contraseña">
                 </div>
-                <input type="submit" value="Inicia sesión" class="btn">
+                <input type="submit" name = "action" value = "Inicia Sesión" class="btn">
                 <div class="social-media">
                     <!--
                     <a href="#" class="social-icon">
@@ -42,7 +42,7 @@
                 </div>
                 <p class="account-text">¿No tienes una cuenta? <a href="#" id="sign-up-btn2">Regístrate</a></p>
             </form>
-            <form action = "functions.php" method = "POST" class="sign-up-form">
+            <form action = "login-process.php" method = "POST" class="sign-up-form">
                 <h2 class="title">Regístrate</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
@@ -56,7 +56,7 @@
                     <i class="fas fa-lock"></i>
                     <input type="password" name = "signupPassword" placeholder="Contraseña">
                 </div>
-                <input type="submit" value="Regístrate" class="btn">
+                <input type="submit" name = "action" value="Regístrate" class="btn">
                 <div class="social-media">
                     <!--
                     <a href="#" class="social-icon">
