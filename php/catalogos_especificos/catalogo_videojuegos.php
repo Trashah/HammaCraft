@@ -45,7 +45,7 @@ session_start();
                     <option value="/php/catalogos_especificos/catalogo_medianos.php">Medianos</option>
                     <option value="/php/catalogos_especificos/catalogo_grandes.php">Grandes</option>
                     <option value="/php/catalogos_especificos/catalogo_anime.php">Anime</option>
-                    <option value="/php/catalogos_especificos/catalogo_videojuegos.php">Videojuegos</option>
+                    <option value="/php/catalogos_especificos/catalogo_videojuegos.php" selected>Videojuegos</option>
                 </select>
             </form>
         </div>

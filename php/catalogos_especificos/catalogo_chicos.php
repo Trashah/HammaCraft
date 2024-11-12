@@ -41,7 +41,7 @@ session_start();
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">
                     <option value="">Seleccione una opción...</option>
                     <option value="/php/catalogo.php">Todos</option>
-                    <option value="/php/catalogos_especificos/catalogo_chicos.php">Chicos</option>
+                    <option value="/php/catalogos_especificos/catalogo_chicos.php" selected>Chicos</option>
                     <option value="/php/catalogos_especificos/catalogo_medianos.php">Medianos</option>
                     <option value="/php/catalogos_especificos/catalogo_grandes.php">Grandes</option>
                     <option value="/php/catalogos_especificos/catalogo_anime.php">Anime</option>
