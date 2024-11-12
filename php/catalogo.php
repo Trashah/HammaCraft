@@ -135,12 +135,12 @@ session_start();
 </header> -->
 
     <main>
-
+        <br>
+        <br>
         <div>
             <form>
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">
-                    <option value="">Seleccione una opción...</option>
-                    <option value="https://www.hammacraft.lat/php/catalogo.php">Todos</option>
+                    <option value="https://www.hammacraft.lat/php/catalogo.php" selected>Todos</option>
                     <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_chicos.php">Chicos</option>
                     <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_medianos.php">Medianos</option>
                     <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_grandes.php">Grandes</option>

@@ -35,11 +35,11 @@ session_start();
     <?php include '../header.php'; ?>
 
     <main>
-
+        <br>
+        <br>
         <div>
             <form class="menu-catalogo">
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">
-                    <option value="">Seleccione una opción...</option>
                     <option value="/php/catalogo.php">Todos</option>
                     <option value="/php/catalogos_especificos/catalogo_chicos.php">Chicos</option>
                     <option value="/php/catalogos_especificos/catalogo_medianos.php">Medianos</option>
