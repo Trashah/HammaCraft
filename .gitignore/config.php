@@ -1,13 +1,10 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "HammaCraft";
-
-//Create connection
 function connectToDatabase () {
-    global $servername, $username, $password, $dbname;
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "HammaCraft";
     static $connection;
 
     if ($connection == NULL) {

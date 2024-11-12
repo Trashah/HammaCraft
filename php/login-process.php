@@ -5,11 +5,23 @@ include __DIR__ . '/../.gitignore/config.php';
 $invalidLogin = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
     if ($_POST["action"] === "Regístrate") {
-        signupUser();
-    } else if ($_POST["action"] === "Inicia Sesión") {
-        loginUser();
+        $username = $_POST["signupUsername"];
+        $email = $_POST["signupEmail"];
+        $password = $_POST["signupPassword"];
+        $passwordHash = password_hash($_POST["signupPassword"], PASSWORD_DEFAULT);
+
+        signupUser($username, $email, $password);
+    } 
+
+    else if ($_POST["action"] === "Inicia Sesión") {
+        $username = $_POST["loginUsername"];
+        $password = $_POST["loginPassword"];
+
+        loginUser($username, $password);
     }
+
 }
 
 function checkEmptyInputs($username, $email, $password) {
@@ -24,10 +36,8 @@ function checkValidEmail($email) {
     }
 }
 
-function loginUser() {
+function loginUser($username, $password) {
     $connection = connectToDatabase();
-    $username = $_POST["loginUsername"];
-    $password = $_POST["loginPassword"];
     checkEmptyInputs($username, NULL, $password);
 
     $sql = sprintf("SELECT * FROM usuarios WHERE Nombre = '%s'", $connection -> real_escape_string($username));
@@ -40,6 +50,7 @@ function loginUser() {
         if (password_verify($password, $user["Password_Hash"])) {
             session_start();
             $_SESSION["userID"] = $user["ID"];
+            $_SESSION["userName"] = $user["Nombre"];
             header("Location: ../index.php");
             exit;
         }
@@ -50,11 +61,9 @@ function loginUser() {
 }
 
 
-function signupUser() {
+function signupUser($username, $email, $password) {
+    $passwordHash = password_hash($_POST["signupPassword"], PASSWORD_DEFAULT);
     $connection = connectToDatabase();
-    $username = $_POST["signupUsername"];
-    $email = $_POST["signupEmail"];
-    $password = password_hash($_POST["signupPassword"], PASSWORD_DEFAULT);
 
     checkEmptyInputs($username, $email, $password);
     checkValidEmail($email);
@@ -66,10 +75,10 @@ function signupUser() {
         die("Error de SQL: " . $connection -> error);
     }
 
-    $stmt -> bind_param("sss", $username, $email, $password);
+    $stmt -> bind_param("sss", $username, $email, $passwordHash);
 
     if($stmt -> execute()) {
-        echo "Registro exitoso.";
+        loginUser($username, $password);
     }
     else {
         die("Error de SQL: " . $connection->error . " " . $connection->errno);
