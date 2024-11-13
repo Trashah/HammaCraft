@@ -17,14 +17,14 @@ session_start();
     <title> HammaCraft </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="css/styles.css">
     <script src = "javascript/script.js" defer> </script>
     <style>
         body {
             background-color: #e5fefe; /* Morado claro */
         }
         .navbar {
-            background-color: #fbffff; /* Azul celeste */
+            background-color: #fff; /* Azul celeste */
         }
     </style>
 
@@ -69,21 +69,11 @@ session_start();
 
         </section>
 
-        <section class="newsletter">
-
-            <h2> Newsletter </h2>
-            <p> Mantente al día con nuestras promociones </p>
-
-            <form class="newsletter-form">
-
-                <input type = "email" placeholder = "Tu correo electronico">
-                <button type = "submit"> Súscribete </button>
-
-            </form>
-
-        </section>
+        
 
         <section class="product-grid">
+            <h2 align = "center">Productos Mejor Valorados</h2>
+              <br><br>
             <div class="grid-cards">
                 <div class="cards">
                     <figure>
