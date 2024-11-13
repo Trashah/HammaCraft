@@ -1,0 +1,294 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header styles */
+.header-hammacraft {
+    background: #fff !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+}
+
+.nav-hammacraft {
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-item{
+    width: 150px;
+    height: 55px;
+    
+}
+.search-bar-hammacraft input {
+    padding: 0.5rem;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.nav-hammacraft-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-hammacraft-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+.btn-hammacraft {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Estilos del progreso */
+.checkout-steps {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #f0f0f0;
+    padding: 20px 0;
+}
+
+.step {
+    font-size: 18px;
+    color: grey;
+}
+
+.step.active {
+    font-weight: bold;
+    color: black;
+}
+
+/* Carrito */
+.shopping-cart {
+    width: 60%;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    position: relative; /* Para posicionar el botón de eliminación */
+}
+
+.remove-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: transform 0.2s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.remove-btn:hover {
+    transform: scale(1.1);
+}
+
+.remove-btn:active {
+    animation: button-click 0.3s ease;
+}
+
+.select{
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    appearance: none;
+    transition:0.2s ease-in-out;
+}
+
+.select:hover{
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    
+}
+
+@keyframes button-click {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-details h3 {
+    margin: 0;
+}
+
+.price {
+    color: green;
+    font-weight: bold;
+}
+
+.cart-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-next, .btn-cancel {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-next {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Resumen */
+.summary {
+    width: 20%; /* Mantén el mismo ancho */
+    padding: 20px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Hace que el resumen se quede visible mientras se hace scroll */
+    top: 20px; /* A partir de 20px desde el borde superior */
+}
+
+.summary h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.coupon-code {
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.totals p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.totals .total {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@keyframes button-click {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate {
+    animation: button-click 0.3s ease;
+}
+
+/* Contenedor de productos */
+.cart-products {
+    flex: 0 1 65%; /* Ocupa el 65% del ancho total */
+    padding-right: 20px; /* Añadir espacio a la derecha para separar los productos del resumen */
+}
+
+/* Ajuste de texto del resumen */
+.cart-summary p {
+    margin: 5px 0;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 4rem 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    line-height: 2;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+/* Fin Footer */
