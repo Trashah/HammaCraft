@@ -19,10 +19,12 @@
                 <a href="/php/catalogo.php">Catálogo</a>
                 <a href="/php/pedidos.php">Pedidos</a>
 
-                
-                <button class = "btn btn-dark">
+                <a href="/php/carrito_compras.html">
+                    <button class = "btn btn-dark">
                     <i class="fas fa-shopping-cart"></i> Carrito
-                </button>
+                    </button>
+                </a>
+                
 
                 <?php if (isset($_SESSION["userID"])): ?>
                     <button class = "btn btn-dark">
