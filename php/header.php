@@ -19,7 +19,7 @@
                 <a href="/php/catalogo.php">Catálogo</a>
                 <a href="/php/pedidos.php">Pedidos</a>
 
-
+                
                 <button class = "btn btn-dark">
                     <i class="fas fa-shopping-cart"></i> Carrito
                 </button>
