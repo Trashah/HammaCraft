@@ -24,7 +24,7 @@ session_start();
             background-color: #e5fefe; /* Morado claro */
         }
         .navbar {
-            background-color: #fbffff; /* Azul celeste */
+            background-color: #fff; /* Azul celeste */
         }
     </style>
 
@@ -72,6 +72,7 @@ session_start();
         
 
         <section class="product-grid">
+            <h2 align = "center">Productos Mejor Valorados</h2>
             <div class="grid-cards">
                 <div class="cards">
                     <figure>
