@@ -69,19 +69,7 @@ session_start();
 
         </section>
 
-        <section class="newsletter">
-
-            <h2> Newsletter </h2>
-            <p> Mantente al día con nuestras promociones </p>
-
-            <form class="newsletter-form">
-
-                <input type = "email" placeholder = "Tu correo electronico">
-                <button type = "submit"> Súscribete </button>
-
-            </form>
-
-        </section>
+        
 
         <section class="product-grid">
             <div class="grid-cards">
