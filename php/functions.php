@@ -25,28 +25,32 @@ function getProducts($lowerLimit, $rowCount) {
 }
 
 function getProductsCards($category1, $category2) {
+
     $connection = connectToDatabase();
     $colClass = "";
     $cardClass = "card";
     $imgClass = "card-img-top";
     $buttonClass = "btn btn-primary";
 
-    if ($category1 == "Todos" && $category2 == "Todos") {
+    if ($category1 == "Todos" and $category2 == "Todos") {
         $sql = "SELECT * FROM productos";
-    } elseif ($category1 != "Todos" && $category2 == "Todos") {
-        $sql = "SELECT * FROM productos WHERE categoria1 = ?";
-    } elseif ($category1 == "Todos" && $category2 != "Todos") {
-        $sql = "SELECT * FROM productos WHERE categoria2 = ?";
-    } else {
-        $sql = "SELECT * FROM productos WHERE categoria1 = ? AND categoria2 = ?";
+        $statement = $connection->prepare($sql);
     }
-
-    $statement = $connection->prepare($sql);
-    if ($category1 != "Todos" && $category2 == "Todos") {
+    else if ($category1 != "Todos" and $category2 == "Todos") {
+        $sql = "SELECT * FROM productos WHERE categoria1 = ?";
+        $statement = $connection->prepare($sql);
         $statement->bind_param("s", $category1);
-    } elseif ($category1 == "Todos" && $category2 != "Todos") {
+
+    }
+    else if ($category1 == "Todos" and $category2 != "Todos") {
+        $sql = "SELECT * FROM productos WHERE categoria2 = ?";
+        $statement = $connection->prepare($sql);
         $statement->bind_param("s", $category2);
-    } elseif ($category1 != "Todos" && $category2 != "Todos") {
+
+    }
+    else {
+        $sql = "SELECT * FROM productos WHERE categoria1 = ? AND categoria2 = ?";
+        $statement = $connection->prepare($sql);
         $statement->bind_param("ss", $category1, $category2);
     }
 
@@ -67,15 +71,9 @@ function getProductsCards($category1, $category2) {
         $output .= '<h5 class="card-title font-weight-bold">Categorías</h5>';
         $output .= '<p class="card-text">' . htmlspecialchars($row['Categoria1']) . ', ' . htmlspecialchars($row['Categoria2']) .'</p>'; 
         $output .= '<p class="card-text">$' . number_format($row['Precio'], 2) . '</p>';
-
-        // Añadir evento onclick al botón
-        $output .= '<a href="#" class="' . htmlspecialchars($buttonClass) . '" onclick="agregarAlCarrito({
-            id: ' . htmlspecialchars($row['Id']) . ',
-            nombre: \'' . htmlspecialchars($row['NombreProducto']) . '\',
-            descripcion: \'' . htmlspecialchars($row['Descripcion']) . '\',
-            imagen: \'/images/' . htmlspecialchars($row['Imagen']) . '\',
-            precio: \'' . number_format($row['Precio'], 2) . '\'
-        })">Añadir a Carrito</a>';
+        
+        // Button
+        $output .= '<a href="#" class="' . htmlspecialchars($buttonClass) . '">Añadir a Carrito</a>';
         $output .= '</div>';
         $output .= '</div>';
         $output .= '</div>';
@@ -85,4 +83,5 @@ function getProductsCards($category1, $category2) {
 
     return $output;
 }
+
 
