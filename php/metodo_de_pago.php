@@ -1,3 +1,10 @@
+<?php
+
+include 'functions.php';
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +14,8 @@
     <link rel="stylesheet" href="/css/metodo_de_pago.css">
 </head>
 <body>
-    <!-- Cabecera -->
+    <?php include 'header.php'; ?>
+    <!-- Cabecera 
     <header>
         <nav>
             <div>
@@ -26,7 +34,7 @@
                 </button>
             </div>
         </nav>
-    </header>
+    </header>-->
 
     <div class="checkout-steps">
         <div class="step">1. Carrito de compras</div>

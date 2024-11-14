@@ -1,3 +1,10 @@
+<?php
+
+include 'functions.php';
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,8 +15,8 @@
     <link rel="stylesheet" href="/css/carrito_compras.css">
 </head>
 <body>
-
-    <!-- Cabecera -->
+<?php include 'header.php'; ?>
+    <!-- Cabecera 
     <header class = "header-hammacraft">
 
         <nav class = "nav-hammacraft">
@@ -49,7 +56,7 @@
 
         </nav>
 
-    </header>
+    </header>-->
 
     <!-- Progreso del pedido -->
     <div class="checkout-steps">

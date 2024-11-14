@@ -1,3 +1,10 @@
+<?php
+
+include 'functions.php';
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,8 +14,8 @@
     <link rel="stylesheet" href="/css/detalles_de_envio.css">
 </head>
 <body>
-
-<!-- Cabecera -->
+<?php include 'header.php'; ?>
+<!-- Cabecera 
 <header>
     <nav>
         <div>
@@ -27,7 +34,7 @@
             </button>
         </div>
     </nav>
-</header>
+</header>-->
 
     <!-- Progreso del pedido -->
     <div class="checkout-steps">
