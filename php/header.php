@@ -2,7 +2,7 @@
     <nav class = "nav-hammacraft">
         <div>
             <a href = "/index.php">
-                <img class = "logo-item" src="/images/logo.png" alt="Logo"> 
+                <img class = "logo-item" src="/images/logo_header.png" alt="Logo"> 
             </a>
 
             </div>
