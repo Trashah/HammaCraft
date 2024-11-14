@@ -39,7 +39,18 @@ session_start();
         <br>
         <h2>Rellene el siguiente formulario para realizar su pedido personalizado</h2>
         <br>
-        <form>
+        
+        <script>
+            
+            function mostrarMensaje(event) {
+                event.preventDefault();
+                alert("Solicitud Enviada");
+                location.reload();
+            }
+
+        </script>
+        
+        <form onsubmit="mostrarMensaje(event)">
             <label for="NombreP"> Nombre del personaje/objeto: </label> <input type="text"> <br>
             <label for="Desc"> Descripción del personaje/objeto: </label> <br>
             <textarea cols="30" rows="3"></textarea>
