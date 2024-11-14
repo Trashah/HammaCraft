@@ -37,6 +37,7 @@ session_start();
         <center>
         <h1>¿Tiene algún pedido en especifico?</h1>
         <br>
+        <br>
         <h2>Rellene el siguiente formulario para realizar su pedido personalizado</h2>
         <br>
         
