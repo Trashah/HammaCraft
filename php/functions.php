@@ -83,4 +83,3 @@ function getProductsCards($category1, $category2) {
 
     return $output;
 }
-
