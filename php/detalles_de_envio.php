@@ -94,8 +94,8 @@ session_start();
             </div>
 
             <div class="form-buttons">
-                <button type="button" class="btn-next" onclick="window.location.href='metodo_de_pago.html'">Siguiente</button>
-                <button type="button" class="btn-cancel" onclick="window.location.href='carrito_compras.html'">Cancelar</button>
+                <button type="button" class="btn-next" onclick="window.location.href='metodo_de_pago.php'">Siguiente</button>
+                <button type="button" class="btn-cancel" onclick="window.location.href='carrito_compras.php'">Cancelar</button>
             </div>
         </form>
     </section>

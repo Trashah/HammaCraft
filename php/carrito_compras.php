@@ -99,7 +99,7 @@ session_start();
             </div>
             
         <div class="cart-buttons">
-            <button class="btn-next" onclick="window.location.href='detalles_de_envio.html'">Siguiente</button>
+            <button class="btn-next" onclick="window.location.href='detalles_de_envio.php'">Siguiente</button>
             <button class="btn-cancel">Cancelar</button>
         </div>
     </section>

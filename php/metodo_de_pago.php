@@ -70,7 +70,7 @@ session_start();
 
             <div class="action-buttons">
                 <button class="btn-next">Pagar</button>
-                <button class="btn-cancel" onclick="window.location.href='detalles_de_envio.html'">Cancelar</button>
+                <button class="btn-cancel" onclick="window.location.href='detalles_de_envio.php'">Cancelar</button>
             </div>
         </div>
 
