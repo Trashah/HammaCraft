@@ -25,9 +25,8 @@ function getProducts($lowerLimit, $rowCount) {
 }
 
 function getProductsCards($category1, $category2) {
-
     $connection = connectToDatabase();
-    $colClass = "";
+    $colClass = "col-md-4";
     $cardClass = "card";
     $imgClass = "card-img-top";
     $buttonClass = "btn btn-primary";
@@ -35,20 +34,15 @@ function getProductsCards($category1, $category2) {
     if ($category1 == "Todos" and $category2 == "Todos") {
         $sql = "SELECT * FROM productos";
         $statement = $connection->prepare($sql);
-    }
-    else if ($category1 != "Todos" and $category2 == "Todos") {
+    } else if ($category1 != "Todos" and $category2 == "Todos") {
         $sql = "SELECT * FROM productos WHERE categoria1 = ?";
         $statement = $connection->prepare($sql);
         $statement->bind_param("s", $category1);
-
-    }
-    else if ($category1 == "Todos" and $category2 != "Todos") {
+    } else if ($category1 == "Todos" and $category2 != "Todos") {
         $sql = "SELECT * FROM productos WHERE categoria2 = ?";
         $statement = $connection->prepare($sql);
         $statement->bind_param("s", $category2);
-
-    }
-    else {
+    } else {
         $sql = "SELECT * FROM productos WHERE categoria1 = ? AND categoria2 = ?";
         $statement = $connection->prepare($sql);
         $statement->bind_param("ss", $category1, $category2);
@@ -57,7 +51,7 @@ function getProductsCards($category1, $category2) {
     $statement->execute();
     $result = $statement->get_result();
 
-    $output = '';
+    $output = '<div class="row justify-content-center mt-4">';
     while ($row = $result->fetch_assoc()) {
         $output .= '<div class="' . htmlspecialchars($colClass) . '">';
         $output .= '<div class="' . htmlspecialchars($cardClass) . '" style="width: 18rem; margin: 50px;">';
@@ -72,16 +66,21 @@ function getProductsCards($category1, $category2) {
         $output .= '<p class="card-text">' . htmlspecialchars($row['Categoria1']) . ', ' . htmlspecialchars($row['Categoria2']) .'</p>'; 
         $output .= '<p class="card-text">$' . number_format($row['Precio'], 2) . '</p>';
         
-        // Button
-        $output .= '<a href="#" class="' . htmlspecialchars($buttonClass) . '">Añadir a Carrito</a>';
+        // Botón "Añadir a Carrito"
+        $output .= '<a href="#" class="' . htmlspecialchars($buttonClass) . '" onclick="agregarAlCarrito({
+            id: ' . $row['ID'] . ',
+            nombre: \'' . htmlspecialchars($row['NombreProducto']) . '\',
+            descripcion: \'' . htmlspecialchars($row['Descripcion']) . '\',
+            imagen: \'/images/' . htmlspecialchars($row['Imagen']) . '\',
+            precio: \'$' . number_format($row['Precio'], 2) . '\'
+        })">Añadir a Carrito</a>';
+        
         $output .= '</div>';
         $output .= '</div>';
         $output .= '</div>';
     }
+    $output .= '</div>';
 
     $statement->close();
-
     return $output;
 }
-
-
