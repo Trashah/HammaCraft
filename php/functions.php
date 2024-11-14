@@ -68,7 +68,7 @@ function getProductsCards($category1, $category2) {
         
         // Botón "Añadir a Carrito"
         $output .= '<a href="#" class="' . htmlspecialchars($buttonClass) . '" onclick="agregarAlCarrito({
-            id: ' . $row['ID'] . ',
+            id: ' . $row['ID_P'] . ',
             nombre: \'' . htmlspecialchars($row['NombreProducto']) . '\',
             descripcion: \'' . htmlspecialchars($row['Descripcion']) . '\',
             imagen: \'/images/' . htmlspecialchars($row['Imagen']) . '\',
