@@ -64,8 +64,12 @@ session_start();
             <br>
             <input type="file">
             <br>
-            <input type="submit" value="Enviar pedido">
-            <br><br>
+            <br>
+            <input type="reset" value="Limpiar Solicitud">
+            <p>   </p>
+            <input type="submit" value="Enviar Pedido">
+            <br>
+            <br>
         </form>
         </center>
 
