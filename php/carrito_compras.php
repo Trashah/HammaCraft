@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $removeProductID = null;
     if (isset($_POST['removeItem']) && isset($_POST['removeProductID'])) {
-        $productID = $_POST['removeProductID'];
+        $removeProductID = $_POST['removeProductID'];
         $index = array_search($removeProductID, $_SESSION['cart']);
         unset($_SESSION['cart'][$index]);
         $_SESSION['cart'] = array_values($_SESSION['cart']);    
@@ -151,7 +151,7 @@ $total = 0;
                 <?php $total += $item["Precio"]; ?>
 
                 <form method = "POST">
-                    <input type = "hidden" name = "removeProductID" value = "<?php $productID ?>">
+                    <input type = "hidden" name = "removeProductID" value = "<?php echo $productID ?>">
                     <button type = "submit" name = "removeItem" class="remove-btn">&times; </button>
                 </form>
                     
