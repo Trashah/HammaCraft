@@ -120,7 +120,10 @@ $total = 0;
         <h2>Shopping Cart</h2>
         <div class="cart-items">
 
-            <?php foreach ($_SESSION['cart'] as $productID): ?>
+            <?php 
+            if (isset($_SESSION["cart"])):
+            foreach($_SESSION["cart"] as $productID): 
+            ?>
 
             <div class="cart-item">
 
@@ -152,7 +155,10 @@ $total = 0;
                     
             </div>
 
-            <?php endforeach; ?>
+            <?php 
+            endforeach;
+            endif;
+            ?>
             
         <div class="cart-buttons">
             <button class="btn-next" onclick="window.location.href='detalles_de_envio.php'">Siguiente</button>
