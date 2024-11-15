@@ -42,7 +42,7 @@ function getCurrentItem($productID) {
     return $currentItem;
 }
 
-$total = 0;
+$_SESSION["total"] = 0;
 
 ?>
 
@@ -148,7 +148,7 @@ $total = 0;
 
                 </div>
 
-                <?php $total += $item["Precio"]; ?>
+                <?php $_SESSION["total"] += $item["Precio"]; ?>
 
                 <form method = "POST">
                     <input type = "hidden" name = "removeProductID" value = "<?php echo $productID ?>">
@@ -175,9 +175,9 @@ $total = 0;
         <h2>Total</h2>
         <div class="totals">
 
-            <p>Subtotal: <span> $<?php echo $total; ?></span></p>
+            <p>Subtotal: <span> $<?php echo $_SESSION["total"]; ?></span></p>
             <p>Envio: <span> GRATIS </span></p>
-            <p class="total">TOTAL: <span> $<?php echo $total; ?> </span></p>
+            <p class="total">TOTAL: <span> $<?php echo $_SESSION["total"]; ?> </span></p>
 
         </div>
 

@@ -5,6 +5,7 @@ include 'functions.php';
 session_start();
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -106,6 +107,7 @@ session_start();
     <!-- Resumen del pedido -->
     <aside class="summary">
         <h2>Total</h2>
+        <!--
         <div class="cart-summary">
             <div class="cart-item">
                 <img src="product1.jpg" alt="Product Name">
@@ -118,12 +120,13 @@ session_start();
                 <span class="price">$300</span>
             </div>
         </div>
-    
+        -->
+
         <div class="totals">
-            <p>Subtotal: <span>$600</span></p>
+            <p>Subtotal: <span>$<?php echo $_SESSION["total"]; ?></span></p>
             <p>Envio: <span>Gratis</span></p>
-            <p>IVA: <span>$13</span></p>
-            <p class="total">TOTAL: <span>$613</span></p>
+            <!-- <p>IVA: <span>$13</span></p> -->
+            <p class="total">TOTAL: <span>$<?php echo $_SESSION["total"]; ?></span></p>
         </div>
     </aside>
 

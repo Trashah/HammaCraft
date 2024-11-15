@@ -76,9 +76,11 @@ session_start();
                 <button class="btn-cancel" onclick="window.location.href='detalles_de_envio.php'">Cancelar</button>
             </div>
         </div>
-
+        
+        
         <div class="summary-section">
             <h2>Total</h2>
+            <!--
             <div class="cart-item">
                 <img src="product-placeholder.png" alt="Product Image">
                 <p>PRODUCT NAME<br>$300</p>
@@ -87,11 +89,12 @@ session_start();
                 <img src="product-placeholder.png" alt="Product Image">
                 <p>PRODUCT NAME<br>$300</p>
             </div>
+            -->
             <div class="totals">
-                <p>Subtotal: <span>$600</span></p>
+                <p>Subtotal: <span>$<?php echo $_SESSION["total"]; ?></span></p>
                 <p>Envio: <span>FREE</span></p>
-                <p>IVA: <span>$13</span></p>
-                <p class="total">Total: <span>$613</span></p>
+                <!-- <p>IVA: <span>$13</span></p> -->
+                <p class="total">Total: <span>$<?php echo $_SESSION["total"]; ?></span></p>
             </div>
         </div>
     </div>
