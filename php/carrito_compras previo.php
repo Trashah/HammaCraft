@@ -13,36 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION["cart"][] = $_POST["productID"];
 
     }
-
-    $removeProductID = null;
-    if (isset($_POST['removeItem']) && isset($_POST['removeProductID'])) {
-        $productID = $_POST['removeProductID'];
-        $index = array_search($removeProductID, $_SESSION['cart']);
-        unset($_SESSION['cart'][$index]);
-        $_SESSION['cart'] = array_values($_SESSION['cart']);    
-    }
 }
-
-
-function getCurrentItem($productID) {
-    $connection = connectToDatabase();
-    $sql = "SELECT * FROM productos where ID_P = ?";
-
-    $statement = $connection -> prepare($sql);
-    $statement -> bind_param("i", $productID);
-    $statement -> execute();
-    $result = $statement -> get_result();
-
-    if (!($result -> num_rows > 0)) {
-        return null;
-    }
-
-    $currentItem = $result -> fetch_assoc();
-
-    return $currentItem;
-}
-
-$total = 0;
 
 ?>
 
@@ -61,6 +32,14 @@ $total = 0;
 </head>
 
 <body>
+
+<?php 
+
+foreach ($_SESSION["cart"] as $productID) {
+    echo "ID de producto: $productID";
+}
+
+?>
 
 <?php include 'header.php'; ?>
     <!-- Cabecera 
@@ -120,39 +99,42 @@ $total = 0;
         <h2>Shopping Cart</h2>
         <div class="cart-items">
 
-            <?php foreach ($_SESSION['cart'] as $productID): ?>
-
             <div class="cart-item">
 
-                <?php $item = getCurrentItem($productID); ?>
-
-                <img src = "/images/<?php echo $item["Imagen"]; ?>" alt = "<?php echo $item["NombreProducto"] ?>">
+                <img src="product1.jpg" alt="Producto 1">
                 <div class="item-details">
 
-                    <h3> <?php echo $item["NombreProducto"]; ?></h3>
-                    <p> <?php echo $item["Descripcion"]; ?> </p>
-                    <span class="price"> $<?php echo $item["Precio"]; ?> </span>
-
-                    <!--
+                    <h3>NOMBRE DEL PRODUCTO</h3>
+                    <p>Esto es un ejemplo</p>
+                    <span class="price">$300</span>
                     <select>
                         <option value="1">1 pcs</option>
                         <option value="2">2 pcs</option>
                         <option value="3">3 pcs</option>
                     </select>
-                    -->
 
                 </div>
-
-                <?php $total += $item["Precio"]; ?>
-
-                <form method = "POST">
-                    <input type = "hidden" name = "removeProductID" value = "<?php $productID ?>">
-                    <button type = "submit" name = "removeItem" class="remove-btn">&times; </button>
-                </form>
-                    
+                <button class="remove-btn">&times;</button>
             </div>
 
-            <?php endforeach; ?>
+            <div class="cart-item">
+
+                <img src="product1.jpg" alt="Producto 1">
+                <div class="item-details">
+
+                    <h3>NOMBRE DEL PRODUCTO</h3>
+                    <p>Esto es un ejemplo</p>
+                    <span class="price">$300</span>
+                    <select class="select">
+                        <option value="1">1 pcs</option>
+                        <option value="2">2 pcs</option>
+                        <option value="3">3 pcs</option>
+                    </select>
+
+                </div>
+                <button class="remove-btn">&times;</button>
+
+            </div>
             
         <div class="cart-buttons">
             <button class="btn-next" onclick="window.location.href='detalles_de_envio.php'">Siguiente</button>
@@ -167,9 +149,10 @@ $total = 0;
         <h2>Total</h2>
         <div class="totals">
 
-            <p>Subtotal: <span> $<?php echo $total; ?></span></p>
-            <p>Envio: <span> GRATIS </span></p>
-            <p class="total">TOTAL: <span> $<?php echo $total; ?> </span></p>
+            <p>Subtotal: <span>$600</span></p>
+            <p>Envio: <span>FREE</span></p>
+            <p>IVA: <span>$13</span></p>
+            <p class="total">TOTAL: <span>$613</span></p>
 
         </div>
 

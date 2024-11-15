@@ -73,7 +73,11 @@ function getProductsCards($category1, $category2) {
         $output .= '<p class="card-text">$' . number_format($row['Precio'], 2) . '</p>';
         
         // Button
-        $output .= '<a href="#" class="' . htmlspecialchars($buttonClass) . '">Añadir a Carrito</a>';
+        $output .= 
+        '<form action = "/php/carrito_compras.php" method = "POST">
+        <input type = "hidden" name = "productID" value = "' . htmlspecialchars($row['ID_P']) . '">
+        <button type = "submit" class="' . htmlspecialchars($buttonClass) . '">Añadir a Carrito</button>
+        </form>';
         $output .= '</div>';
         $output .= '</div>';
         $output .= '</div>';
