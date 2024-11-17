@@ -72,6 +72,56 @@ session_start();
             <br>
         </form>
         </center>
+<div>
+    <center>
+        <style>
+            video {
+                display: none;
+                
+
+            }
+        </style>
+    <video id="konamiVideo" controls>
+        <source src="mecha.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de videos.
+      </video>
+    
+      <script>
+        // Secuencia del Código Konami: ↑ ↑ ↓ ↓ ← → ← → B A
+        const konamiCode = [
+          "ArrowUp", "ArrowUp", 
+          "ArrowDown", "ArrowDown", 
+          "ArrowLeft", "ArrowRight", 
+          "ArrowLeft", "ArrowRight", 
+          "b", "a"
+        ];
+        
+        let currentIndex = 0;
+    
+        document.addEventListener("keydown", (event) => {
+          // Verificar la tecla presionada
+          if (event.key === konamiCode[currentIndex]) {
+            currentIndex++;
+            // Si la secuencia está completa
+            if (currentIndex === konamiCode.length) {
+              activateKonamiCode();
+              currentIndex = 0; // Reiniciar el índice para futuras ejecuciones
+            }
+          } else {
+            currentIndex = 0; // Reiniciar si la tecla es incorrecta
+          }
+        });
+    
+        function activateKonamiCode() {
+          const video = document.getElementById("konamiVideo");
+          video.style.display = "block"; // Mostrar el video
+          video.play(); // Reproducir el video
+          alert("¡IT'S MECHA MECHA TIME!");
+        }
+      </script>
+      </center>
+</div>
+
 
     </main>
 
