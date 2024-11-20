@@ -1,28 +1,51 @@
-<?php
+include 'functions.php';
+
 session_start();
 
-// Verificar que el carrito no esté vacío antes de continuar con el pago
-if (empty($_SESSION['cart'])) {
-    header('Location: carrito_compras.php');
-    exit();
+// Asegúrate de que el carrito esté inicializado
+if (!isset($_SESSION["cart"])) {
+    $_SESSION["cart"] = [];
 }
 
-// Si ya tienes la dirección de envío almacenada, asegúrate de que se haya completado
-if (!isset($_SESSION['shipping_address'])) {
-    header('Location: detalles_de_envio.php');
-    exit();
-}
-
+// Procesar el formulario de agregar al carrito
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Aquí podrías agregar lógica para procesar el pago (esto es solo un ejemplo básico)
-    // Guardamos el método de pago en la sesión, o podrías procesar el pago con un API de pago como Stripe, PayPal, etc.
-    $_SESSION['payment_method'] = $_POST['payment_method'];
-    $_SESSION['payment_details'] = $_POST['payment_details'];
+    if (isset($_POST["productID"])) {
+        $_SESSION["cart"][] = $_POST["productID"];
+    }
 
-    // Redirigir a una página de confirmación de compra
-    header('Location: confirmacion.php');
-    exit();
+    // Eliminar un producto
+    if (isset($_POST['removeItem']) && isset($_POST['removeProductID'])) {
+        $removeProductID = $_POST['removeProductID'];
+        // Buscar el índice del producto
+        $index = array_search($removeProductID, $_SESSION['cart']);
+        if ($index !== false) {
+            // Eliminar el producto de la sesión
+            unset($_SESSION['cart'][$index]);
+            $_SESSION['cart'] = array_values($_SESSION['cart']);  // Reindexar el arreglo
+        }
+    }
 }
+
+// Función para obtener detalles del producto
+function getCurrentItem($productID) {
+    $connection = connectToDatabase();
+    $sql = "SELECT * FROM productos WHERE ID_P = ?";
+
+    $statement = $connection->prepare($sql);
+    $statement->bind_param("i", $productID);
+    $statement->execute();
+    $result = $statement->get_result();
+
+    if ($result->num_rows <= 0) {
+        return null;
+    }
+
+    return $result->fetch_assoc();
+}
+
+// Inicializar el total
+$_SESSION["total"] = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Método de Pago</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/carrito_compras.css">
+    <title>Mi carrito</title>
 </head>
 
 <body>
@@ -40,64 +66,86 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php include 'header.php'; ?>
 
 <div class="checkout-steps">
-    <div class="step">1. Carrito de compras</div>
+    <div class="step active">1. Carrito de compras</div>
     <div class="step">2. Detalles de envío</div>
-    <div class="step active">3. Método de pago</div>
+    <div class="step">3. Método de pago</div>
 </div>
 
-<section class="payment-method">
-    <h2>Elige un Método de Pago</h2>
-    <form action="" method="POST">
-        <div class="form-group">
-            <label for="payment_method">Método de Pago</label>
-            <select name="payment_method" id="payment_method" class="form-control" required>
-                <option value="credit_card">Tarjeta de Crédito/Débito</option>
-                <option value="paypal">PayPal</option>
-                <!-- Agrega otros métodos de pago si es necesario -->
-            </select>
-        </div>
+<section class="shopping-cart">
+    <h2>Carrito de compras</h2>
+    <div class="cart-items">
+        <?php 
+        if (isset($_SESSION["cart"]) && !empty($_SESSION["cart"])): 
+            foreach ($_SESSION["cart"] as $productID): 
+                $item = getCurrentItem($productID);
+                if ($item):
+        ?>
+            <div class="cart-item">
+                <img src="/images/<?php echo $item["Imagen"]; ?>" alt="<?php echo $item["NombreProducto"]; ?>">
+                <div class="item-details">
+                    <h3><?php echo $item["NombreProducto"]; ?></h3>
+                    <p><?php echo $item["Descripcion"]; ?></p>
+                    <span class="price">$<?php echo $item["Precio"]; ?></span>
+                </div>
 
-        <div class="payment-details">
-            <div id="credit_card_details" style="display:none;">
-                <h4>Detalles de Tarjeta de Crédito</h4>
-                <div class="form-group">
-                    <label for="card_number">Número de tarjeta</label>
-                    <input type="text" name="payment_details[card_number]" id="card_number" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="expiry_date">Fecha de expiración</label>
-                    <input type="month" name="payment_details[expiry_date]" id="expiry_date" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="cvv">CVV</label>
-                    <input type="text" name="payment_details[cvv]" id="cvv" class="form-control" required>
-                </div>
+                <?php 
+                // Actualizar el total
+                $_SESSION["total"] += $item["Precio"]; 
+                ?>
+
+                <form method="POST" style="display:inline;">
+                    <input type="hidden" name="removeProductID" value="<?php echo $productID; ?>">
+                    <button type="submit" name="removeItem" class="remove-btn">×</button>
+                </form>
             </div>
+        <?php 
+                endif;
+            endforeach;
+        else:
+        ?>
+        <p>No hay productos en tu carrito.</p>
+        <?php endif; ?>
+    </div>
 
-            <div id="paypal_details" style="display:none;">
-                <h4>Detalles de PayPal</h4>
-                <p>Serás redirigido a PayPal para completar el pago.</p>
-            </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Procesar Pago</button>
-    </form>
+    <div class="cart-buttons">
+        <button class="btn-next" onclick="window.location.href='detalles_de_envio.php'">Siguiente</button>
+        <button class="btn-cancel">Cancelar</button>
+    </div>
 </section>
 
-<script>
-    // Mostrar los detalles del pago según el método seleccionado
-    document.getElementById('payment_method').addEventListener('change', function () {
-        var paymentMethod = this.value;
+<aside class="summary">
+    <h2>Total</h2>
+    <div class="totals">
+        <p>Subtotal: <span>$<?php echo $_SESSION["total"]; ?></span></p>
+        <p>Envio: <span>GRATIS</span></p>
+        <p class="total">TOTAL: <span>$<?php echo $_SESSION["total"]; ?></span></p>
+    </div>
+</aside>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>MENU</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+        </div>
         
-        if (paymentMethod === 'credit_card') {
-            document.getElementById('credit_card_details').style.display = 'block';
-            document.getElementById('paypal_details').style.display = 'none';
-        } else if (paymentMethod === 'paypal') {
-            document.getElementById('credit_card_details').style.display = 'none';
-            document.getElementById('paypal_details').style.display = 'block';
-        }
-    });
-</script>
+        <div class="footer-section">
+            <h3>SÍGUENOS</h3>
+            <ul>
+                <li><a href="#facebook">Facebook</a></li>
+                <li><a href="#twitter">Twitter</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="/javascript/carrito_compras.js"></script>
 
 </body>
 
