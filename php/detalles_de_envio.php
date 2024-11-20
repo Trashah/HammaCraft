@@ -13,8 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstName = $_POST['first-name'] ?? '';
     $lastName = $_POST['last-name'] ?? '';
     $address = $_POST['address'] ?? '';
-    $address2 = $_POST['address2'] ?? '';
-    $country = $_POST['country'] ?? '';
     $city = $_POST['city'] ?? '';
     $postalCode = $_POST['postal-code'] ?? '';
     $phone = $_POST['phone'] ?? '';
@@ -34,8 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'first_name' => $firstName,
             'last_name' => $lastName,
             'address' => $address,
-            'address2' => $address2,
-            'country' => $country,
             'city' => $city,
             'postal_code' => $postalCode,
             'phone' => $phone,
@@ -56,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Detalles de Envío</title>
-    <link rel="stylesheet" href="/css/detalles_de_envio.css">
 </head>
 <body>
 
@@ -103,17 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
         </div>
         <div class="form-group">
-            <label for="address2">Dirección 2 (opcional):</label>
-            <input type="text" id="address2" name="address2" class="form-control" value="<?php echo htmlspecialchars($address2 ?? '') ?>">
-        </div>
-        <div class="form-group">
-            <label for="country">País:</label>
-            <input type="text" id="country" name="country" class="form-control <?php echo isset($errors['country']) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($country ?? '') ?>" required>
-            <?php if (isset($errors['country'])): ?>
-                <div class="invalid-feedback"><?php echo $errors['country']; ?></div>
-            <?php endif; ?>
-        </div>
-        <div class="form-group">
             <label for="city">Ciudad:</label>
             <input type="text" id="city" name="city" class="form-control <?php echo isset($errors['city']) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($city ?? '') ?>" required>
             <?php if (isset($errors['city'])): ?>
@@ -149,29 +133,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="carrito_compras.php" class="btn btn-secondary">Regresar</a>
     </form>
 </section>
-
-<footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>MENU</h3>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#help">Help</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer-section">
-            <h3>SIGUENOS</h3>
-            <ul>
-                <li><a href="#facebook">Facebook</a></li>
-                <li><a href="#twitter">Twitter</a></li>
-                <li><a href="#instagram">Instagram</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
 
 </body>
 </html>
