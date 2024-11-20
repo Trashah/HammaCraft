@@ -96,7 +96,7 @@ session_start();
                 // Mostrar notificación de agradecimiento
                 alert("¡Gracias por tu compra!");
                 // Vaciar el carrito (ejemplo: redirigir al carrito vacío)
-                window.location.href = 'carrito.php?vaciar=true';
+                window.location.href = 'carrito_compras.php?vaciar=true';
             } else {
                 alert("Por favor, complete todos los campos de dirección antes de continuar.");
             }
