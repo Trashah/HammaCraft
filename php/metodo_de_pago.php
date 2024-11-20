@@ -1,107 +1,104 @@
 <?php
-include 'functions.php';
 session_start();
+
+// Verificar que el carrito no esté vacío antes de continuar con el pago
+if (empty($_SESSION['cart'])) {
+    header('Location: carrito_compras.php');
+    exit();
+}
+
+// Si ya tienes la dirección de envío almacenada, asegúrate de que se haya completado
+if (!isset($_SESSION['shipping_address'])) {
+    header('Location: detalles_de_envio.php');
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Aquí podrías agregar lógica para procesar el pago (esto es solo un ejemplo básico)
+    // Guardamos el método de pago en la sesión, o podrías procesar el pago con un API de pago como Stripe, PayPal, etc.
+    $_SESSION['payment_method'] = $_POST['payment_method'];
+    $_SESSION['payment_details'] = $_POST['payment_details'];
+
+    // Redirigir a una página de confirmación de compra
+    header('Location: confirmacion.php');
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/metodo_de_pago.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title>Método de Pago</title>
 </head>
+
 <body>
-    <?php include 'header.php'; ?>
 
-    <div class="checkout-steps">
-        <div class="step">1. Carrito de compras</div>
-        <div class="step">2. Detalles de envio</div>
-        <div class="step active">3. Método de pago</div>
-    </div>
+<?php include 'header.php'; ?>
 
-    <div class="container">
-        <div class="payment-section">
-            <h2>Payment method</h2>
+<div class="checkout-steps">
+    <div class="step">1. Carrito de compras</div>
+    <div class="step">2. Detalles de envío</div>
+    <div class="step active">3. Método de pago</div>
+</div>
 
-            <div class="payment-option">
-                <input type="radio" id="paypal" name="payment-method" checked>
-                <label for="paypal">
-                    <strong>Paypal</strong>
-                    <p>Paga mediante PayPal</p>
-                </label>
-                <div class="paypal-form">
-                    <a href="AQUI_TU_LINK_DE_PAYPAL" class="btn btn-primary">Pagar con PayPal</a>
+<section class="payment-method">
+    <h2>Elige un Método de Pago</h2>
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="payment_method">Método de Pago</label>
+            <select name="payment_method" id="payment_method" class="form-control" required>
+                <option value="credit_card">Tarjeta de Crédito/Débito</option>
+                <option value="paypal">PayPal</option>
+                <!-- Agrega otros métodos de pago si es necesario -->
+            </select>
+        </div>
+
+        <div class="payment-details">
+            <div id="credit_card_details" style="display:none;">
+                <h4>Detalles de Tarjeta de Crédito</h4>
+                <div class="form-group">
+                    <label for="card_number">Número de tarjeta</label>
+                    <input type="text" name="payment_details[card_number]" id="card_number" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiry_date">Fecha de expiración</label>
+                    <input type="month" name="payment_details[expiry_date]" id="expiry_date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" name="payment_details[cvv]" id="cvv" class="form-control" required>
                 </div>
             </div>
 
-            <div class="action-buttons">
-                <button class="btn-next" onclick="handlePayment()">Pagar</button>
-                <button class="btn-cancel" onclick="window.location.href='detalles_de_envio.php'">Cancelar</button>
+            <div id="paypal_details" style="display:none;">
+                <h4>Detalles de PayPal</h4>
+                <p>Serás redirigido a PayPal para completar el pago.</p>
             </div>
         </div>
 
-      <aside class="summary">
-    <h2>Total</h2>
-    <div class="totals">
-        <p>Subtotal: <span>$<?php echo $_SESSION["total"]; ?></span></p>
-        <p>Envio: <span>GRATIS</span></p>
-        <p class="total">TOTAL: <span>$<?php echo $_SESSION["total"]; ?></span></p>
-    </div>
+        <button type="submit" class="btn btn-primary">Procesar Pago</button>
+    </form>
+</section>
 
-    <!-- Mostrar la dirección de envío -->
-    <h3>Dirección de Envío</h3>
-    <?php if (isset($_SESSION['shipping_address'])): ?>
-        <p><strong>Dirección:</strong> <?php echo $_SESSION['shipping_address']['address']; ?></p>
-        <p><strong>Ciudad:</strong> <?php echo $_SESSION['shipping_address']['city']; ?></p>
-        <p><strong>Código Postal:</strong> <?php echo $_SESSION['shipping_address']['zip']; ?></p>
-        <p><strong>Teléfono:</strong> <?php echo $_SESSION['shipping_address']['phone']; ?></p>
-    <?php else: ?>
-        <p>No se ha proporcionado una dirección de envío.</p>
-    <?php endif; ?>
-</aside>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>MENU</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="#help">Help</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>SIGUENOS</h3>
-                <ul>
-                    <li><a href="#facebook">Facebook</a></li>
-                    <li><a href="#twitter">Twitter</a></li>
-                    <li><a href="#instagram">Instagram</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Función que maneja el pago y muestra la notificación
-        function handlePayment() {
-            // Verificar si los datos de envío están completos
-            if (<?php echo isset($_SESSION["nombre_envio"]) ? 'true' : 'false'; ?>) {
-                // Mostrar notificación de agradecimiento
-                alert("¡Gracias por tu compra!");
-                // Vaciar el carrito (ejemplo: redirigir al carrito vacío)
-                window.location.href = 'carrito_compras.php?vaciar=true';
-            } else {
-                alert("Por favor, complete todos los campos de dirección antes de continuar.");
-            }
+<script>
+    // Mostrar los detalles del pago según el método seleccionado
+    document.getElementById('payment_method').addEventListener('change', function () {
+        var paymentMethod = this.value;
+        
+        if (paymentMethod === 'credit_card') {
+            document.getElementById('credit_card_details').style.display = 'block';
+            document.getElementById('paypal_details').style.display = 'none';
+        } else if (paymentMethod === 'paypal') {
+            document.getElementById('credit_card_details').style.display = 'none';
+            document.getElementById('paypal_details').style.display = 'block';
         }
-    </script>
+    });
+</script>
 
 </body>
+
 </html>
