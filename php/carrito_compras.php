@@ -122,6 +122,17 @@ $_SESSION["total"] = 0;
         <p>Envio: <span>GRATIS</span></p>
         <p class="total">TOTAL: <span>$<?php echo $_SESSION["total"]; ?></span></p>
     </div>
+
+    <!-- Mostrar la dirección de envío -->
+    <h3>Dirección de Envío</h3>
+    <?php if (isset($_SESSION['shipping_address'])): ?>
+        <p><strong>Dirección:</strong> <?php echo $_SESSION['shipping_address']['address']; ?></p>
+        <p><strong>Ciudad:</strong> <?php echo $_SESSION['shipping_address']['city']; ?></p>
+        <p><strong>Código Postal:</strong> <?php echo $_SESSION['shipping_address']['zip']; ?></p>
+        <p><strong>Teléfono:</strong> <?php echo $_SESSION['shipping_address']['phone']; ?></p>
+    <?php else: ?>
+        <p>No se ha proporcionado una dirección de envío.</p>
+    <?php endif; ?>
 </aside>
 
 <footer>
