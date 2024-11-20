@@ -44,21 +44,25 @@ session_start();
             </div>
         </div>
 
-        <div class="summary-section">
-            <h2>Total</h2>
-            <div class="totals">
-                <p>Subtotal: <span>$<?php echo $_SESSION["total"]; ?></span></p>
-                <p>Envio: <span>FREE</span></p>
-                <p class="total">Total: <span>$<?php echo $_SESSION["total"]; ?></span></p>
-            </div>
-
-            <h3>Dirección de Envío</h3>
-            <p><strong>Nombre:</strong> <?php echo $_SESSION["nombre_envio"]; ?></p>
-            <p><strong>Dirección:</strong> <?php echo $_SESSION["direccion_envio"]; ?></p>
-            <p><strong>Ciudad:</strong> <?php echo $_SESSION["ciudad_envio"]; ?></p>
-            <p><strong>Código Postal:</strong> <?php echo $_SESSION["cp_envio"]; ?></p>
-        </div>
+      <aside class="summary">
+    <h2>Total</h2>
+    <div class="totals">
+        <p>Subtotal: <span>$<?php echo $_SESSION["total"]; ?></span></p>
+        <p>Envio: <span>GRATIS</span></p>
+        <p class="total">TOTAL: <span>$<?php echo $_SESSION["total"]; ?></span></p>
     </div>
+
+    <!-- Mostrar la dirección de envío -->
+    <h3>Dirección de Envío</h3>
+    <?php if (isset($_SESSION['shipping_address'])): ?>
+        <p><strong>Dirección:</strong> <?php echo $_SESSION['shipping_address']['address']; ?></p>
+        <p><strong>Ciudad:</strong> <?php echo $_SESSION['shipping_address']['city']; ?></p>
+        <p><strong>Código Postal:</strong> <?php echo $_SESSION['shipping_address']['zip']; ?></p>
+        <p><strong>Teléfono:</strong> <?php echo $_SESSION['shipping_address']['phone']; ?></p>
+    <?php else: ?>
+        <p>No se ha proporcionado una dirección de envío.</p>
+    <?php endif; ?>
+</aside>
 
     <!-- Footer -->
     <footer>
