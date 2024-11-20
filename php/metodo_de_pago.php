@@ -1,7 +1,7 @@
+<?php
 include 'functions.php';
-
 session_start();
-
+?>
 // Asegúrate de que el carrito esté inicializado
 if (!isset($_SESSION["cart"])) {
     $_SESSION["cart"] = [];
