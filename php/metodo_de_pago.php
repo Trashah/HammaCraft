@@ -1,3 +1,10 @@
+<?php
+
+include 'functions.php';
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +18,26 @@
 </head>
 <body>
     <?php include 'header.php'; ?>
+    <!-- Cabecera 
+    <header>
+        <nav>
+            <div>
+                <img class="logo-item" src="logo hammacraft.png" alt="Logo"> 
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">Sobre nosotros</a>
+                <a href="#shop">Tienda</a>
+                <a href="#help">Ayuda</a>
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                </button>
+            </div>
+        </nav>
+    </header>-->
 
     <div class="checkout-steps">
         <div class="step">1. Carrito de compras</div>
@@ -21,7 +48,6 @@
     <div class="container">
         <div class="payment-section">
             <h2>Payment method</h2>
-
             <div class="payment-option">
                 <input type="radio" id="credit-card" name="payment-method" checked>
                 <label for="credit-card">
@@ -45,54 +71,58 @@
             </div>
 
             <div class="action-buttons">
-                <button class="btn-next" onclick="showThankYouMessage()">Pagar</button>
+                <button class="btn-next">Pagar</button>
                 <button class="btn-cancel" onclick="window.location.href='detalles_de_envio.php'">Cancelar</button>
             </div>
         </div>
         
+        
         <div class="summary-section">
             <h2>Total</h2>
+            <!--
+            <div class="cart-item">
+                <img src="product-placeholder.png" alt="Product Image">
+                <p>PRODUCT NAME<br>$300</p>
+            </div>
+            <div class="cart-item">
+                <img src="product-placeholder.png" alt="Product Image">
+                <p>PRODUCT NAME<br>$300</p>
+            </div>
+            -->
             <div class="totals">
                 <p>Subtotal: <span>$<?php echo $_SESSION["total"]; ?></span></p>
                 <p>Envio: <span>FREE</span></p>
+                <!-- <p>IVA: <span>$13</span></p> -->
                 <p class="total">Total: <span>$<?php echo $_SESSION["total"]; ?></span></p>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>MENU</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="#help">Help</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>SIGUENOS</h3>
-                <ul>
-                    <li><a href="#facebook">Facebook</a></li>
-                    <li><a href="#twitter">Twitter</a></li>
-                    <li><a href="#instagram">Instagram</a></li>
-                </ul>
-            </div>
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>MENU</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
         </div>
-    </footer>
-
-    <!-- JavaScript para mostrar el mensaje de agradecimiento -->
-    <script>
-        function showThankYouMessage() {
-            // Mostrar el mensaje de gracias
-            alert("GRACIAS POR COMPRAR");
-
-            // Redirigir al usuario o hacer alguna otra acción
-            window.location.href = "carrito_compras.php"; // Redirige a una página de confirmación
-        }
-    </script>
-</body>
-</html>
+        
+        <div class="footer-section">
+            <h3>SIGUENOS</h3>
+            <ul>
+                <li><a href="#facebook">Facebook</a></li>
+                <li><a href="#twitter">Twitter</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+0 commit comments
+Comments
+0
+ (0)
+Comment
