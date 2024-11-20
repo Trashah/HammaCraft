@@ -4,7 +4,11 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-@@ -15,29 +12,10 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/metodo_de_pago.css">
@@ -15,7 +19,12 @@ session_start();
 
     <div class="checkout-steps">
         <div class="step">1. Carrito de compras</div>
-@@ -50,93 +28,76 @@
+        <div class="step">2. Detalles de envio</div>
+        <div class="step active">3. Método de pago</div>
+    </div>
+
+    <div class="container">
+        <div class="payment-section">
             <h2>Payment method</h2>
 
             <div class="payment-option">
@@ -34,6 +43,7 @@ session_start();
                 <button class="btn-cancel" onclick="window.location.href='detalles_de_envio.php'">Cancelar</button>
             </div>
         </div>
+
         <div class="summary-section">
             <h2>Total</h2>
             <div class="totals">
@@ -41,7 +51,6 @@ session_start();
                 <p>Envio: <span>FREE</span></p>
                 <p class="total">Total: <span>$<?php echo $_SESSION["total"]; ?></span></p>
             </div>
-
             <h3>Dirección de Envío</h3>
             <p><strong>Nombre:</strong> <?php echo $_SESSION["nombre_envio"]; ?></p>
             <p><strong>Dirección:</strong> <?php echo $_SESSION["direccion_envio"]; ?></p>
@@ -62,7 +71,7 @@ session_start();
                     <li><a href="#help">Help</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>SIGUENOS</h3>
                 <ul>
@@ -73,6 +82,7 @@ session_start();
             </div>
         </div>
     </footer>
+
     <script>
         // Función que maneja el pago y muestra la notificación
         function handlePayment() {
