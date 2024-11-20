@@ -20,13 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone = $_POST['phone'] ?? '';
     $shipping = $_POST['shipping'] ?? '';
 
-    if (empty($firstName)) $errors[] = 'El nombre es obligatorio.';
-    if (empty($lastName)) $errors[] = 'El apellido es obligatorio.';
-    if (empty($address)) $errors[] = 'La dirección es obligatoria.';
-    if (empty($city)) $errors[] = 'La ciudad es obligatoria.';
-    if (empty($postalCode)) $errors[] = 'El código postal es obligatorio.';
-    if (empty($phone)) $errors[] = 'El teléfono es obligatorio.';
-    if (empty($shipping)) $errors[] = 'Por favor, selecciona un método de envío.';
+    if (empty($firstName)) $errors['first-name'] = 'El nombre es obligatorio.';
+    if (empty($lastName)) $errors['last-name'] = 'El apellido es obligatorio.';
+    if (empty($address)) $errors['address'] = 'La dirección es obligatoria.';
+    if (empty($city)) $errors['city'] = 'La ciudad es obligatoria.';
+    if (empty($postalCode)) $errors['postal-code'] = 'El código postal es obligatorio.';
+    if (empty($phone)) $errors['phone'] = 'El teléfono es obligatorio.';
+    if (empty($shipping)) $errors['shipping'] = 'Por favor, selecciona un método de envío.';
 
     if (empty($errors)) {
         // Guardar los datos de envío en la sesión
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Detalles de Envío</title>
-    <link rel="stylesheet" href="/css/metodo_de_pago.css">
+    <link rel="stylesheet" href="/css/detalles_de_envio.css">
 </head>
 <body>
 
@@ -83,15 +83,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST" id="shipping-form">
         <div class="form-group">
             <label for="first-name">Nombre:</label>
-            <input type="text" id="first-name" name="first-name" class="form-control" value="<?php echo htmlspecialchars($firstName ?? '') ?>" required>
+            <input type="text" id="first-name" name="first-name" class="form-control <?php echo isset($errors['first-name']) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($firstName ?? '') ?>" required>
+            <?php if (isset($errors['first-name'])): ?>
+                <div class="invalid-feedback"><?php echo $errors['first-name']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="form-group">
             <label for="last-name">Apellido:</label>
-            <input type="text" id="last-name" name="last-name" class="form-control" value="<?php echo htmlspecialchars($lastName ?? '') ?>" required>
+            <input type="text" id="last-name" name="last-name" class="form-control <?php echo isset($errors['last-name']) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($lastName ?? '') ?>" required>
+            <?php if (isset($errors['last-name'])): ?>
+                <div class="invalid-feedback"><?php echo $errors['last-name']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="form-group">
             <label for="address">Dirección:</label>
-            <input type="text" id="address" name="address" class="form-control" value="<?php echo htmlspecialchars($address ?? '') ?>" required>
+            <input type="text" id="address" name="address" class="form-control <?php echo isset($errors['address']) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($address ?? '') ?>" required>
+            <?php if (isset($errors['address'])): ?>
+                <div class="invalid-feedback"><?php echo $errors['address']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="form-group">
             <label for="address2">Dirección 2 (opcional):</label>
@@ -99,27 +108,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="form-group">
             <label for="country">País:</label>
-            <input type="text" id="country" name="country" class="form-control" value="<?php echo htmlspecialchars($country ?? '') ?>" required>
+            <input type="text" id="country" name="country" class="form-control <?php echo isset($errors['country']) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($country ?? '') ?>" required>
+            <?php if (isset($errors['country'])): ?>
+                <div class="invalid-feedback"><?php echo $errors['country']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="form-group">
             <label for="city">Ciudad:</label>
-            <input type="text" id="city" name="city" class="form-control" value="<?php echo htmlspecialchars($city ?? '') ?>" required>
+            <input type="text" id="city" name="city" class="form-control <?php echo isset($errors['city']) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($city ?? '') ?>" required>
+            <?php if (isset($errors['city'])): ?>
+                <div class="invalid-feedback"><?php echo $errors['city']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="form-group">
             <label for="postal-code">Código Postal:</label>
-            <input type="text" id="postal-code" name="postal-code" class="form-control" value="<?php echo htmlspecialchars($postalCode ?? '') ?>" required>
+            <input type="text" id="postal-code" name="postal-code" class="form-control <?php echo isset($errors['postal-code']) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($postalCode ?? '') ?>" required>
+            <?php if (isset($errors['postal-code'])): ?>
+                <div class="invalid-feedback"><?php echo $errors['postal-code']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="form-group">
             <label for="phone">Teléfono:</label>
-            <input type="text" id="phone" name="phone" class="form-control" value="<?php echo htmlspecialchars($phone ?? '') ?>" required>
+            <input type="text" id="phone" name="phone" class="form-control <?php echo isset($errors['phone']) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($phone ?? '') ?>" required>
+            <?php if (isset($errors['phone'])): ?>
+                <div class="invalid-feedback"><?php echo $errors['phone']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="form-group">
             <label>Método de Envío:</label>
-            <select name="shipping" class="form-control" required>
+            <select name="shipping" class="form-control <?php echo isset($errors['shipping']) ? 'is-invalid' : ''; ?>" required>
                 <option value="">Selecciona un método</option>
                 <option value="standard" <?php echo isset($shipping) && $shipping === 'standard' ? 'selected' : '' ?>>Envío estándar (gratis)</option>
                 <option value="express" <?php echo isset($shipping) && $shipping === 'express' ? 'selected' : '' ?>>Envío express ($99)</option>
             </select>
+            <?php if (isset($errors['shipping'])): ?>
+                <div class="invalid-feedback"><?php echo $errors['shipping']; ?></div>
+            <?php endif; ?>
         </div>
         <button type="submit" class="btn btn-primary">Continuar</button>
         <a href="carrito_compras.php" class="btn btn-secondary">Regresar</a>
@@ -148,33 +172,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </footer>
-
-
-
-<script>
-// Validación del formulario antes de enviarlo
-document.getElementById('shipping-form').addEventListener('submit', function(event) {
-    let form = this;
-    let inputs = form.querySelectorAll('input[required], select[required]');
-    let isValid = true;
-
-    // Verificar que todos los campos requeridos tengan valor
-    inputs.forEach(function(input) {
-        if (!input.value.trim()) {
-            isValid = false;
-            input.classList.add('is-invalid');
-        } else {
-            input.classList.remove('is-invalid');
-        }
-    });
-
-    // Si no es válido, evitar que se envíe el formulario
-    if (!isValid) {
-        event.preventDefault();
-        alert('Por favor, complete todos los campos requeridos para continuar.');
-    }
-});
-</script>
 
 </body>
 </html>
