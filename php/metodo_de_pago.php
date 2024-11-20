@@ -20,14 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['cart'] = array_values($_SESSION['cart']);
     }
 
-    // Si el método de pago es PayPal
+    // Si el método de pago es PayPal, vaciar el carrito y mostrar mensaje de agradecimiento
     if (isset($_POST['payment_method']) && $_POST['payment_method'] === 'paypal') {
-        // Vaciar el carrito (pero no redirigir aún)
-        unset($_SESSION['cart']);
+        unset($_SESSION['cart']); // Vaciar el carrito
         $_SESSION['total'] = 0; // Resetear el total
-
-        // Mostrar el mensaje de agradecimiento en el mismo carrito
-        $_SESSION['thank_you'] = true;
+        $_SESSION['thank_you'] = true; // Mostrar mensaje de agradecimiento
     }
 }
 
@@ -71,14 +68,11 @@ $_SESSION["total"] = 0;
 
 <!-- Si el usuario ha comprado y vaciado el carrito, mostrar el mensaje -->
 <?php if (isset($_SESSION['thank_you']) && $_SESSION['thank_you'] === true): ?>
-    <div class="alert alert-success text-center" role="alert">
-        ¡Gracias por tu compra! El carrito se ha vaciado exitosamente.
-    </div>
     <script>
-        // Redirigir después de 3 segundos
-        setTimeout(function() {
-            window.location.href = 'carrito_compras.php';
-        }, 3000);
+        // Mostrar el mensaje de agradecimiento con un alert
+        alert("¡Gracias por comprar! El carrito se ha vaciado.");
+        // Redirigir después de cerrar el mensaje
+        window.location.href = 'carrito_compras.php';
     </script>
     <?php unset($_SESSION['thank_you']); // Limpiar la variable de sesión ?>
 <?php endif; ?>
@@ -152,12 +146,13 @@ $_SESSION["total"] = 0;
 </aside>
 
 <!-- Método de Pago -->
-<form action="carrito_compras.php" method="POST">
+<form action="metodo_pago.php" method="POST">
     <div class="form-group">
         <label for="payment_method">Método de Pago</label>
         <select name="payment_method" id="payment_method" class="form-control" required>
+            <!-- PayPal seleccionado por defecto -->
             <option value="credit_card">Tarjeta de Crédito/Débito</option>
-            <option value="paypal">PayPal</option>
+            <option value="paypal" selected>PayPal</option>
         </select>
     </div>
     <button type="submit" class="btn btn-primary">Pagar</button>
