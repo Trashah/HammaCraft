@@ -4,26 +4,31 @@ include 'functions.php';
 
 session_start();
 
+// Asegúrate de que el carrito esté inicializado
+if (!isset($_SESSION["cart"])) {
+    $_SESSION["cart"] = [];
+}
+
+// Procesar el formulario de agregar al carrito
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Agregar productos al carrito
     if (isset($_POST["productID"])) {
-        if (!isset($_SESSION["cart"])) {
-            $_SESSION["cart"] = [];
-        }
         $_SESSION["cart"][] = $_POST["productID"];
     }
 
-    // Eliminar productos del carrito
-    $removeProductID = null;
+    // Eliminar un producto
     if (isset($_POST['removeItem']) && isset($_POST['removeProductID'])) {
         $removeProductID = $_POST['removeProductID'];
+        // Buscar el índice del producto
         $index = array_search($removeProductID, $_SESSION['cart']);
-        unset($_SESSION['cart'][$index]);
-        $_SESSION['cart'] = array_values($_SESSION['cart']);  // Reindexar el array
+        if ($index !== false) {
+            // Eliminar el producto de la sesión
+            unset($_SESSION['cart'][$index]);
+            $_SESSION['cart'] = array_values($_SESSION['cart']);  // Reindexar el arreglo
+        }
     }
 }
 
-// Función para obtener los detalles del producto desde la base de datos
+// Función para obtener detalles del producto
 function getCurrentItem($productID) {
     $connection = connectToDatabase();
     $sql = "SELECT * FROM productos WHERE ID_P = ?";
@@ -64,7 +69,7 @@ $_SESSION["total"] = 0;
 
 <div class="checkout-steps">
     <div class="step active">1. Carrito de compras</div>
-    <div class="step">2. Detalles de envio</div>
+    <div class="step">2. Detalles de envío</div>
     <div class="step">3. Método de pago</div>
 </div>
 
@@ -72,9 +77,10 @@ $_SESSION["total"] = 0;
     <h2>Carrito de compras</h2>
     <div class="cart-items">
         <?php 
-        if (isset($_SESSION["cart"])): 
+        if (isset($_SESSION["cart"]) && !empty($_SESSION["cart"])): 
             foreach ($_SESSION["cart"] as $productID): 
                 $item = getCurrentItem($productID);
+                if ($item):
         ?>
             <div class="cart-item">
                 <img src="/images/<?php echo $item["Imagen"]; ?>" alt="<?php echo $item["NombreProducto"]; ?>">
@@ -83,15 +89,24 @@ $_SESSION["total"] = 0;
                     <p><?php echo $item["Descripcion"]; ?></p>
                     <span class="price">$<?php echo $item["Precio"]; ?></span>
                 </div>
-                
-                <?php $_SESSION["total"] += $item["Precio"]; ?>
-                
+
+                <?php 
+                // Actualizar el total
+                $_SESSION["total"] += $item["Precio"]; 
+                ?>
+
                 <form method="POST" style="display:inline;">
                     <input type="hidden" name="removeProductID" value="<?php echo $productID; ?>">
                     <button type="submit" name="removeItem" class="remove-btn">×</button>
                 </form>
             </div>
-        <?php endforeach; endif; ?>
+        <?php 
+                endif;
+            endforeach;
+        else:
+        ?>
+        <p>No hay productos en tu carrito.</p>
+        <?php endif; ?>
     </div>
 
     <div class="cart-buttons">
