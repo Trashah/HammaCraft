@@ -11,9 +11,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $_SESSION["cart"][] = $_POST["productID"];
+    }
 
+    $removeProductID = null;
+    if (isset($_POST['removeItem']) && isset($_POST['removeProductID'])) {
+        $removeProductID = $_POST['removeProductID'];
+        $index = array_search($removeProductID, $_SESSION['cart']);
+        unset($_SESSION['cart'][$index]);
+        $_SESSION['cart'] = array_values($_SESSION['cart']);    
     }
 }
+
+function getCurrentItem($productID) {
+    $connection = connectToDatabase();
+    $sql = "SELECT * FROM productos where ID_P = ?";
+
+    $statement = $connection -> prepare($sql);
+    $statement -> bind_param("i", $productID);
+    $statement -> execute();
+    $result = $statement -> get_result();
+
+    if (!($result -> num_rows > 0)) {
+        return null;
+    }
+
+    $currentItem = $result -> fetch_assoc();
+
+    return $currentItem;
+}
+
+$_SESSION["total"] = 0;
 
 ?>
 
@@ -26,6 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Mi carrito</title>
     <link rel="stylesheet" href="/css/carrito_compras.css">
 
@@ -33,56 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-<?php 
-
-foreach ($_SESSION["cart"] as $productID) {
-    echo "ID de producto: $productID";
-}
-
-?>
-
 <?php include 'header.php'; ?>
-    <!-- Cabecera 
-    <header class = "header-hammacraft">
-
-        <nav class = "nav-hammacraft">
-
-                <a href = "https://www.hammacraft.lat/">
-                <img class = "logo-item" src="../images/logo.png" alt="Logo"> 
-                </a>
-
-            <div class = "search-bar-hammacraft">
-
-                <input type = "text" placeholder = "Buscar...">
-
-            </div>
-
-            <div class = "nav-hammacraft-links">
-
-                <a href="https://www.hammacraft.lat/">Pantalla principal</a>
-                <a href="https://www.hammacraft.lat/php/catalogo.php">Catálogo</a>
-                <a href="https://www.hammacraft.lat/php/pedidos.php">Pedidos</a>
-
-                <button class = "btn btn-dark">
-
-                    <i class="fas fa-shopping-cart"></i> Carrito
-
-                </button>
-
-                <a href="https://www.hammacraft.lat/php/login.php">
-
-                    <button class = "btn btn-dark">
-
-                    <i class="fa-solid fa-user"></i> Iniciar sesión
-
-                    </button>
-                </a>
-
-            </div>
-
-        </nav>
-
-    </header>-->
 
     <!-- Progreso del pedido -->
     <div class="checkout-steps">
@@ -99,42 +79,37 @@ foreach ($_SESSION["cart"] as $productID) {
         <h2>Shopping Cart</h2>
         <div class="cart-items">
 
-            <div class="cart-item">
-
-                <img src="product1.jpg" alt="Producto 1">
-                <div class="item-details">
-
-                    <h3>NOMBRE DEL PRODUCTO</h3>
-                    <p>Esto es un ejemplo</p>
-                    <span class="price">$300</span>
-                    <select>
-                        <option value="1">1 pcs</option>
-                        <option value="2">2 pcs</option>
-                        <option value="3">3 pcs</option>
-                    </select>
-
-                </div>
-                <button class="remove-btn">&times;</button>
-            </div>
+            <?php 
+            if (isset($_SESSION["cart"])):
+            foreach($_SESSION["cart"] as $productID): 
+            ?>
 
             <div class="cart-item">
 
-                <img src="product1.jpg" alt="Producto 1">
+                <?php $item = getCurrentItem($productID); ?>
+
+                <img src = "/images/<?php echo $item["Imagen"]; ?>" alt = "<?php echo $item["NombreProducto"] ?>">
                 <div class="item-details">
 
-                    <h3>NOMBRE DEL PRODUCTO</h3>
-                    <p>Esto es un ejemplo</p>
-                    <span class="price">$300</span>
-                    <select class="select">
-                        <option value="1">1 pcs</option>
-                        <option value="2">2 pcs</option>
-                        <option value="3">3 pcs</option>
-                    </select>
+                    <h3> <?php echo $item["NombreProducto"]; ?></h3>
+                    <p> <?php echo $item["Descripcion"]; ?> </p>
+                    <span class="price"> $<?php echo $item["Precio"]; ?> </span>
 
                 </div>
-                <button class="remove-btn">&times;</button>
 
+                <?php $_SESSION["total"] += $item["Precio"]; ?>
+
+                <form method = "POST">
+                    <input type = "hidden" name = "removeProductID" value = "<?php echo $productID ?>">
+                    <button type = "submit" name = "removeItem" class="remove-btn">&times; </button>
+                </form>
+                    
             </div>
+
+            <?php 
+            endforeach;
+            endif;
+            ?>
             
         <div class="cart-buttons">
             <button class="btn-next" onclick="window.location.href='detalles_de_envio.php'">Siguiente</button>
@@ -149,10 +124,9 @@ foreach ($_SESSION["cart"] as $productID) {
         <h2>Total</h2>
         <div class="totals">
 
-            <p>Subtotal: <span>$600</span></p>
-            <p>Envio: <span>FREE</span></p>
-            <p>IVA: <span>$13</span></p>
-            <p class="total">TOTAL: <span>$613</span></p>
+            <p>Subtotal: <span> $<?php echo $_SESSION["total"]; ?></span></p>
+            <p>Envio: <span> GRATIS </span></p>
+            <p class="total">TOTAL: <span> $<?php echo $_SESSION["total"]; ?> </span></p>
 
         </div>
 
