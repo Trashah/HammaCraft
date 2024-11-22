@@ -125,39 +125,6 @@ session_start();
 
     </main>
 
-    <footer>
-
-        <div class="footer-content">
-
-            <div class="footer-section">
-
-                <h3>MENU</h3>
-
-                <ul>
-
-                    <li><a href="https://www.hammacraft.lat/">Pantalla principal</a></li>
-                    <li><a href="https://www.hammacraft.lat/php/catalogo.php">Tienda</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-section">
-
-                <h3>Siguenos</h3>
-
-                <ul>
-
-                    <li><a href="https://www.hammacraft.lat/#facebook">Facebook</a></li>
-                    <li><a href="https://www.hammacraft.lat/#twitter">Twitter</a></li>
-                    <li><a href="https://www.hammacraft.lat/#instagram">Instagram</a></li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </footer>
+    <?php include "footer.php"; ?>
 
 </body></html>

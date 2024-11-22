@@ -151,27 +151,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </section>
 
-<footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>MENU</h3>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#help">Help</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h3>SIGUENOS</h3>
-            <ul>
-                <li><a href="#facebook">Facebook</a></li>
-                <li><a href="#twitter">Twitter</a></li>
-                <li><a href="#instagram">Instagram</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
+<?php include "footer.php"; ?>
 
 </body>

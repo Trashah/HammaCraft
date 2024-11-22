@@ -411,71 +411,7 @@ session_start();
 
     </main>
 
-<footer>
-
-        <div class="footer-content">
-
-            <div class="footer-section">
-
-                <h3>MENU</h3>
-
-                <ul>
-
-                    <li><a href="https://www.hammacraft.lat">Pantalla principal</a></li>
-                    <li><a href="https://www.hammacraft.lat/php/catalogo.php">Tienda</a></li>
-                    <!-- <li><a href="#sobre nosotros">Sobre nosotros</a></li>
-                    <li><a href="#ayuda">Ayuda</a></li> -->
-
-                </ul>
-
-            </div>
-
-            <!-- <div class="footer-section">
-
-                <h3> HammaCraft </h3>
-
-                <ul>
-
-                    <li><a href="#company">The Company</a></li>
-                    <li><a href="#careers">Careers</a></li>
-                    <li><a href="#press">Press</a></li>
-
-                </ul>
-
-            </div>
-
-            
-            <div class="footer-section">
-
-                <h3>CONÉCTATE</h3>
-
-                <ul>
-
-                    <li><a href="#news">Noticias</a></li>
-                    <li><a href="#social">Redes Sociales</a></li>
-
-                </ul>
-
-            </div>
-            -->
-
-            <div class="footer-section">
-
-                <h3>Siguenos</h3>
-
-                <ul>
-
-                    <li><a href="#facebook">Facebook</a></li>
-                    <li><a href="#twitter">Twitter</a></li>
-                    <li><a href="#instagram">Instagram</a></li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </footer>
+    <?php include "footer.php"; ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
