@@ -49,8 +49,8 @@ session_start();
             </div>
 
             <div class="action-buttons">
-                <button class="btn-next" onclick="processPayment()">Pagar</button>
                 <button class="btn-cancel" onclick="window.location.href='detalles_de_envio.php'">Cancelar</button>
+                <button class="btn-next" onclick="processPayment()">Pagar</button>
             </div>
         </div>
 

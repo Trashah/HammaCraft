@@ -87,7 +87,7 @@ $_SESSION["total"] = 0;
                 <div class="item-details">
                     <h3><?php echo $item["NombreProducto"]; ?></h3>
                     <p><?php echo $item["Descripcion"]; ?></p>
-                    <span class="price">$<?php echo $item["Precio"]; ?></span>
+                    <b>$<?php echo $item["Precio"]; ?></b>
                 </div>
 
                 <?php 
@@ -110,8 +110,8 @@ $_SESSION["total"] = 0;
     </div>
 
     <div class="cart-buttons">
-        <button class="btn-next" onclick="window.location.href='detalles_de_envio.php'">Siguiente</button>
         <button class="btn-cancel">Cancelar</button>
+        <button class="btn-next" onclick="window.location.href='detalles_de_envio.php'">Siguiente</button>
     </div>
 </section>
 

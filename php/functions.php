@@ -70,7 +70,9 @@ function getProductsCards($category1, $category2) {
         $output .= '<p class="card-text">' . htmlspecialchars($row['Descripcion']) . '</p>'; 
         $output .= '<h5 class="card-title font-weight-bold">Categorías</h5>';
         $output .= '<p class="card-text">' . htmlspecialchars($row['Categoria1']) . ', ' . htmlspecialchars($row['Categoria2']) .'</p>'; 
-        $output .= '<p class="card-text">$' . number_format($row['Precio'], 2) . '</p>';
+        $output .= '<b class="card-text">$' . number_format($row['Precio'], 2) . '</b>';
+        
+        $output .= '<br><br>';
         
         // Button
         $output .= 
