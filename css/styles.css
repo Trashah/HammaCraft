@@ -26,6 +26,7 @@
 }
 .option-header:hover{
     color: #1b5e20;
+    text-shadow: 0px 0px 20px #1b5e20;
 }
 .nav-hammacraft {
     margin: 0 auto;
