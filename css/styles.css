@@ -20,6 +20,13 @@
     z-index: 1000 !important;
 }
 
+.option-header{
+    text-decoration: none;
+    color: #333;
+}
+.option-header:hover{
+    color: #1b5e20;
+}
 .nav-hammacraft {
     margin: 0 auto;
     padding: 1rem;
@@ -33,6 +40,7 @@
     height: 55px;
     
 }
+
 .search-bar-hammacraft input {
     padding: 0.5rem;
     width: 300px;

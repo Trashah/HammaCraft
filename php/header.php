@@ -15,9 +15,9 @@
 
             <div class = "nav-hammacraft-links">
 
-                <a href="/index.php">Pantalla principal</a>
-                <a href="/php/catalogo.php">Catálogo</a>
-                <a href="/php/pedidos.php">Pedidos</a>
+                <a class="option-header" href="/index.php">Pantalla principal</a>
+                <a class="option-header" href="/php/catalogo.php">Catálogo</a>
+                <a class="option-header" href="/php/pedidos.php">Pedidos</a>
 
                 <a href="/php/carrito_compras.php">
                     <button class = "btn btn-dark">
