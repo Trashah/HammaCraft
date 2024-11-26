@@ -29,6 +29,16 @@
     text-shadow: 0px 0px 10px #31b239;
 }
 
+.btn btn-dark{
+    background-color: #000;
+    color: white;
+    border: none;
+}
+
+.btn btn-dark:hover{
+    background-color: #1b5e20;
+    color: white;
+}
 .nav-hammacraft {
     margin: 0 auto;
     padding: 1rem;
