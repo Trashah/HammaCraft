@@ -26,7 +26,10 @@
 }
 .option-header:hover{
     color: #1b5e20;
-    text-shadow: 0px 0px 10px #31b239;
+}
+.option-header:active{
+    color: #1b5e20;
+    border-bottom: 1px solid #1b5e20;
 }
 
 .btn btn-dark{
