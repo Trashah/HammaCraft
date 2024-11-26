@@ -152,7 +152,7 @@ session_start();
     </main>
 
     <?php include "php/footer.php"; ?>
-
+    <script src = "javascript/script.js" defer> </script>
 </body>
 
 </html>
