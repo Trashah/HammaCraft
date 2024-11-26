@@ -28,7 +28,7 @@
     color: #1b5e20;
 }
 
-.option-header:target{
+.option-header .active{
     color: #1b5e20;
     border-bottom: 1px solid #1b5e20;
 }
