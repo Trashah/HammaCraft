@@ -27,7 +27,8 @@
 .option-header:hover{
     color: #1b5e20;
 }
-.option-header:active{
+
+.option-header:target{
     color: #1b5e20;
     border-bottom: 1px solid #1b5e20;
 }
