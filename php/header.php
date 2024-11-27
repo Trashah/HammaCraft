@@ -15,10 +15,9 @@
 
             <div class = "nav-hammacraft-links">
 
-                <a class="option-header" href="/index.php">Pantalla principal</a>
-                <a class="option-header" href="/php/catalogo.php">Catálogo</a>
-                <a class="option-header" href="/php/pedidos.php">Pedidos</a>
-
+            <a href="/index.php" class="<?= basename($_SERVER['SCRIPT_NAME']) == 'index.php' ? 'active' : '' ?>">Pantalla principal</a>
+            <a href="/php/catalogo.php" class="<?= basename($_SERVER['SCRIPT_NAME']) == 'catalogo.php' ? 'active' : '' ?>">Catálogo</a>
+            <a href="/php/pedidos.php" class="<?= basename($_SERVER['SCRIPT_NAME']) == 'pedidos.php' ? 'active' : '' ?>">Pedidos</a>
                 <a href="/php/carrito_compras.php">
                     <button class = "btn btn-dark">
                     <i class="fas fa-shopping-cart"></i> Carrito

@@ -200,11 +200,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //control de las paginas activas
  // Obtener todos los enlaces del menú
-    const links = document.querySelectorAll('.option-header');
+/*  const links = document.querySelectorAll('.option-header');
     
     // Comparar la URL actual con los enlaces
     links.forEach(link => {
         if (link.href === window.location.href) {
             link.classList.add('active');
         }
-    });
+    });*/
