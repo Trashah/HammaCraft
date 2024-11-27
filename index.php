@@ -81,7 +81,7 @@ session_start();
                     </figure>
                     <div class="texts">
                         <h3>Adachi</h3>
-                        <div class="rating">★★★★☆</div>
+                        <div class="rating">★★★★★</div>
                         <p class="price">$40</p>
                     </div>
                 </div>
