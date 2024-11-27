@@ -54,10 +54,10 @@ function getQueryResult($category1, $category2, $category3) {
         $sql .= " WHERE " . implode(" AND ", $conditions);
     }
 
-    $statement = $connection->prepare($sql);
+    $statement = $connection -> prepare($sql);
 
     if (!empty($params)) {
-        $statement->bind_param($types, ...$params);
+        $statement -> bind_param($types, ...$params);
     }
 
     $statement -> execute();
