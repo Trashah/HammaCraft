@@ -57,7 +57,8 @@ session_start();
                     <?php
                     $category1 = "Todos";
                     $category2 = "Todos";
-                    echo getProductsCards($category1, $category2);
+                    $category3 = "Todos";
+                    echo getProductsCards($category1, $category2, $category3);
                     ?>
 
                 </div>

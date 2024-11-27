@@ -156,7 +156,8 @@ session_start();
             <?php
                 $category1 = "Todos"; //Todos, Chicos, Medianos, Grandes
                 $category2 = "Todos"; //Todos, Anime, Videojuegos
-                echo getProductsCards($category1, $category2);
+                $category3 = "Todos"; //Todos, Pokemon, Digimon, Youtuber
+                echo getProductsCards($category1, $category2, $category3);
             ?>
 
         </div>
