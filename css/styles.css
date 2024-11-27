@@ -114,7 +114,7 @@
     text-align: center;
     padding: 4rem 1rem; /* Padding for content */
     overflow: hidden; /* To hide parts of the image if necessary */
-    align-items: end;
+    align-items: center;
 }
 
 .hero::before {
