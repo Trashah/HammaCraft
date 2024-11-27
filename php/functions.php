@@ -24,40 +24,64 @@ function getProducts($lowerLimit, $rowCount) {
     return $output;
 }
 
-function getProductsCards($category1, $category2) {
-
+function getQueryResult($category1, $category2, $category3) {
     $connection = connectToDatabase();
+    $conditions = [];
+    $params = [];
+    $types = "";
+
+    if ($category1 !== "Todos") {
+        $conditions[] = "categoria1 = ?";
+        $params[] = $category1;
+        $types .= "s";
+    }
+
+    if ($category2 !== "Todos") {
+        $conditions[] = "categoria2 = ?";
+        $params[] = $category2;
+        $types .= "s";
+    }
+
+    if ($category3 !== "Todos") {
+        $conditions[] = "categoria3 = ?";
+        $params[] = $category3;
+        $types .= "s";
+    }
+
+    $sql = "SELECT * FROM productos";
+
+    if (!empty($conditions)) {
+        $sql .= " WHERE " . implode(" AND ", $conditions);
+    }
+
+    $statement = $connection -> prepare($sql);
+
+    if (!empty($params)) {
+        $statement -> bind_param($types, ...$params);
+    }
+
+    $statement -> execute();
+    $result = $statement -> get_result();
+    $statement -> close();
+
+    return $result;
+}
+
+function getProductsCards($category1, $category2, $category3) {
+
+    //category1 = [Todos, Chicos, Medianos, Grandes]
+    //category2 = [Todos, Anime, Videojuegos]
+    //category3 = [Todos, Pokemon, Digimon, Youtuber]
+
     $colClass = "";
     $cardClass = "card";
     $imgClass = "card-img-top";
     $buttonClass = "btn btn-primary";
 
-    if ($category1 == "Todos" and $category2 == "Todos") {
-        $sql = "SELECT * FROM productos";
-        $statement = $connection->prepare($sql);
-    }
-    else if ($category1 != "Todos" and $category2 == "Todos") {
-        $sql = "SELECT * FROM productos WHERE categoria1 = ?";
-        $statement = $connection->prepare($sql);
-        $statement->bind_param("s", $category1);
-
-    }
-    else if ($category1 == "Todos" and $category2 != "Todos") {
-        $sql = "SELECT * FROM productos WHERE categoria2 = ?";
-        $statement = $connection->prepare($sql);
-        $statement->bind_param("s", $category2);
-
-    }
-    else {
-        $sql = "SELECT * FROM productos WHERE categoria1 = ? AND categoria2 = ?";
-        $statement = $connection->prepare($sql);
-        $statement->bind_param("ss", $category1, $category2);
-    }
-
-    $statement->execute();
-    $result = $statement->get_result();
+    $result = getQueryResult($category1, $category2, $category3);
 
     $output = '';
+
     while ($row = $result->fetch_assoc()) {
         $output .= '<div class="' . htmlspecialchars($colClass) . '">';
         $output .= '<div class="' . htmlspecialchars($cardClass) . '" style="width: 18rem; margin: 50px;">';
@@ -84,8 +108,6 @@ function getProductsCards($category1, $category2) {
         $output .= '</div>';
         $output .= '</div>';
     }
-
-    $statement->close();
 
     return $output;
 }
