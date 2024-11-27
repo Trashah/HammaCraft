@@ -97,6 +97,9 @@
 
 /* Hero section */
 .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     position: relative; /* Necessary for positioning the image */
     border: 3px solid #ddd; /* Optional: adds a border around the hero section */
     width: 100%;
