@@ -37,17 +37,19 @@
 
 /* Línea horizontal debajo del enlace activo */
 .nav-hammacraft-links a.active::after {
-    box-sizing: content-box; /* Establece que el tamaño solo se base en el contenido */
     content: '';
     display: block;
     width: 100%;
-    height: 2px; /* Ajusta la altura de la línea */
-    background-color: #00A676; /* Color de la línea */
+    height: 2px;
+    background-color: #00A676;
     position: absolute;
     bottom: -5px; /* Ajusta la distancia desde el texto */
     left: 0;
-    transition: width 0.3s ease; /* Transición suave para la línea */
+    transition: width 0.3s ease;
+    box-sizing: content-box; /* Aseguramos que solo se incluya el contenido en el tamaño */
+    z-index: 10;
 }
+
 
 
 
