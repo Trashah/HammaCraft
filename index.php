@@ -69,6 +69,10 @@ session_start();
 
         </section>
 
+        <section>
+
+        </section>
+
         
 
         <section class="product-grid">
