@@ -39,23 +39,15 @@
 .nav-hammacraft-links a.active::after {
     content: '';
     display: block;
-    width: 100%;
+    width: 100%; /* Asegura que la línea ocupe el ancho completo */
     height: 2px; /* Ajusta la altura de la línea */
     background-color: #00A676; /* Color de la línea */
     position: absolute;
-    bottom: -3px; /* Ajusta según tu diseño */
+    bottom: -5px; /* Aumenta este valor si la línea sigue sin aparecer */
     left: 0;
     transition: width 0.3s ease; /* Transición suave para la línea */
 }
 
-/* Efecto cuando el usuario pasa el cursor sobre el enlace (opcional) */
-.nav-hammacraft-links a:hover {
-    color: #00A676; /* Cambia el color al pasar el cursor */
-}
-
-.nav-hammacraft-links a:hover::after {
-    width: 100%; /* Asegura que la línea se expanda completamente al pasar el cursor */
-}
 
 
 .nav-hammacraft {
