@@ -30,7 +30,6 @@ function getQueryResult($category1, $category2, $category3) {
     $params = [];
     $types = "";
 
-    // Agrega condiciones dinámicamente si no son "Todos"
     if ($category1 !== "Todos") {
         $conditions[] = "categoria1 = ?";
         $params[] = $category1;
@@ -49,15 +48,14 @@ function getQueryResult($category1, $category2, $category3) {
         $types .= "s";
     }
 
-    // Construye la consulta
     $sql = "SELECT * FROM productos";
+
     if (!empty($conditions)) {
         $sql .= " WHERE " . implode(" AND ", $conditions);
     }
 
     $statement = $connection->prepare($sql);
 
-    // Vincula parámetros si los hay
     if (!empty($params)) {
         $statement->bind_param($types, ...$params);
     }
@@ -71,6 +69,10 @@ function getQueryResult($category1, $category2, $category3) {
 
 function getProductsCards($category1, $category2, $category3) {
 
+    //category1 = [Todos, Chicos, Medianos, Grandes]
+    //category2 = [Todos, Anime, Videojuegos]
+    //category3 = [Todos, Pokemon, Digimon, Youtuber]
+
     $colClass = "";
     $cardClass = "card";
     $imgClass = "card-img-top";
@@ -79,6 +81,7 @@ function getProductsCards($category1, $category2, $category3) {
     $result = getQueryResult($category1, $category2, $category3);
 
     $output = '';
+
     while ($row = $result->fetch_assoc()) {
         $output .= '<div class="' . htmlspecialchars($colClass) . '">';
         $output .= '<div class="' . htmlspecialchars($cardClass) . '" style="width: 18rem; margin: 50px;">';
