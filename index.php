@@ -72,7 +72,7 @@ session_start();
 
         <section class="product-grid">
             <h2 align = "center">Productos Mejor Valorados</h2>
-              <br><br>
+            <br><br>
             <div class="grid-cards">
                 <div class="cards">
                     <figure>
