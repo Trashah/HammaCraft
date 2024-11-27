@@ -50,7 +50,7 @@
     z-index: 10;
 }
 
-.btn .btn-dark{
+.custom-btn{
     background-color:#222;
     color:#fff;
     border-radius: 2px;

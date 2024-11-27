@@ -19,24 +19,24 @@
             <a href="/php/catalogo.php" class="<?= basename($_SERVER['SCRIPT_NAME']) == 'catalogo.php' ? 'active' : '' ?>">Catálogo</a>
             <a href="/php/pedidos.php" class="<?= basename($_SERVER['SCRIPT_NAME']) == 'pedidos.php' ? 'active' : '' ?>">Pedidos</a>
                 <a href="/php/carrito_compras.php">
-                    <button class = "btn btn-dark">
+                    <button class = "btn btn-dark custom-btn">
                     <i class="fas fa-shopping-cart"></i> Carrito
                     </button>
                 </a>
                 
 
                 <?php if (isset($_SESSION["userID"])): ?>
-                    <button class = "btn btn-dark">
+                    <button class = "btn btn-dark custom-btn">
                         <i class="fa-solid fa-user"></i> <?php echo $_SESSION["userName"]; ?>
                     </button>
                     <a href = "/php/logout.php">
-                    <button class = "btn btn-dark">
+                    <button class = "btn btn-dark custom-btn">
                         <i class="fa-solid fa-user"></i> Cerrar sesión
                     </button>
                     </a>
                 <?php else: ?>
                     <a href="/php/login.php">
-                        <button class = "btn btn-dark">
+                        <button class = "btn btn-dark custom-btn">
                         <i class="fa-solid fa-user"></i> Iniciar sesión
                         </button>
                     </a>
