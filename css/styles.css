@@ -27,7 +27,7 @@
     padding: 10px 15px;
     position: relative;
     display: inline-block;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Transición suave para el color y la línea */
 }
 
 /* Estilo del enlace activo */
@@ -40,11 +40,21 @@
     content: '';
     display: block;
     width: 100%;
-    height: 2px;
+    height: 2px; /* Ajusta la altura de la línea */
     background-color: #00A676; /* Color de la línea */
     position: absolute;
-    bottom: -2px; /* Ajusta según tu diseño */
+    bottom: -3px; /* Ajusta según tu diseño */
     left: 0;
+    transition: width 0.3s ease; /* Transición suave para la línea */
+}
+
+/* Efecto cuando el usuario pasa el cursor sobre el enlace (opcional) */
+.nav-hammacraft-links a:hover {
+    color: #00A676; /* Cambia el color al pasar el cursor */
+}
+
+.nav-hammacraft-links a:hover::after {
+    width: 100%; /* Asegura que la línea se expanda completamente al pasar el cursor */
 }
 
 
