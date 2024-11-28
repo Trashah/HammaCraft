@@ -46,6 +46,9 @@ session_start();
                     <option value="/php/catalogos_especificos/catalogo_grandes.php">Grandes</option>
                     <option value="/php/catalogos_especificos/catalogo_anime.php">Anime</option>
                     <option value="/php/catalogos_especificos/catalogo_videojuegos.php">Videojuegos</option>
+                    <option value="/php/catalogos_especificos/catalogo_pokemon.php">Pokemon</option>
+                    <option value="/php/catalogos_especificos/catalogo_digimon.php">Digimon</option>
+                    <option value="/php/catalogos_especificos/catalogo_youtuber.php">Youtubers</option>
                 </select>
             </form>
         </div>
