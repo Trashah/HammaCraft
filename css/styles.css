@@ -290,6 +290,7 @@
     height: 300px;
     object-fit: contain;
     border-radius: 10px 10px 0 0;
+    padding: 15px;
 }
 
 .cards:hover .card-img{
