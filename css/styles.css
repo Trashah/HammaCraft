@@ -426,11 +426,10 @@ footer {
     align-items: center;
     align-content: center;
     overflow: auto;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .texto_catalogo p {
-    width: 1000px;
     height: 100px;
     margin: 0px;
 }
