@@ -339,6 +339,12 @@ footer {
     line-height: 2;
 }
 
+.footer-section p {
+    text-align: center; 
+    margin: 0 auto; 
+    max-width: 600px; 
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .nav-links {
