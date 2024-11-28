@@ -416,3 +416,9 @@ footer {
     font-family:futura-pt,Arial Black,Arial Bold,Gadget,sans-serif;
     text-transform:uppercase;
 }
+
+.texto_catalogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

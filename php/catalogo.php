@@ -138,7 +138,7 @@ session_start();
     <main>
         <br>
         <br>
-        <div>
+        <div class="texto_catalogo">
             <p class="titulos_catalogos">Todos</p>
             <br>
             <br>
