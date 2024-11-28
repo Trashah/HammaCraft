@@ -29,6 +29,18 @@
 
             </div>
 
+            <div class="footer-section">
+
+                <h3>Sobre nosotros</h3>
+
+                     <p>
+                        Somos un equipo que se dedica a la creación y venta de figuras en 2D llamadas Hama beads, 
+                        las cuales pueden recrear cualquier personaje u objeto que desees utilizando un estilo único 
+                        estilo "pixel art" u "8 bits".
+                    </p>
+
+           </div>
+
         </div>
 
     </footer>
