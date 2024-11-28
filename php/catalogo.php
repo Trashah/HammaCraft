@@ -139,6 +139,16 @@ session_start();
         <br>
         <br>
         <div>
+            <p class="titulos_catalogos">Todos</p>
+            <br>
+            <br>
+            <p class="descripcion_catalogos">Todos nuestros productos<br>
+                Todas nuestras ofertas<br>
+                Todo lo que buscas</p>
+        </div>
+        <br>
+        <br>
+        <div>
             <form>
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">
                     <option value="https://www.hammacraft.lat/php/catalogo.php" selected>Todos</option>
