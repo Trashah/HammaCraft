@@ -396,3 +396,31 @@ footer {
 .menu_catalogo option[selected] {
     background-color: orange;
 }
+
+.titulos_catalogos { 
+    font-size:50px;
+    line-height:45px;
+    font-family:futura-pt,Arial Black,Arial Bold,Gadget,sans-serif;
+    text-transform:uppercase;
+    background-image:linear-gradient(to right, #009cf3, #16d6d9);
+    color:rgba(0, 0, 0, 0);
+    -webkit-background-clip:text;
+    background-clip:text;
+    position:relative;
+}
+
+.descripcion_catalogos {
+    color:#444;
+    font-size:30px;
+    line-height:25px;
+    font-family:futura-pt,Arial Black,Arial Bold,Gadget,sans-serif;
+    text-transform:uppercase;
+}
+
+.texto_catalogo {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 10px;
+}

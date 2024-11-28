@@ -138,6 +138,14 @@ session_start();
     <main>
         <br>
         <br>
+        <div class="texto_catalogo">
+            <p class="titulos_catalogos">Todos</p>
+            <p class="descripcion_catalogos">Todos nuestros productos<br>
+                Todas nuestras ofertas<br>
+                Todo lo que buscas</p>
+        </div>
+        <br>
+        <br>
         <div>
             <form>
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">
@@ -147,6 +155,9 @@ session_start();
                     <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_grandes.php">Grandes</option>
                     <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_anime.php">Anime</option>
                     <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_videojuegos.php">Videojuegos</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_pokemon.php">Pokemon</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_digimon.php">Digimon</option>
+                    <option value="https://www.hammacraft.lat/php/catalogos_especificos/catalogo_youtubers.php">Youtubers</option>
                 </select>
             </form>
         </div>

@@ -14,7 +14,7 @@ session_start();
 	
     <meta charset="utf-8">
 	<meta name = "viewport" content="width=device-width, initial-scale=1">
-	<title> HammaCraft - Catálogo: Grandes </title>
+	<title> HammaCraft - Catálogo: Pokemon </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
@@ -30,6 +30,8 @@ session_start();
 
 </head>
 
+<body class = "body-hammacraft">
+
     <?php include '../header.php'; ?>
 
     <main>
@@ -41,10 +43,10 @@ session_start();
                     <option value="/php/catalogo.php">Todos</option>
                     <option value="/php/catalogos_especificos/catalogo_chicos.php">Chicos</option>
                     <option value="/php/catalogos_especificos/catalogo_medianos.php">Medianos</option>
-                    <option value="/php/catalogos_especificos/catalogo_grandes.php" selected>Grandes</option>
+                    <option value="/php/catalogos_especificos/catalogo_grandes.php">Grandes</option>
                     <option value="/php/catalogos_especificos/catalogo_anime.php">Anime</option>
                     <option value="/php/catalogos_especificos/catalogo_videojuegos.php">Videojuegos</option>
-                    <option value="/php/catalogos_especificos/catalogo_pokemon.php">Pokemon</option>
+                    <option value="/php/catalogos_especificos/catalogo_pokemon.php" selected>Pokemon</option>
                     <option value="/php/catalogos_especificos/catalogo_digimon.php">Digimon</option>
                     <option value="/php/catalogos_especificos/catalogo_youtubers.php">Youtubers</option>
                 </select>
@@ -54,9 +56,9 @@ session_start();
         <div class = "catalogo">
 
             <?php
-                $category1 = "Grandes"; //Todos, Chicos, Medianos, Grandes
+                $category1 = "Todos"; //Todos, Chicos, Medianos, Grandes
                 $category2 = "Todos"; //Todos, Anime, Videojuegos
-                $category3 = "Todos"; //Todos, Pokemon, Digimon, Youtuber
+                $category3 = "Pokemon"; //Todos, Pokemon, Digimon, Youtuber
                 echo getProductsCards($category1, $category2, $category3);
             ?>
 
