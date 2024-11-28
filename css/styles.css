@@ -362,7 +362,7 @@ footer {
 	width: 400px;
 	max-width: 100%; 
 	box-sizing: border-box;
- margin: 20px auto;
+    margin: 20px auto;
 	border: 1px solid #aaa;
 	box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
 	border-radius: .3em;
@@ -410,6 +410,7 @@ footer {
 }
 
 .descripcion_catalogos {
+    text-align: center;
     color:#444;
     font-size:30px;
     line-height:25px;
@@ -418,9 +419,8 @@ footer {
 }
 
 .texto_catalogo {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
