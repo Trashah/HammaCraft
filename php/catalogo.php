@@ -140,8 +140,6 @@ session_start();
         <br>
         <div class="texto_catalogo">
             <p class="titulos_catalogos">Todos</p>
-            <br>
-            <br>
             <p class="descripcion_catalogos">Todos nuestros productos<br>
                 Todas nuestras ofertas<br>
                 Todo lo que buscas</p>
