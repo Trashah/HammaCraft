@@ -421,11 +421,8 @@ footer {
 
 .texto_catalogo {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    align-content: center;
-    overflow: auto;
     flex-direction: column;
 }
 
