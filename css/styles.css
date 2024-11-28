@@ -278,6 +278,8 @@
 .cards{
     border-radius: 10px;
     background: white;
+    width: 300px;
+    height: 430px;
 }
 .cards:hover{
     box-shadow: 0px 10px 20px rgba(0,0,0,0.20);
