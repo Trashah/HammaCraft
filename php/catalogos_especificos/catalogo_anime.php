@@ -37,6 +37,13 @@ session_start();
     <main>
         <br>
         <br>
+        <div class="texto_catalogo">
+            <p class="titulos_catalogos">Anime</p>
+            <p class="descripcion_catalogos">Para aquellos amigos otakus<br>
+                Y para aquellos no tanto también</p>
+        </div>
+        <br>
+        <br>
         <div>
             <form class="menu-catalogo">
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">

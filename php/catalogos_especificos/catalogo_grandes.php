@@ -35,6 +35,13 @@ session_start();
     <main>
         <br>
         <br>
+        <div class="texto_catalogo">
+            <p class="titulos_catalogos">Grandes</p>
+            <p class="descripcion_catalogos">Gran tamaño<br>
+                Grandes detalles</p>
+        </div>
+        <br>
+        <br>
         <div>
             <form class="menu-catalogo">
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">

@@ -37,6 +37,13 @@ session_start();
     <main>
         <br>
         <br>
+        <div class="texto_catalogo">
+            <p class="titulos_catalogos">Medianos</p>
+            <p class="descripcion_catalogos">Colecciones variadas<br>
+                Un gran punto medio</p>
+        </div>
+        <br>
+        <br>
         <div>
             <form class="menu-catalogo">
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">

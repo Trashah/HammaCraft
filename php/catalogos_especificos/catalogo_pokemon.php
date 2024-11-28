@@ -37,6 +37,14 @@ session_start();
     <main>
         <br>
         <br>
+        <div class="texto_catalogo">
+            <p class="titulos_catalogos">Pokemon</p>
+            <p class="descripcion_catalogos">Desde clásicos hasta modernos<br>
+                Para todos los gustos<br>
+                Atrápalos ya</p>
+        </div>
+        <br>
+        <br>
         <div>
             <form class="menu-catalogo">
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">

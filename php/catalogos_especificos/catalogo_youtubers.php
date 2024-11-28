@@ -37,6 +37,14 @@ session_start();
     <main>
         <br>
         <br>
+        <div class="texto_catalogo">
+            <p class="titulos_catalogos">Youtubers</p>
+            <p class="descripcion_catalogos">Risas, sustos y demás emociones<br>
+                En tus tiempos libres y comidas<br>
+                Consigue a tu creador favorito</p>
+        </div>
+        <br>
+        <br>
         <div>
             <form class="menu-catalogo">
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">

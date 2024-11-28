@@ -37,6 +37,14 @@ session_start();
     <main>
         <br>
         <br>
+        <div class="texto_catalogo">
+            <p class="titulos_catalogos">Digimon</p>
+            <p class="descripcion_catalogos">Infinitas criaturas<br>
+                Infinitas oportunidades<br>
+                A conseguirlos todos</p>
+        </div>
+        <br>
+        <br>
         <div>
             <form class="menu-catalogo">
                 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"  class="menu_catalogo">
