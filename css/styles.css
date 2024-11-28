@@ -407,6 +407,7 @@ footer {
     -webkit-background-clip:text;
     background-clip:text;
     position:relative;
+    text-align:center;
 }
 
 .descripcion_catalogos {
@@ -420,7 +421,16 @@ footer {
 
 .texto_catalogo {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    align-content: center;
+    overflow: auto;
+    flex-direction: row;
+}
+
+.texto_catalogo p {
+    width: 1000px;
+    height: 100px;
+    margin: 0px;
 }
