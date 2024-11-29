@@ -11,6 +11,9 @@
 </head>
 
 <body>
+
+    <?php include 'header.php'; ?>
+
     <div class="container">
         <div class="signin-signup">
             <form action="login-process.php" method = "POST" class="sign-in-form">
