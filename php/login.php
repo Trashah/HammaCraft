@@ -14,6 +14,8 @@
 
     <?php include 'header.php'; ?>
 
+    <main>
+
     <div class="container">
         <div class="signin-signup">
             <form action="login-process.php" method = "POST" class="sign-in-form">
@@ -98,6 +100,9 @@
             </div>
         </div>
     </div>
+
+    </main>
+
     <script src="../javascript/login.js"></script>
 </body>
 
