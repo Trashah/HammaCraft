@@ -1,0 +1,55 @@
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.titulo{
+    font-size:50px;
+    line-height:45px;
+    font-family:futura-pt,Arial Black,Arial Bold,Gadget,sans-serif;
+    text-transform:uppercase;
+    background-image:linear-gradient(to right, #009cf3, #16d6d9);
+    color:rgba(0, 0, 0, 0);
+    -webkit-background-clip:text;
+    background-clip:text;
+    position:relative;
+    text-align:center;
+}
+.descripcion {
+    text-align: center;
+    color:#444;
+    font-size:30px;
+    line-height:25px;
+    font-family:futura-pt,Arial Black,Arial Bold,Gadget,sans-serif;
+    text-transform:uppercase;
+}
+.formulario{
+    position: center;
+    top: 50%;
+    left: 50%;
+}
+form .nombreped{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+.nombreped input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.nombreped label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50px);
+    font-size: 16px;
+    pointer-events: none;
+}
