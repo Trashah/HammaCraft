@@ -134,46 +134,51 @@ session_start();
     <script>
             
     function mostrarMensaje(event) {
-    event.preventDefault();
     alert("Solicitud Enviada");
-    location.reload();
     }
 
     </script>
  
 <div class="formulario">
- <form onsubmit="mostrarMensaje(event)" method="post">
+ <form action = "pedidos-process.php" onsubmit="mostrarMensaje(event)" method="POST">
     <div class="nombreusuario">
       <label for="NombreU"> Ingrese su nombre: </label>
       <input type="text" name="NombreCliente">
     </div>
+
     <div class="correousuario">
-      <label for=CorreoU"> Ingrese su correo de contacto: </label>
+      <label for="CorreoU"> Ingrese su correo de contacto: </label>
       <input type="text" name="CorreoCliente">
     </div>
+
     <div class="nombreped">
       <label for="NombreP"> Nombre del personaje/objeto: </label> 
       <input type="text" name="NombreP"> 
     </div>
+
     <div class="descped">
       <label for="Desc"> Descripción del personaje/objeto: </label> 
       <textarea cols="30" rows="3" name="Desc"></textarea>
     </div>
         
     <div class="sizeped">
-      <label for="Size"> ¿De qué tamaño sería?</label>
-      <input type="radio" name="option"> Chico
-      <input type="radio" name="option"> Mediano
-      <input type="radio" name="option"> Grande
+      <label for="Size">¿De qué tamaño sería?</label>
+      <input type="radio" name="Size" value="Chico"> Chico<br>
+      <input type="radio" name="Size" value="Mediano"> Mediano<br>
+      <input type="radio" name="Size" value="Grande"> Grande<br>
     </div>
         
+    <br>
+
     <div class="imagenped">
       <label for="Imagen">Subir alguna imagen de referencia del personaje/objeto</label>
       <input type="file" name="Imagen">
     </div>
+
   <div class="submitped">
-      <input type="submit" value=" Enviar Pedido ">
+      <input type="submit" name = "action" value="Enviar Pedido">
   </div>
+
     <div class="resetped">
       <input type="reset" value=" Limpiar Solicitud ">
   </div>

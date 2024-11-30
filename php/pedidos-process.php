@@ -2,30 +2,20 @@
 
 include __DIR__ . '/../.gitignore/config.php';
 
-$invalidLogin = false;
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if ($_POST["action"] === "Enviar Pedido") {
+        $name = $_POST["NombreCliente"];
+        $email = $_POST["CorreoCliente"];
+        $productName = $_POST["NombreP"];
+        $productDescription = $_POST["Desc"];
+        $size = $_POST["Size"];
 
-    if ($_POST["action"] === "Regístrate") {
-        $username = $_POST["signupUsername"];
-        $email = $_POST["signupEmail"];
-        $password = $_POST["signupPassword"];
-        $passwordHash = password_hash($_POST["signupPassword"], PASSWORD_DEFAULT);
-
-        signupUser($username, $email, $password);
+        saveOrder($name, $email, $productName, $productDescription, $size);
     } 
-
-    else if ($_POST["action"] === "Inicia Sesión") {
-        $username = $_POST["loginUsername"];
-        $password = $_POST["loginPassword"];
-
-        loginUser($username, $password);
-    }
-
 }
 
-function checkEmptyInputs($username, $email, $password) {
-    if (empty($username) || ($email !== null && empty($email)) || empty($password)) {
+function checkEmptyInputs($name, $email, $productName, $productDescription, $size) {
+    if (empty($name) || ($email !== null && empty($email)) || empty($productName) || empty($productDescription) || empty($size)) {
         die("Por favor, llene todos los campos.");
     }
 }
@@ -36,51 +26,55 @@ function checkValidEmail($email) {
     }
 }
 
-function loginUser($username, $password) {
+function getUserIDWithEmail($email) {
     $connection = connectToDatabase();
-    checkEmptyInputs($username, NULL, $password);
 
-    $sql = sprintf("SELECT * FROM usuarios WHERE Nombre = '%s'", $connection -> real_escape_string($username));
-    
-    $result = $connection -> query($sql);
+    $sql = "SELECT ID FROM usuarios WHERE Email = ?";
+    $statement = $connection -> stmt_init();
 
-    $user = $result -> fetch_assoc();
-
-    if ($user) {
-        if (password_verify($password, $user["Password_Hash"])) {
-            session_start();
-            $_SESSION["userID"] = $user["ID"];
-            $_SESSION["userName"] = $user["Nombre"];
-            header("Location: ../index.php");
-            exit;
-        }
-        else {
-            die("Login inválido");
-        }
+    if (!$statement -> prepare($sql)) {
+        die("Error de SaQL: " . $connection -> error);
     }
+
+    $statement -> bind_param("s", $email);
+
+    if (!$statement -> execute()) {
+        die ("Error de SQL: " . $connection -> error . " " . $connection -> errno);
+    }
+
+    $statement -> bind_result($ID);
+
+    if (!$statement -> fetch()) {
+        $statement -> close();
+        die ("Por favor, ingrese un correo registrado");
+    }
+
+    $statement -> close();
+    return $ID;
 }
 
-
-function signupUser($username, $email, $password) {
-    $passwordHash = password_hash($_POST["signupPassword"], PASSWORD_DEFAULT);
+function saveOrder($name, $email, $productName, $productDescription, $size) {
     $connection = connectToDatabase();
 
-    checkEmptyInputs($username, $email, $password);
+    checkEmptyInputs($name, $email, $productName, $productDescription, $size);
     checkValidEmail($email);
 
-    $sql = "INSERT INTO usuarios (Nombre, Email, Password_Hash) VALUES (?, ?, ?)";
-    $stmt = $connection -> stmt_init();
+    $IDCliente = getUserIDWithEmail($email);
 
-    if (!$stmt -> prepare($sql)) {
+    $sql = "INSERT INTO pedidos (IDCliente, NombreCliente, CorreoCliente, NombrePO, DescPO, Tamano) VALUES (?, ?, ?, ?, ?, ?)";
+    $statement = $connection -> stmt_init();
+
+    if (!$statement -> prepare($sql)) {
         die("Error de SQL: " . $connection -> error);
     }
 
-    $stmt -> bind_param("sss", $username, $email, $passwordHash);
+    $statement -> bind_param("isssss", $IDCliente, $name, $email, $productName, $productDescription, $size);
 
-    if($stmt -> execute()) {
-        loginUser($username, $password);
-    }
-    else {
+    if(!$statement -> execute()) {
+        $statement -> close();
         die("Error de SQL: " . $connection->error . " " . $connection->errno);
     }
+    
+    $statement -> close();
+    header("Location: pedidos.php");
 }
