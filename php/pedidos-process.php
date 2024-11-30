@@ -33,7 +33,7 @@ function getUserIDWithEmail($email) {
     $statement = $connection -> stmt_init();
 
     if (!$statement -> prepare($sql)) {
-        die("Error de SaQL: " . $connection -> error);
+        die("Error de SQL: " . $connection -> error);
     }
 
     $statement -> bind_param("s", $email);
