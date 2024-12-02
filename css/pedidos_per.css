@@ -6,10 +6,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
 }
 
-.pedidos_oc .custom-section {
+.custom-section {
     display: flex;
     gap: 20px;
     align-items: center;
@@ -18,39 +17,41 @@
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.pedidos_oc .image-container {
+.image-container {
     flex: 1;
 }
 
-.pedidos_oc .image-placeholder {
+.image-placeholder {
     width: 100%;
     height: 200px;
     border: 2px solid black;
     object-fit: cover;
 }
 
-.pedidos_oc .text-container {
+.text-container {
     flex: 2;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Espaciado flexible entre texto y botón */
+    justify-content: space-between;
 }
 
-.pedidos_oc .text-container p {
+.text-container p {
     font-size: 1rem;
     line-height: 1.5;
     margin: 10px 0;
 }
 
-.pedidos_oc .button-container {
+.button-container {
     display: flex;
-    justify-content: flex-end; /* Botón alineado hacia la derecha */
+    justify-content: flex-end;
 }
 
-.pedidos_oc .custom-button {
+.custom-button {
     display: inline-block;
     background-color: black;
     padding: 10px 20px;
@@ -63,7 +64,7 @@
     border-radius: 25px;
 }
 
-.pedidos_oc .custom-button:hover {
+.custom-button:hover {
     background-color: #00A676;
     color: white;
     cursor: pointer;
