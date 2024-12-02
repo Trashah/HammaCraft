@@ -68,8 +68,10 @@ session_start();
 
             </div>
         </section>
-        <section class="pedidos_oc">
-        <div class="custom-section">
+
+    <!--seccion de pedidos personalizados-->
+    <div class="pedidos_oc">
+    <div class="custom-section">
         <div class="image-container">
             <img class="image-placeholder" src="/images/atractive_hamabeads.png" alt="hamma_beads">
         </div>
@@ -80,7 +82,9 @@ session_start();
             </div>
         </div>
     </div>
-        </section>
+</div>
+
+
 
         
 
