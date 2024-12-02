@@ -9,7 +9,7 @@
     min-height: 100vh;
 }
 
-.custom-section {
+.pedidos_oc .custom-section {
     display: flex;
     gap: 20px;
     align-items: center;
@@ -21,36 +21,36 @@
     margin: auto;
 }
 
-.image-container {
+.pedidos_oc .image-container {
     flex: 1;
 }
 
-.image-placeholder {
+.pedidos_oc .image-placeholder {
     width: 100%;
     height: 200px;
     border: 2px solid black;
     object-fit: cover;
 }
 
-.text-container {
+.pedidos_oc .text-container {
     flex: 2;
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Espaciado flexible entre texto y botón */
 }
 
-.text-container p {
+.pedidos_oc .text-container p {
     font-size: 1rem;
     line-height: 1.5;
     margin: 10px 0;
 }
 
-.button-container {
+.pedidos_oc .button-container {
     display: flex;
     justify-content: flex-end; /* Botón alineado hacia la derecha */
 }
 
-.custom-button {
+.pedidos_oc .custom-button {
     display: inline-block;
     background-color: black;
     padding: 10px 20px;
@@ -63,7 +63,7 @@
     border-radius: 25px;
 }
 
-.custom-button:hover {
+.pedidos_oc .custom-button:hover {
     background-color: #00A676;
     color: white;
     cursor: pointer;

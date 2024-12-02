@@ -18,7 +18,7 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <!--<link rel="stylesheet" href="css/pedidos_per.css">-->
+    <link rel="stylesheet" href="css/pedidos_per.css">
     <style>
         body {
             background-color: #e5fefe; /* Morado claro */
@@ -67,11 +67,19 @@ session_start();
                 <button class = "carousel-btn next"> &gt; </button>
 
             </div>
-
-        </section class="pedidos_oc">
-        
-        <section>
-
+        </section>
+        <section class="pedidos_oc">
+            <div class="custom-section">
+                <div class="image-container">
+                    <img class="image-placeholder" src="/images/atractive_hamabeads.png" alt="hamma_beads">
+                </div>
+                <div class="text-container">
+                    <p>¡Haz que tus personajes favoritos cobren vida! 🎮🌟 Desde héroes de videojuegos hasta íconos de tus series animadas preferidas, personalizamos tus diseños en Hama Beads para que sean tan únicos como tú. ¡Haz tu pedido ahora y lleva tu pasión al siguiente nivel!</p>
+                    <div class="button-container">
+                        <a href="/php/pedidos.php" class="custom-button">Hacer pedido</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         
