@@ -68,7 +68,7 @@ session_start();
 
             </div>
 
-        </section>
+        </section class="pedidos_oc">
         <?php include 'php/pedidos_per.php'; ?>
         <section>
 
