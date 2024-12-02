@@ -250,77 +250,7 @@
 
 /*PEDIDOS PERSONALIZADOS*/
 
-.pedidos_oc {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.custom-section {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.image-container {
-    flex: 1;
-}
-
-.image-placeholder {
-    width: 100%;
-    height: 200px;
-    border: 2px solid black;
-    object-fit: cover;
-}
-
-.text-container {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.text-container p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 10px 0;
-}
-
-.button-container {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.custom-button {
-    display: inline-block;
-    background-color: black;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: white;
-    border: 2px solid black;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.3s ease;
-    border-radius: 25px;
-}
-
-.custom-button:hover {
-    background-color: #00A676;
-    color: white;
-    cursor: pointer;
-    border: 2px solid #00A676;
-}
 
 /* Product Grid */
 .product-grid {
