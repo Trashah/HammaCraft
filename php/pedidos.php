@@ -240,5 +240,6 @@ session_start();
 </main>
 
     <?php include "footer.php"; ?>
+<script src = "javascript/script.js" defer> </script>
 
 </body></html>
