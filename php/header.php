@@ -7,11 +7,6 @@
 
             </div>
 
-            <div class = "search-bar-hammacraft">
-
-                <input type = "text" placeholder = "Buscar...">
-
-            </div>
 
             <div class = "nav-hammacraft-links">
 
