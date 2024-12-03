@@ -20,21 +20,39 @@
                 </a>
                 
 
-                <?php if (isset($_SESSION["userID"])): ?>
+                <?php 
+
+                if (isset($_SESSION["userID"])):
+
+                    if ($_SESSION["tipoDeUsuario"] == "Admin") {
+                        $userpageLink = "/php/admin.php";
+                    }
+                    else {
+                        $userpageLink = "/php/usuario.php";
+                    }
+
+                ?>
+
+                    <a href = <?php echo $userpageLink ?>>
                     <button class = "btn btn-dark custom-btn">
                         <i class="fa-solid fa-user"></i> <?php echo $_SESSION["userName"]; ?>
                     </button>
+                    </a>
+
                     <a href = "/php/logout.php">
                     <button class = "btn btn-dark custom-btn">
                         <i class="fa-solid fa-user"></i> Cerrar sesión
                     </button>
                     </a>
+
                 <?php else: ?>
+
                     <a href="/php/login.php">
                         <button class = "btn btn-dark custom-btn">
                         <i class="fa-solid fa-user"></i> Iniciar sesión
                         </button>
                     </a>
+
                 <?php endif; ?>
 
             </div>

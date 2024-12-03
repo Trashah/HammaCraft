@@ -40,7 +40,7 @@ function loginUser($username, $password) {
     $connection = connectToDatabase();
     checkEmptyInputs($username, NULL, $password);
 
-    $sql = sprintf("SELECT * FROM usuarios WHERE Nombre = '%s'", $connection -> real_escape_string($username));
+    $sql = sprintf("SELECT * FROM usuarios WHERE NombreDeUsuario = '%s'", $connection -> real_escape_string($username));
     
     $result = $connection -> query($sql);
 
@@ -69,7 +69,7 @@ function signupUser($username, $email, $password) {
     checkEmptyInputs($username, $email, $password);
     checkValidEmail($email);
 
-    $sql = "INSERT INTO usuarios (Nombre, Email, Password_Hash) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO usuarios (NombreDeUsario, Email, Password_Hash) VALUES (?, ?, ?)";
     $stmt = $connection -> stmt_init();
 
     if (!$stmt -> prepare($sql)) {
