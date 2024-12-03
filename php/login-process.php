@@ -50,7 +50,8 @@ function loginUser($username, $password) {
         if (password_verify($password, $user["Password_Hash"])) {
             session_start();
             $_SESSION["userID"] = $user["ID"];
-            $_SESSION["userName"] = $user["Nombre"];
+            $_SESSION["userName"] = $user["NombreDeUsuario"];
+            $_SESSION["tipoDeUsuario"] = $user["Tipo"];
             header("Location: ../index.php");
             exit;
         }
