@@ -52,6 +52,7 @@ function loginUser($username, $password) {
             $_SESSION["userID"] = $user["ID"];
             $_SESSION["userName"] = $user["NombreDeUsuario"];
             $_SESSION["tipoDeUsuario"] = $user["Tipo"];
+            $_SESSION["correoDeUsuario"] = $user["Correo"];
             header("Location: ../index.php");
             exit;
         }
