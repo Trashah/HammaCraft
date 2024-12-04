@@ -50,6 +50,8 @@ function loginUser($username, $password) {
         if (password_verify($password, $user["Password_Hash"])) {
             session_start();
             $_SESSION["userID"] = $user["ID"];
+            $_SESSION["nombre"] = $user["Nombre"];
+            $_SESSION["apellido"] = $user["Apellido"];
             $_SESSION["userName"] = $user["NombreDeUsuario"];
             $_SESSION["tipoDeUsuario"] = $user["Tipo"];
             $_SESSION["correoDeUsuario"] = $user["Correo"];
