@@ -69,7 +69,7 @@ function signupUser($username, $email, $password) {
     checkEmptyInputs($username, $email, $password);
     checkValidEmail($email);
 
-    $sql = "INSERT INTO usuarios (NombreDeUsario, Email, Password_Hash) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO usuarios (NombreDeUsuario, Email, Password_Hash) VALUES (?, ?, ?)";
     $stmt = $connection -> stmt_init();
 
     if (!$stmt -> prepare($sql)) {
