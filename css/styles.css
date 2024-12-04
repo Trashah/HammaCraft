@@ -451,25 +451,34 @@ footer {
     justify-content: center;     
     align-content: stretch;
 
-    background-color: #bbdefb;
+    background-color: #ffffff;
     height: 100%;
     padding: 15px;
     gap: 5px;
 
-  }
+}
 
-  .vistas_sesiones > div{
-    background: #ffecb3;
-    border: 3px solid #ffcc80;
+.vistas_sesiones > div{
+    background: #ffffff;
+    border: 2px solid #808080;
     border-radius: 5px;
     padding: 8px;
-  }
+}
 
 
-  .vistas_sesiones_item1 { 
-    /* flex:0 1 30%; */
-  }
+.vistas_sesiones_item1 { 
+    flex-basis:10%;
+    text-align:center;
+}
 			
-  .vistas_sesiones_item2 { 
-    flex-basis:60%;
-  }
+.vistas_sesiones_item2 { 
+    flex-basis:50%;
+}
+
+.vistas_sesiones_item2 > p {
+    padding-left:20px;
+}
+
+.vistas_sesiones_item2 > form {
+    padding-left:20px;
+}
