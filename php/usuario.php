@@ -43,9 +43,8 @@ session_start();
                 
                 <div class="vistas_sesiones_item2">
                 
-                <p>Nombre: <?php echo "Nombre usuario";?></p>
-                <p>Correo: <?php echo "Correo usuario"?></p>
-                <p>Contraseña: <?php echo "Correo usuario"?></p>
+                <p>Nombre: <?php echo "$_SESSION[userName]";?></p>
+                <p>Correo: <?php echo "$_SESSION[correoDeUsuario];?></p>
                 
                 <br>
                 
