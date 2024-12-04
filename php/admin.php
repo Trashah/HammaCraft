@@ -8,40 +8,56 @@ session_start();
 
 <!DOCTYPE html>
 
-<html lang = "es">
+<html lang="es">
 
-<head>
-	
-    <meta charset="utf-8">
-	<meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1">
+        <title> Hammacraft - Página de Admin </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <script src = "../javascript/script.js" defer> </script>
+        <script src="javascript\catalago_carrito.js" defer></script>
+        <style>
+            body {
+                background-color: #e5fefe; /* Morado claro */
+            }
+            .navbar {
+                background-color: #fbffff; /* Azul celeste */
+            }
+        </style>
 
-	<title> HammaCraft - Página de admin </title>
+    </head>
 
-    <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel = "stylesheet" href = "/css/styles.css">
+    <body class = "body-hammacraft">
 
-    <style>
-        body {
-            background-color: #e5fefe; /* Morado claro */
-        }
-        .navbar {
-            background-color: #fbffff; /* Azul celeste */
-        }
-    </style>
+        <?php include 'header.php'; ?>
 
-</head>
+        <main>
 
-<body class = "body-hammacraft">
+            <div class="vistas_sesiones">
+   
+                <div class="vistas_sesiones_item1"><br>Mi Admin</div>
+                
+                <div class="vistas_sesiones_item2">
+                
+                Wawa placeholder
+                
+                </div>
 
-    <?php include 'header.php'; ?>
+            </div>
 
-    <main>
+        </main>
 
-    </main>
+        <?php include "footer.php"; ?>
 
-    <?php include "footer.php"; ?>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-</body>
-
+    </body>
+    
 </html>

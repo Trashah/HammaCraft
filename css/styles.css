@@ -443,3 +443,33 @@ footer {
     height: 100px;
     margin: 0px;
 }
+
+.vistas_sesiones {
+
+    display: flex;
+    
+    justify-content: center;     
+    align-content: stretch;
+
+    background-color: #bbdefb;
+    height: 100%;
+    padding: 15px;
+    gap: 5px;
+
+  }
+
+  .vistas_sesiones > div{
+    background: #ffecb3;
+    border: 3px solid #ffcc80;
+    border-radius: 5px;
+    padding: 8px;
+  }
+
+
+  .vistas_sesiones_item1 { 
+    /* flex:0 1 30%; */
+  }
+			
+  .vistas_sesiones_item2 { 
+    flex-basis:60%;
+  }
