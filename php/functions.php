@@ -141,6 +141,7 @@ function tablasAdmin() {
         echo "<td>$row[6]</td>";
         echo "<td>$row[7]</td>";
         echo "<td>$row[8]</td>";
+        echo "<td>$row[9]</td>";
         echo "</tr>";
     }
 
