@@ -105,6 +105,8 @@ if (!$loggedIn) {
 
                     </form>
 
+                    <br>
+
                 </div>
 
             </div>
