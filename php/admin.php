@@ -37,16 +37,16 @@ session_start();
 
         <main>
 
-            <div class="vista_admin">
+            <div class="vistas_sesiones">
    
-                <div class="vista_admin_item1">  
-                    <p class="fondo_conf_admin">
+                <div class=".vistas_sesiones_item1">  
+                    <p class="fondo_conf">
                         <br>Mi Admin
                         <br>&nbsp
                     </p>
                 </div>
                 
-                <div class="vista_admin_item2">
+                <div class="vistas_sesiones_item2">
                 
                 <?php
 
