@@ -147,6 +147,8 @@ function tablasAdmin() {
     echo "</table>";
     echo "<br><br>";
 
+    $consulta="select * from usuarios";
+
     echo "<table border=1>";
     echo "<th align='center' colspan='7'>Usuarios</th>";
     echo "<tr><td>ID</td><td>NombreDeUsuario</td><td>Nombre</td><td>Apellido</td><td>Email</td><td>Password_Hash</td><td>Tipo</td></tr>";
@@ -166,6 +168,8 @@ function tablasAdmin() {
 
     echo "</table>";
     echo "<br><br>";
+
+    $consulta="select * from bitacora";
 
     echo "<table border=1>";
     echo "<th align='center' colspan='5'>Bitacora</th>";
