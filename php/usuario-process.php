@@ -35,10 +35,14 @@ function checkValidEmail($newEmail) {
 }
 
 function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPassword) {
+    $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+
     $connection = connectToDatabase();
 
     checkEmptyInputs($newUsername, $newName, $newLastname, $newEmail, $newPassword);
     checkValidEmail($newEmail);
+
+    // Hola carlitos aqui modo chambeador
 
     header("Location: usuario.php");
 }
