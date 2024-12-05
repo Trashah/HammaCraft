@@ -8,6 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($_POST["action"] === "Regístrate") {
         $username = $_POST["signupUsername"];
+        $Nombre = $_POST["signupName"];
+        $Apellido = $_POST["signupApellido"];
         $email = $_POST["signupEmail"];
         $password = $_POST["signupPassword"];
         $passwordHash = password_hash($_POST["signupPassword"], PASSWORD_DEFAULT);

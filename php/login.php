@@ -55,6 +55,14 @@
                         <input type="text" name = "signupUsername" placeholder="Nombre de usuario">
                     </div>
                     <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name = "signupName" placeholder="Nombre">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name = "signupApellido" placeholder="Apellido">
+                    </div>
+                    <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input type="text" name = "signupEmail" placeholder="Correo electrónico">
                     </div>
