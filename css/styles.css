@@ -489,6 +489,10 @@ footer {
     padding-left:20px;
 }
 
+.togglePassword:hover {
+    cursor: pointer;
+}
+
 .boton_borrar {
     background-color: #f44336;
     padding: 0.6rem; /* Ajusta el relleno interno */
@@ -496,8 +500,6 @@ footer {
     margin-top: 1rem; /* Separación superior */
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    background-color: #f44336;
     color: #ffffff;
     transition: background-color 0.3s ease;
     margin-left: auto;
@@ -515,8 +517,6 @@ footer {
     margin-top: 1rem; /* Separación superior */
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    background-color: #4caf50;
     color: #ffffff;
     transition: background-color 0.3s ease;
     margin-left: auto;

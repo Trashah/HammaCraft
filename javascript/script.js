@@ -237,6 +237,6 @@ const togglePassword =
 
 //Redirección en submit vista usuario
 
-function redirectVistaUsuario(){
+function redirectVistaUsuario() {
     window.location.href = '/php/usuario.php';
 }

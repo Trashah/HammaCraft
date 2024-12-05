@@ -69,7 +69,7 @@ session_start();
                     
                     <p>Nueva Contraseña:&nbsp
                     <input type="password" name="nueva_pass" id="id_password" size="30">
-                    <img src="/images/eyeslash.png" width=3% height=3% id="togglePassword">
+                    <img src="/images/eyeslash.png" width=3% height=3% id="togglePassword" class="togglePassword">
                     </p>
                     
                     <br>
