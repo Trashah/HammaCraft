@@ -53,6 +53,9 @@ if (!$loggedIn) {
 
         <main>
         
+        <br>
+        <br>
+
             <div class="vistas_sesiones">
    
                 <div class="vistas_sesiones_item1">  
@@ -111,6 +114,9 @@ if (!$loggedIn) {
 
             </div>
 
+            <br>
+            <br>
+            
         </main>
 
         <?php include "footer.php"; ?>
