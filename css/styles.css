@@ -447,22 +447,20 @@ footer {
 .vistas_sesiones {
 
     display: flex;
-    
     justify-content: center;     
-    align-content: stretch;
-
-    background-color: #ffffff;
+    background-color: #e5fefe;
     height: 100%;
     padding: 15px;
     gap: 5px;
 
 }
 
-.vistas_sesiones > div{
+.vistas_sesiones > div {
     background: #ffffff;
     border: 2px solid #808080;
     border-radius: 5px;
     padding: 8px;
+    padding-top:15px;
 }
 
 
