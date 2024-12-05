@@ -41,7 +41,7 @@ session_start();
                 <div class="vistas_sesiones_item1">  
                     <p class="fondo_conf">
                         <br>Configuración de Perfil
-                        <br>&bnsp
+                        <br>&nbsp
                     </p>
                 </div>
                 
