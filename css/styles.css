@@ -563,13 +563,5 @@ footer {
 }
 
 .vista_admin_tablas_item2 { 
-    flex-basis:50%;
-}
-
-.vistas_admin_tablas_item2 > p {
-    padding-left:20px;
-}
-
-.vistas_admin_tablas_item2 > form {
-    padding-left:20px;
+    flex-basis:70%;
 }
