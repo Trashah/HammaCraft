@@ -83,7 +83,7 @@ session_start();
 
                         <div class="botones_usuario">
                             <input type="reset" value="Deshacer cambios" class="boton_borrar"> &nbsp&nbsp
-                            <input type="submit" value="Confirmar cambios" class="boton_enviar" onsubmit="window.location.href = 'newlocation'; return false;">
+                            <input type="submit" value="Confirmar cambios" class="boton_enviar">
                         </div>
 
                     </form>
