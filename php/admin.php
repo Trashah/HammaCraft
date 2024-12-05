@@ -48,8 +48,11 @@ session_start();
                 
                 <div class="vistas_sesiones_item2">
                 
-                <table border=1>
-                    <td align=center>Listado de las bds</td>
+                <?php
+
+                    tablasAdmin();
+
+                ?>
 
                 </div>
 
