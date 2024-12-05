@@ -209,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });*/
 
+
 //Toggle visibilidad contraseña
 
 const togglePassword =
@@ -233,3 +234,9 @@ const togglePassword =
                 togglePassword.src ="/images/eyeslash.png";
             }
         });
+
+//Redirección en submit vista usuario
+
+function redirectVistaUsuario(){
+    window.location.href = '/php/usuario.php';
+}
