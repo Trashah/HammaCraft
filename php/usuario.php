@@ -106,7 +106,6 @@ if (!$loggedIn) {
                     </form>
 
                     <br>
-                    <br>
 
                 </div>
 
