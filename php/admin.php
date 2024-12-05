@@ -39,7 +39,7 @@ session_start();
 
             <div class="vista_admin_tablas">
    
-                <div class=".vista_admin_tablas_item1">  
+                <div class="vista_admin_tablas_item1">  
                     <p class="fondo_conf_admin_tablas">
                         <br>Mi Admin
                         <br>&nbsp
