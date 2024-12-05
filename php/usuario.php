@@ -38,10 +38,11 @@ session_start();
         
             <div class="vistas_sesiones">
    
-                <div class="vistas_sesiones_item1">
-                    <br>    
-                    <p class="fondo_conf">Configuración de Perfil</p>
-                    <br>
+                <div class="vistas_sesiones_item1">  
+                    <p class="fondo_conf">
+                        <br>Configuración de Perfil
+                        <br>
+                    </p>
                 </div>
                 
                 <div class="vistas_sesiones_item2">
