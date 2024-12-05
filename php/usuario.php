@@ -74,8 +74,8 @@ session_start();
                     
                     <br>
 
-                    <input type="reset" value="Deshacer cambios"> &nbsp&nbsp&nbsp
-                    <input type="submit" value="Confirmar cambios">
+                    <input type="reset" value="Deshacer cambios" class="boton_borrar"> &nbsp&nbsp&nbsp
+                    <input type="submit" value="Confirmar cambios" class="boton_enviar">
 
                 </form>
                 

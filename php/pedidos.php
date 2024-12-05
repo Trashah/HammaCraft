@@ -127,7 +127,7 @@ session_start();
 <main>
     <br>
     <div class="intro">
-    <h1 class="titulo">¿Tiene algún pedido en especifico?</h1>
+    <h1 class="titulo" style="line-height: 65px">¿Tiene algún pedido en especifico?</h1>
     <h2 class="descripcion">Rellene el siguiente formulario para realizar su pedido personalizado</h2>
     <br>
     </div>

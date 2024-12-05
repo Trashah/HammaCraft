@@ -364,6 +364,8 @@ footer {
     }
 }
 
+/*Diseño catálogo*/
+
 .menu_catalogo {
 	display: block;
 	font-size: 16px;
@@ -389,12 +391,15 @@ footer {
 	background-position: right .7em top 50%, 0 0;
 	background-size: .65em auto, 100%;
 }
+
 .menu_catalogo::-ms-expand {
 	display: none;
 }
+
 .menu_catalogo:hover {
 	border-color: #888;
 }
+
 .menu_catalogo:focus {
 	border-color: #aaa;
 	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
@@ -402,6 +407,7 @@ footer {
 	color: #222; 
 	outline: none;
 }
+
 .menu_catalogo option {
 	font-weight:normal;
 }
@@ -444,6 +450,8 @@ footer {
     margin: 0px;
 }
 
+/*Pantallas usuario y admin*/
+
 .vistas_sesiones {
 
     display: flex;
@@ -479,4 +487,42 @@ footer {
 
 .vistas_sesiones_item2 > form {
     padding-left:20px;
+}
+
+.boton_borrar {
+    background-color: #f44336;
+    padding: 0.6rem; /* Ajusta el relleno interno */
+    font-size: 0.9rem; /* Reduce el tamaño del texto */
+    margin-top: 1rem; /* Separación superior */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boton_borrar:hover {
+    background-color: #d32f2f;
+}
+
+.boton_enviar {
+    background-color: #4caf50;
+    padding: 0.6rem; /* Ajusta el relleno interno */
+    font-size: 0.9rem; /* Reduce el tamaño del texto */
+    margin-top: 1rem; /* Separación superior */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boton_enviar:hover {
+    background-color: #388e3c;
 }
