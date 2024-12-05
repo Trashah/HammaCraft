@@ -532,6 +532,32 @@ footer {
 
 /*Pantalla admin*/
 
-.acmon_item2 { 
+.vista_admin {
+    font-family:verdana, sans-serif;
+    display: flex;
+    justify-content: center;     
+    background-color: #e5fefe;
+    height: 100%;
+    padding: 15px;
+    gap: 5px;
+}
+
+.vista_admin > div {
+    background: #ffffff;
+    border: 2px solid #808080;
+    border-radius: 5px;
+    padding-top:0px;
+}
+
+.vista_admin_item1 { 
+    flex-basis:11%;
+    text-align:center;
+}
+
+.fondo_conf_admin {
+    background-color: #f5f5f5;
+}
+
+.vista_admin_item2 { 
     flex-basis:30%;
 }

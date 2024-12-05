@@ -147,4 +147,42 @@ function tablasAdmin() {
     echo "</table>";
     echo "<br><br>";
 
+    echo "<table border=1>";
+    echo "<th align='center' colspan='7'>Usuarios</th>";
+    echo "<tr><td>ID</td><td>NombreDeUsuario</td><td>Nombre</td><td>Apellido</td><td>Email</td><td>Password_Hash</td><td>Tipo</td></tr>";
+
+    while ($row=mysqli_fetch_array($resultado)) {
+
+        echo "<tr>";
+        echo "<td>$row[0]</td>";
+        echo "<td>$row[1]</td>";
+        echo "<td>$row[2]</td>";
+        echo "<td>$row[3]</td>";
+        echo "<td>$row[4]</td>";
+        echo "<td>$row[5]</td>";
+        echo "<td>$row[6]</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+    echo "<br><br>";
+
+    echo "<table border=1>";
+    echo "<th align='center' colspan='5'>Bitacora</th>";
+    echo "<tr><td>ID</td><td>Usuario</td><td>Fecha</td><td>Hora</td><td>Operacion</td></tr>";
+
+    while ($row=mysqli_fetch_array($resultado)) {
+
+        echo "<tr>";
+        echo "<td>$row[0]</td>";
+        echo "<td>$row[1]</td>";
+        echo "<td>$row[2]</td>";
+        echo "<td>$row[3]</td>";
+        echo "<td>$row[4]</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+    echo "<br><br>";
+
 }
