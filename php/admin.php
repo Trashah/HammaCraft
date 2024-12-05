@@ -46,7 +46,7 @@ session_start();
                     </p>
                 </div>
                 
-                <div class="acmon_item2">
+                <div class="vistas_sesiones_item2">
                 
                 <?php
 
