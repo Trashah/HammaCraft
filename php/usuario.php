@@ -53,10 +53,11 @@ session_start();
                 <form>
                     
                     <p>Nuevo nombre:&nbsp
-                    <input type="text" name="nuevo_nombre" size="30">
+                    <input type="text" name="nuevo_usuario" size="30">
+                    </p>
                     
                     <p>Nuevo Nombre:&nbsp
-                    <input type="text" name="nuevo_nomrbre" size="30">
+                    <input type="text" name="nuevo_nombre" size="30">
                     </p>
                     
                     <p>Nuevo Apellido:&nbsp
