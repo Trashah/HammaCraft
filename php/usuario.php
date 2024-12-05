@@ -83,7 +83,7 @@ session_start();
 
                         <div class="botones_usuario">
                             <input type="reset" value="Deshacer cambios" class="boton_borrar"> &nbsp&nbsp&nbsp
-                            <input type="submit" value="Confirmar cambios" class="boton_enviar">
+                            <input type="submit" value="Confirmar cambios" class="boton_enviar" onsubmit="redirectVistaUsuario()">
                         </div>
 
                     </form>
