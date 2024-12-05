@@ -126,7 +126,7 @@ function tablasAdmin() {
 
     echo "<table border=1>";
     echo "<th align='center' colspan='9'>Productos</th>";
-    echo "<tr><td>Campo1</td><td>Campo2</td><td>Campo3</td><td>Campo4</td><td>Campo5</td><td>Campo6</td><td>Campo7</td><td>Campo8</td><td>Campo9</td></tr>";
+    echo "<tr><td>ID_P</td><td>NombreProducto</td><td>Descripcion</td><td>Precio</td><td>Categoria1</td><td>Categoria2</td><td>Categoria3</td><td>Stock</td><td>Imagen</td></tr>";
 
     while ($row=mysqli_fetch_array($resultado)) {
 
