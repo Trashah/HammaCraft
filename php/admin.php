@@ -37,7 +37,7 @@ session_start();
 
         <main>
 
-            <div class="vista_admin">
+            <div class="vistas_sesiones">
    
                 <div class=".vistas_sesiones_item1">  
                     <p class="fondo_conf">
