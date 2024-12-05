@@ -468,10 +468,6 @@ footer {
     flex-basis:11%;
     text-align:center;
 }
-			
-.vistas_sesiones_item1 > p {
-    padding-top:20px;
-}
 
 .vistas_sesiones_item2 { 
     flex-basis:50%;
@@ -479,7 +475,6 @@ footer {
 
 .vistas_sesiones_item2 > p {
     padding-left:20px;
-    padding-top:20px;
 }
 
 .vistas_sesiones_item2 > form {
