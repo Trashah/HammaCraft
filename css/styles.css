@@ -506,12 +506,12 @@ footer {
     background: #ffffff;
     border: 2px solid #808080;
     border-radius: 5px;
-    padding-top:0px;
+    padding-top: 0px;
 }
 
 .vistas_sesiones_item1 { 
-    flex-basis:11%;
-    text-align:center;
+    flex-basis: 11%;
+    text-align: center;
 }
 
 .fondo_conf {
@@ -519,15 +519,15 @@ footer {
 }
 
 .vistas_sesiones_item2 { 
-    flex-basis:25%;
+    flex-basis: 25%;
 }
 
 .vistas_sesiones_item2 > p {
-    padding-left:10%;
+    padding-left: 15%;
 }
 
 .vistas_sesiones_item2 > form {
-    padding-left:10%;
+    padding-left: 15%;
 }
 
 /*Pantalla admin*/
