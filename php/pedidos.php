@@ -131,13 +131,6 @@ session_start();
     <h2 class="descripcion">Rellene el siguiente formulario para realizar su pedido personalizado</h2>
     <br>
     </div>
-    <script>
-            
-    function mostrarMensaje(event) {
-    alert("Solicitud Enviada");
-    }
-
-    </script>
  
 <div class="formulario">
  <form action = "pedidos-process.php" onsubmit="mostrarMensaje(event)" method="POST">

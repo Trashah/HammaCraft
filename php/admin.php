@@ -4,7 +4,24 @@ include 'functions.php';
 
 session_start();
 
+
+if (!isset($_SESSION["tipoDeUsuario"]) || $_SESSION["tipoDeUsuario"] != "Admin") {
+    $isAdmin = false;
+}
+
+$devMode = true;
+
+if ($devMode) {
+    $isAdmin = true;
+}
+
+if (!$isAdmin) {
+    die("No eres admin >:c");
+}
+
 ?>
+
+
 
 <!DOCTYPE html>
 

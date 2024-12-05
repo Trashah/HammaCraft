@@ -4,6 +4,23 @@ include 'functions.php';
 
 session_start();
 
+$loggedIn = true;
+
+if (!isset($_SESSION["userID"])) {
+    $loggedIn = false;
+}
+
+$devMode = true;
+
+if ($devMode && !$loggedIn) {
+    $loggedIn = true;
+    echo "<h1> Advertencia: Has entrado a la página sin haber iniciado sesión. Esto es solo posible ya que el modo dev esta activado. </h1> ";
+}
+
+if (!$loggedIn) {
+    die("No has iniciado sesión >:c");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +73,7 @@ session_start();
                 
                     <br>
                 
-                    <form>
+                    <form action = "usuario-process.php" method = "POST">
                         
                         <p>Nuevo Nombre de Usuario:&nbsp
                             <input type="text" name="nuevo_usuario" size="30">
@@ -83,7 +100,7 @@ session_start();
 
                         <div class="botones_usuario">
                             <input type="reset" value="Deshacer cambios" class="boton_borrar"> &nbsp&nbsp
-                            <input type="submit" value="Confirmar cambios" class="boton_enviar">
+                            <input type="submit" name = "action" value="Confirmar cambios" class="boton_enviar">
                         </div>
 
                     </form>
