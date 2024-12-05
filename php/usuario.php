@@ -96,7 +96,7 @@ if (!$loggedIn) {
                         
                         <p>Nueva Contraseña:<br>
                             <input type="password" name="nueva_pass" id="id_password" size="30">
-                            <img src="/images/eyeslash.png" width=3% height=3% id="togglePassword" class="togglePassword">
+                            <img src="/images/eyeslash.png" width=4.5% height=4.5% id="togglePassword" class="togglePassword">
                         </p>
                         
                         <br>
