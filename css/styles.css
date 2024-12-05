@@ -531,3 +531,6 @@ footer {
 
 /*Pantalla admin*/
 
+.vista_admin_item2 { 
+    flex-basis:70%;
+}
