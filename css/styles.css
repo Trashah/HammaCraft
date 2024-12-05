@@ -471,12 +471,17 @@ footer {
     text-align:center;
 }
 			
+.vistas_sesiones_item1 > p {
+    padding-top:10px;
+}
+
 .vistas_sesiones_item2 { 
     flex-basis:50%;
 }
 
 .vistas_sesiones_item2 > p {
     padding-left:20px;
+    padding-top:10px;
 }
 
 .vistas_sesiones_item2 > form {

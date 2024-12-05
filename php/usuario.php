@@ -39,7 +39,7 @@ session_start();
         
             <div class="vistas_sesiones">
    
-                <div class="vistas_sesiones_item1"><br>Configuración de Perfil</div>
+                <div class="vistas_sesiones_item1">Configuración de Perfil</div>
                 
                 <div class="vistas_sesiones_item2">
                 
