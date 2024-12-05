@@ -18,8 +18,7 @@ session_start();
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="../css/styles.css">
-        <script src = "../javascript/script.js" defer> </script>
-        <script src="javascript\catalago_carrito.js" defer></script>
+        <script src = "/javascript/script.js" defer> </script>
         <style>
             body {
                 background-color: #e5fefe; /* Morado claro */
@@ -69,7 +68,7 @@ session_start();
                     </p>
                     
                     <p>Nueva Contraseña:&nbsp
-                    <input type="password" name="nueva_pass" id="id_password" size="30"><img src="/images/eyeslash.png" width=1% height=1% id="togglePassword">
+                    <input type="password" name="nueva_pass" id="id_password" size="30"><img src="/images/eyeslash.png" width=3% height=3% id="togglePassword">
                     </p>
                     
                 </form>
