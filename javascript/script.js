@@ -226,12 +226,10 @@ const togglePassword =
             password.setAttribute('type', type);
  
             // Toggle the eye slash icon 
-            if (togglePassword.src.match(
-"/images/eyeslash.png")) {
-                togglePassword.src =
-"/images/eye.png";
-            } else {
-                togglePassword.src =
-"/images/eyeslash.png";
+            if (togglePassword.src.match("/images/eyeslash.png")) {
+                togglePassword.src ="/images/eye.png";
+            } 
+            else {
+                togglePassword.src ="/images/eyeslash.png";
             }
         });
