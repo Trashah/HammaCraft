@@ -122,7 +122,6 @@ function tablasAdmin() {
     $conexion=mysqli_connect($servidor,$usuario,$password,$bd);
 
     $consulta="select * from productos";
-            
     $resultado=mysqli_query($conexion,$consulta);
 
     echo "<table border=1>";
@@ -148,6 +147,7 @@ function tablasAdmin() {
     echo "<br><br>";
 
     $consulta="select * from usuarios";
+    $resultado=mysqli_query($conexion,$consulta);
 
     echo "<table border=1>";
     echo "<th align='center' colspan='7'>Usuarios</th>";
@@ -170,6 +170,7 @@ function tablasAdmin() {
     echo "<br><br>";
 
     $consulta="select * from bitacora";
+    $resultado=mysqli_query($conexion,$consulta);
 
     echo "<table border=1>";
     echo "<th align='center' colspan='5'>Bitacora</th>";
