@@ -75,23 +75,23 @@ if (!$loggedIn) {
                 
                     <form action = "usuario-process.php" method = "POST">
                         
-                        <p>Nuevo Nombre de Usuario:&nbsp
+                        <p>Nuevo Nombre de Usuario:<br>
                             <input type="text" name="nuevo_usuario" size="30">
                         </p>
                         
-                        <p>Nuevo Nombre:&nbsp
+                        <p>Nuevo Nombre:<br>
                             <input type="text" name="nuevo_nombre" size="30">
                         </p>
                         
-                        <p>Nuevo Apellido:&nbsp
+                        <p>Nuevo Apellido:<br>
                             <input name="nuevo_apellido" size="30">
                         </p>
                         
-                        <p>Nuevo Correo:&nbsp
+                        <p>Nuevo Correo:<br>
                             <input name="nuevo_correo" size="30">
                         </p>
                         
-                        <p>Nueva Contraseña:&nbsp
+                        <p>Nueva Contraseña:<br>
                             <input type="password" name="nueva_pass" id="id_password" size="30">
                             <img src="/images/eyeslash.png" width=3% height=3% id="togglePassword" class="togglePassword">
                         </p>
