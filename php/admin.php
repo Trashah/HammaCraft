@@ -39,12 +39,17 @@ session_start();
 
             <div class="vistas_sesiones">
    
-                <div class="vistas_sesiones_item1"><br>Mi Admin</div>
+                <div class="vistas_sesiones_item1">  
+                    <p class="fondo_conf">
+                        <br>Mi Admin
+                        <br>&nbsp
+                    </p>
+                </div>
                 
                 <div class="vistas_sesiones_item2">
                 
-                Wawa placeholder
-                
+                asd
+
                 </div>
 
             </div>
