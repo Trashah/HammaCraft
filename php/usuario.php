@@ -51,7 +51,7 @@ session_start();
                 
                 <form>
                     
-                    <p>Nuevo nombre:&nbsp
+                    <p>Nuevo Nombre de Usuario:&nbsp
                     <input type="text" name="nuevo_usuario" size="30">
                     </p>
                     
@@ -69,11 +69,18 @@ session_start();
                     
                     <p>Nueva Contraseña:&nbsp
                     <input type="password" name="nueva_pass" id="id_password" size="30">
-                    <img src="/images/eyeslash.png" width=3% height=3% id="togglePassword" style="display: inline; margin-left: -1.5%; vertical-align: middle">
+                    <img src="/images/eyeslash.png" width=3% height=3% id="togglePassword">
                     </p>
                     
+                    <br>
+
+                    <input type="reset" value="Deshacer cambios"> &nbsp&nbsp&nbsp
+                    <input type="submit" value="Confirmar cambios">
+
                 </form>
                 
+                <br>
+
                 </div>
 
             </div>
