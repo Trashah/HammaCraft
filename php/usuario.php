@@ -38,50 +38,56 @@ session_start();
         
             <div class="vistas_sesiones">
    
-                <div class="vistas_sesiones_item1"><p class="fondo_conf">Configuración de Perfil</p></div>
+                <div class="vistas_sesiones_item1">
+                    <br>    
+                    <p class="fondo_conf">Configuración de Perfil</p>
+                    <br>
+                </div>
                 
                 <div class="vistas_sesiones_item2">
                 
-                <p>Nombre de Usuario: <?php echo "$_SESSION[userName]";?></p>
-                <p>Nombre: <?php echo "$_SESSION[nombre]";?></p>
-                <p>Apellido: <?php echo "$_SESSION[apellido]";?></p>
-                <p>Correo: <?php echo "$_SESSION[correoDeUsuario]";?></p>
-                
-                <br>
-                
-                <form>
-                    
-                    <p>Nuevo Nombre de Usuario:&nbsp
-                        <input type="text" name="nuevo_usuario" size="30">
-                    </p>
-                    
-                    <p>Nuevo Nombre:&nbsp
-                        <input type="text" name="nuevo_nombre" size="30">
-                    </p>
-                    
-                    <p>Nuevo Apellido:&nbsp
-                        <input name="nuevo_apellido" size="30">
-                    </p>
-                    
-                    <p>Nuevo Correo:&nbsp
-                        <input name="nuevo_correo" size="30">
-                    </p>
-                    
-                    <p>Nueva Contraseña:&nbsp
-                        <input type="password" name="nueva_pass" id="id_password" size="30">
-                        <img src="/images/eyeslash.png" width=3% height=3% id="togglePassword" class="togglePassword">
-                    </p>
-                    
                     <br>
 
-                    <div class="botones_usuario">
-                        <input type="reset" value="Deshacer cambios" class="boton_borrar"> &nbsp&nbsp&nbsp
-                        <input type="submit" value="Confirmar cambios" class="boton_enviar">
-                    </div>
-
-                </form>
+                    <p>Nombre de Usuario: <?php echo "$_SESSION[userName]";?></p>
+                    <p>Nombre: <?php echo "$_SESSION[nombre]";?></p>
+                    <p>Apellido: <?php echo "$_SESSION[apellido]";?></p>
+                    <p>Correo: <?php echo "$_SESSION[correoDeUsuario]";?></p>
                 
-                <br>
+                    <br>
+                
+                    <form>
+                        
+                        <p>Nuevo Nombre de Usuario:&nbsp
+                            <input type="text" name="nuevo_usuario" size="30">
+                        </p>
+                        
+                        <p>Nuevo Nombre:&nbsp
+                            <input type="text" name="nuevo_nombre" size="30">
+                        </p>
+                        
+                        <p>Nuevo Apellido:&nbsp
+                            <input name="nuevo_apellido" size="30">
+                        </p>
+                        
+                        <p>Nuevo Correo:&nbsp
+                            <input name="nuevo_correo" size="30">
+                        </p>
+                        
+                        <p>Nueva Contraseña:&nbsp
+                            <input type="password" name="nueva_pass" id="id_password" size="30">
+                            <img src="/images/eyeslash.png" width=3% height=3% id="togglePassword" class="togglePassword">
+                        </p>
+                        
+                        <br>
+
+                        <div class="botones_usuario">
+                            <input type="reset" value="Deshacer cambios" class="boton_borrar"> &nbsp&nbsp&nbsp
+                            <input type="submit" value="Confirmar cambios" class="boton_enviar">
+                        </div>
+
+                    </form>
+                
+                    <br>
 
                 </div>
 
