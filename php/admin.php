@@ -48,7 +48,8 @@ session_start();
                 
                 <div class="vistas_sesiones_item2">
                 
-                asd
+                <table border=1>
+                    <td align=center>Listado de las bds</td>
 
                 </div>
 

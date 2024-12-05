@@ -111,3 +111,35 @@ function getProductsCards($category1, $category2, $category3) {
 
     return $output;
 }
+
+function tablasAdmin() {
+
+    $servidor="localhost";
+    $usuario="root";
+    $password="";
+    $bd="HammaCraft";
+
+    $conexion=mysqli_connect($servidor,$usuario,$password,$bd);
+
+    $consulta="select * from productos";
+            
+    $resultado=mysqli_query($conexion,$consulta);
+
+    echo "<table border=1>";
+    echo "<th align=center colspan='10'>Productos</th>";
+    echo "<tr><td>Campo1</td><td>Campo2</td><td>Campo3</td><td>Campo4</td><td>Campo5</td><td>Campo6</td><td>Campo7</td><td>Campo8</td><td>Campo9</td><td>Campo10</td><tr>";
+
+    while ($row=mysqli_fetch_array($resultado)) {
+
+        echo "<tr>";
+        echo "<td>$row[0]</td>";
+        echo "<td>$row[1]</td>";
+        echo "<td>$row[2]</td>";
+        echo "<td>$row[3]</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+    echo "<br><br>";
+
+}
