@@ -4,7 +4,24 @@ include 'functions.php';
 
 session_start();
 
+
+if (!isset($_SESSION["tipoDeUsuario"]) || $_SESSION["tipoDeUsuario"] != "Admin") {
+    $isAdmin = false;
+}
+
+$devMode = true;
+
+if ($devMode) {
+    $isAdmin = true;
+}
+
+if (!$isAdmin) {
+    die("No eres admin >:c");
+}
+
 ?>
+
+
 
 <!DOCTYPE html>
 
@@ -37,14 +54,23 @@ session_start();
 
         <main>
 
-            <div class="vistas_sesiones">
+            <div class="vista_admin">
    
-                <div class="vistas_sesiones_item1"><br>Mi Admin</div>
+                <div class="vista_admin_item1">  
+                    <p class="fondo_conf_admin">
+                        <br>Mi Admin
+                        <br>&nbsp
+                    </p>
+                </div>
                 
-                <div class="vistas_sesiones_item2">
+                <div class="vista_admin_item2">
                 
-                Wawa placeholder
-                
+                <?php
+
+                    tablasAdmin();
+
+                ?>
+
                 </div>
 
             </div>

@@ -16,13 +16,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 function checkEmptyInputs($name, $email, $productName, $productDescription, $size) {
     if (empty($name) || ($email !== null && empty($email)) || empty($productName) || empty($productDescription) || empty($size)) {
-        die("Por favor, llene todos los campos.");
+        echo "<script> 
+                alert('Por favor, rellene todos los campos') 
+                window.location.href = 'pedidos.php';
+              </script>";
+        exit;
     }
 }
 
 function checkValidEmail($email) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die("Por favor, ingrese un email válido.");
+        echo "<script> 
+                alert('Por favor, ingrese un correo valido') 
+                window.location.href = 'pedidos.php';
+              </script>";
+        exit;
     }
 }
 
@@ -76,5 +84,8 @@ function saveOrder($name, $email, $productName, $productDescription, $size) {
     }
     
     $statement -> close();
-    header("Location: pedidos.php");
+    echo "<script> 
+          alert('Solicitud enviada') 
+          window.location.href = 'pedidos.php';
+          </script>";
 }

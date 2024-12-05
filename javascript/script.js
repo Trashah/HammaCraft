@@ -208,3 +208,36 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
         }
     });*/
+
+
+//Toggle visibilidad contraseña
+
+const togglePassword =
+              document.querySelector('#togglePassword');
+ 
+        const password = 
+              document.querySelector('#id_password');
+ 
+        togglePassword.
+        addEventListener('click', function (e) {
+ 
+            // Toggle the type attribute 
+            const type = password.getAttribute(
+                'type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+ 
+            // Toggle the eye slash icon 
+            if (togglePassword.src.match("/images/eyeslash.png")) {
+                togglePassword.src ="/images/eye.png";
+            } 
+            else {
+                togglePassword.src ="/images/eyeslash.png";
+            }
+        });
+
+//Redirección en submit vista usuario
+
+function redirectVistaUsuario() {
+    window.location.href = '/php/usuario.php';
+    return false;
+}

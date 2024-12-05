@@ -364,6 +364,8 @@ footer {
     }
 }
 
+/*Diseño catálogo*/
+
 .menu_catalogo {
 	display: block;
 	font-size: 16px;
@@ -389,12 +391,15 @@ footer {
 	background-position: right .7em top 50%, 0 0;
 	background-size: .65em auto, 100%;
 }
+
 .menu_catalogo::-ms-expand {
 	display: none;
 }
+
 .menu_catalogo:hover {
 	border-color: #888;
 }
+
 .menu_catalogo:focus {
 	border-color: #aaa;
 	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
@@ -402,6 +407,7 @@ footer {
 	color: #222; 
 	outline: none;
 }
+
 .menu_catalogo option {
 	font-weight:normal;
 }
@@ -444,41 +450,114 @@ footer {
     margin: 0px;
 }
 
+/*Botones pantallas admin y usuarios*/
+
+.togglePassword:hover {
+    cursor: pointer;
+}
+
+.boton_borrar {
+    background-color: #f44336;
+    padding: 0.6rem; /* Ajusta el relleno interno */
+    font-size: 0.9rem; /* Reduce el tamaño del texto */
+    margin-top: 1rem; /* Separación superior */
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boton_borrar:hover {
+    background-color: #d32f2f;
+}
+
+.boton_enviar {
+    background-color: #4caf50;
+    padding: 0.6rem; /* Ajusta el relleno interno */
+    font-size: 0.9rem; /* Reduce el tamaño del texto */
+    margin-top: 1rem; /* Separación superior */
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boton_enviar:hover {
+    background-color: #388e3c;
+}
+
+/*Pantalla usuario*/
+
 .vistas_sesiones {
-
+    font-family:verdana, sans-serif;
     display: flex;
-    
     justify-content: center;     
-    align-content: stretch;
-
-    background-color: #ffffff;
+    background-color: #e5fefe;
     height: 100%;
     padding: 15px;
     gap: 5px;
-
 }
 
-.vistas_sesiones > div{
+.vistas_sesiones > div {
     background: #ffffff;
     border: 2px solid #808080;
     border-radius: 5px;
-    padding: 8px;
+    padding-top:0px;
 }
-
 
 .vistas_sesiones_item1 { 
-    flex-basis:10%;
+    flex-basis:11%;
     text-align:center;
 }
-			
+
+.fondo_conf {
+    background-color: #f5f5f5;
+}
+
 .vistas_sesiones_item2 { 
-    flex-basis:50%;
+    flex-basis:25%;
 }
 
 .vistas_sesiones_item2 > p {
-    padding-left:20px;
+    padding-left:10%;
 }
 
 .vistas_sesiones_item2 > form {
-    padding-left:20px;
+    padding-left:10%;
+}
+
+/*Pantalla admin*/
+
+.vista_admin {
+    font-family:verdana, sans-serif;
+    display: flex;
+    justify-content: center;     
+    background-color: #e5fefe;
+    height: 100%;
+    padding: 15px;
+    gap: 5px;
+}
+
+.vista_admin > div {
+    background: #ffffff;
+    border: 2px solid #808080;
+    border-radius: 5px;
+    padding-top:0px;
+}
+
+.vista_admin_item1 { 
+    flex-basis:11%;
+    text-align:center;
+}
+
+.fondo_conf_admin {
+    background-color: #f5f5f5;
+}
+
+.vista_admin_item2 { 
+    flex-basis:70%;
 }

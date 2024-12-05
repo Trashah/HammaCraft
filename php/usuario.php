@@ -4,6 +4,23 @@ include 'functions.php';
 
 session_start();
 
+$loggedIn = true;
+
+if (!isset($_SESSION["userID"])) {
+    $loggedIn = false;
+}
+
+$devMode = true;
+
+if ($devMode && !$loggedIn) {
+    $loggedIn = true;
+    echo "<h1> Advertencia: Has entrado a la página sin haber iniciado sesión. Esto es solo posible ya que el modo dev esta activado. </h1> ";
+}
+
+if (!$loggedIn) {
+    die("No has iniciado sesión >:c");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +35,7 @@ session_start();
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="../css/styles.css">
-        <script src = "../javascript/script.js" defer> </script>
-        <script src="javascript\catalago_carrito.js" defer></script>
+        <script src = "/javascript/script.js" defer> </script>
         <style>
             body {
                 background-color: #e5fefe; /* Morado claro */
@@ -37,36 +53,70 @@ session_start();
 
         <main>
         
+        <br>
+        <br>
+
             <div class="vistas_sesiones">
    
-                <div class="vistas_sesiones_item1"><br>Configuración de Perfil</div>
+                <div class="vistas_sesiones_item1">  
+                    <p class="fondo_conf">
+                        <br>Configuración de Perfil
+                        <br>&nbsp
+                    </p>
+                </div>
                 
                 <div class="vistas_sesiones_item2">
                 
-                <p>Nombre: <?php echo "Nombre usuario";?></p>
-                <p>Correo: <?php echo "Correo usuario"?></p>
-                <p>Contraseña: <?php echo "Correo usuario"?></p>
+                    <br>
+
+                    <p>Nombre de Usuario: <?php echo "$_SESSION[userName]";?></p>
+                    <p>Nombre: <?php echo "$_SESSION[nombre]";?></p>
+                    <p>Apellido: <?php echo "$_SESSION[apellido]";?></p>
+                    <p>Correo: <?php echo "$_SESSION[correoDeUsuario]";?></p>
                 
-                <br>
+                    <br>
                 
-                <form>
-                    
-                    <p>Nuevo nombre:&nbsp
-                    <input type="text" name="nuevo_nombre" size="30">
-                    </p>
-                    <p>Nuevo correo:&nbsp
-                    <input type="text" name="nuevo_correo" size="30">
-                    </p>
-                    <p>Nueva contraseña:&nbsp
-                    <input type="password" name="nueva_pass" size="30">
-                    </p>
-                    
-                </form>
-                
+                    <form action = "usuario-process.php" method = "POST">
+                        
+                        <p>Nuevo Nombre de Usuario:<br>
+                            <input type="text" name="nuevo_usuario" size="30">
+                        </p>
+                        
+                        <p>Nuevo Nombre:<br>
+                            <input type="text" name="nuevo_nombre" size="30">
+                        </p>
+                        
+                        <p>Nuevo Apellido:<br>
+                            <input name="nuevo_apellido" size="30">
+                        </p>
+                        
+                        <p>Nuevo Correo:<br>
+                            <input name="nuevo_correo" size="30">
+                        </p>
+                        
+                        <p>Nueva Contraseña:<br>
+                            <input type="password" name="nueva_pass" id="id_password" size="30">
+                            <img src="/images/eyeslash.png" width=4.5% height=4.5% id="togglePassword" class="togglePassword">
+                        </p>
+                        
+                        <br>
+
+                        <div class="botones_usuario">
+                            <input type="reset" value="Deshacer cambios" class="boton_borrar"> &nbsp&nbsp
+                            <input type="submit" name = "action" value="Confirmar cambios" class="boton_enviar">
+                        </div>
+
+                    </form>
+
+                    <br>
+
                 </div>
 
             </div>
 
+            <br>
+            <br>
+            
         </main>
 
         <?php include "footer.php"; ?>
