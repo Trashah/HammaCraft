@@ -43,7 +43,9 @@ session_start();
                 
                 <div class="vistas_sesiones_item2">
                 
-                <p>Nombre: <?php echo "$_SESSION[userName]";?></p>
+                <p>Nombre de Usuario: <?php echo "$_SESSION[userName]";?></p>
+                <p>Nombre: <?php echo "$_SESSION[nombre]";?></p>
+                <p>Apellido: <?php echo "$_SESSION[apellido]";?></p>
                 <p>Correo: <?php echo "$_SESSION[correoDeUsuario]";?></p>
                 
                 <br>
@@ -52,11 +54,20 @@ session_start();
                     
                     <p>Nuevo nombre:&nbsp
                     <input type="text" name="nuevo_nombre" size="30">
+                    
+                    <p>Nuevo Nombre:&nbsp
+                    <input type="text" name="nuevo_nomrbre" size="30">
                     </p>
-                    <p>Nuevo correo:&nbsp
-                    <input type="text" name="nuevo_correo" size="30">
+                    
+                    <p>Nuevo Apellido:&nbsp
+                    <input name="nuevo_apellido" size="30">
                     </p>
-                    <p>Nueva contraseña:&nbsp
+                    
+                    <p>Nuevo Correo:&nbsp
+                    <input name="nuevo_correo" size="30">
+                    </p>
+                    
+                    <p>Nueva Contraseña:&nbsp
                     <input type="password" name="nueva_pass" size="30">
                     </p>
                     
