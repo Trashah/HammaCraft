@@ -453,7 +453,7 @@ footer {
 /*Pantallas usuario y admin*/
 
 .vistas_sesiones {
-
+    font-family:verdana, sans-serif;
     display: flex;
     justify-content: center;     
     background-color: #e5fefe;
@@ -467,14 +467,17 @@ footer {
     background: #ffffff;
     border: 2px solid #808080;
     border-radius: 5px;
-    padding: 8px;
-    padding-top:15px;
+    padding-top:0px;
 }
 
 
 .vistas_sesiones_item1 { 
     flex-basis:11%;
     text-align:center;
+}
+
+.fondo_conf {
+    background-color: #f5f5f5;
 }
 
 .vistas_sesiones_item2 { 

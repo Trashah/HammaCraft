@@ -239,4 +239,5 @@ const togglePassword =
 
 function redirectVistaUsuario() {
     window.location.href = '/php/usuario.php';
+    return false;
 }

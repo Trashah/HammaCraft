@@ -38,7 +38,7 @@ session_start();
         
             <div class="vistas_sesiones">
    
-                <div class="vistas_sesiones_item1">Configuración de Perfil</div>
+                <div class="vistas_sesiones_item1"><p class="fondo_conf">Configuración de Perfil</p></div>
                 
                 <div class="vistas_sesiones_item2">
                 
@@ -52,30 +52,32 @@ session_start();
                 <form>
                     
                     <p>Nuevo Nombre de Usuario:&nbsp
-                    <input type="text" name="nuevo_usuario" size="30">
+                        <input type="text" name="nuevo_usuario" size="30">
                     </p>
                     
                     <p>Nuevo Nombre:&nbsp
-                    <input type="text" name="nuevo_nombre" size="30">
+                        <input type="text" name="nuevo_nombre" size="30">
                     </p>
                     
                     <p>Nuevo Apellido:&nbsp
-                    <input name="nuevo_apellido" size="30">
+                        <input name="nuevo_apellido" size="30">
                     </p>
                     
                     <p>Nuevo Correo:&nbsp
-                    <input name="nuevo_correo" size="30">
+                        <input name="nuevo_correo" size="30">
                     </p>
                     
                     <p>Nueva Contraseña:&nbsp
-                    <input type="password" name="nueva_pass" id="id_password" size="30">
-                    <img src="/images/eyeslash.png" width=3% height=3% id="togglePassword" class="togglePassword">
+                        <input type="password" name="nueva_pass" id="id_password" size="30">
+                        <img src="/images/eyeslash.png" width=3% height=3% id="togglePassword" class="togglePassword">
                     </p>
                     
                     <br>
 
-                    <input type="reset" value="Deshacer cambios" class="boton_borrar"> &nbsp&nbsp&nbsp
-                    <input type="submit" value="Confirmar cambios" class="boton_enviar" onsubmit="redirectVistaUsuario()">
+                    <div class="botones_usuario">
+                        <input type="reset" value="Deshacer cambios" class="boton_borrar"> &nbsp&nbsp&nbsp
+                        <input type="submit" value="Confirmar cambios" class="boton_enviar">
+                    </div>
 
                 </form>
                 
