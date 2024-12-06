@@ -121,6 +121,56 @@ if (!$loggedIn) {
 
         <?php include "footer.php"; ?>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('userForm');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Función de validación
+            function validateField(input, condition, message) {
+                const feedback = input.nextElementSibling;
+                if (!condition(input.value)) {
+                    input.classList.add('is-invalid');
+                    feedback.textContent = message;
+                } else {
+                    input.classList.remove('is-invalid');
+                    feedback.textContent = '';
+                }
+                validateForm();
+            }
+
+            // Revisión general
+            function validateForm() {
+                const isInvalid = document.querySelectorAll('.is-invalid').length > 0;
+                submitBtn.disabled = isInvalid;
+            }
+
+            // Campos específicos
+            document.getElementById('nuevoUsuario').addEventListener('blur', function () {
+                validateField(this, val => val.length >= 8, 'Debe tener al menos 8 caracteres.');
+            });
+
+            document.getElementById('nuevoNombre').addEventListener('blur', function () {
+                validateField(this, val => !/\d/.test(val), 'No debe contener números.');
+            });
+
+            document.getElementById('nuevoApellido').addEventListener('blur', function () {
+                validateField(this, val => !/\d/.test(val), 'No debe contener números.');
+            });
+
+            document.getElementById('nuevoCorreo').addEventListener('blur', function () {
+                validateField(this, val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), 'Correo inválido.');
+            });
+
+            document.getElementById('nuevaPass').addEventListener('blur', function () {
+                validateField(this, val => val.length >= 6, 'Debe tener al menos 6 caracteres.');
+            });
+
+            validateForm();
+        });
+    </script>
+
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
