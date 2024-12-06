@@ -104,6 +104,8 @@ function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPa
             $_SESSION['apellido'] = $newLastname;
             $_SESSION['correoDeUsuario'] = $newEmail;
 
+            logUserChange($newUsername);
+
             echo "<script>
                     alert('Datos actualizados con éxito.');
                     window.location.href = 'usuario.php';
