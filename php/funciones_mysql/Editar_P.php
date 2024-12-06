@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     mysqli_close($conexion);
-    header("https://www.hammacraft.lat/php/admin.php");
+    header("Location: ../admin.php");
     exit;
 }
 ?>
