@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-function checkEmptyInputs($newUsername, $newName, $newLastname, $newEmail, $newPassword) {
+function checkEmptyInputsUsuario($newUsername, $newName, $newLastname, $newEmail, $newPassword) {
     if (empty($newUsername) || empty($newName) || empty($newLastname) || empty($newEmail) || empty($newPassword)) {
         echo "<script> 
                 alert('Por favor, rellene todos los campos');
@@ -29,7 +29,7 @@ function checkEmptyInputs($newUsername, $newName, $newLastname, $newEmail, $newP
     }
 }
 
-function checkValidEmail($newEmail) {
+function checkValidEmailUsuario($newEmail) {
     if (!filter_var($newEmail, FILTER_VALIDATE_EMAIL)) {
         echo "<script> 
                 alert('Por favor, ingrese un correo válido');
@@ -37,32 +37,6 @@ function checkValidEmail($newEmail) {
               </script>";
         exit;
     }
-}
-
-function logUserChange($username) {
-    $connection = connectToDatabase();
-    $action = "UPDATE Usuarios";
-
-    $sql = "INSERT INTO Bitacora (Usuario, Operacion) VALUES (?, ?)";
-
-    $statement = $connection -> stmt_init();
-
-    if (!$statement -> prepare($sql)) {
-        die("Error de SQL al preparar la consulta de bitácora: " . $connection -> error);
-    }
-    
-    $statement -> bind_param("ss", $username, $action);
-
-    if (!$statement -> execute()) {
-        die("Error de SQL al ejecutar la consulta de bitácora: " . $connection -> error);
-    }
-}
-
-function updateSessionData($newUsername, $newName, $newLastname, $newEmail) {
-    $_SESSION["nombre"] = $newName;
-    $_SESSION["apellido"] = $newLastname;
-    $_SESSION["userName"] = $newUsername;
-    $_SESSION["correoDeUsuario"] = $newEmail;
 }
 
 function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPassword) {
@@ -76,11 +50,10 @@ function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPa
     $connection = connectToDatabase();
 
     // Validar entradas
-    checkEmptyInputs($newUsername, $newName, $newLastname, $newEmail, $newPassword);
-    checkValidEmail($newEmail);
+    checkEmptyInputsUsuario($newUsername, $newName, $newLastname, $newEmail, $newPassword);
+    checkValidEmailUsuario($newEmail);
 
     try {
-        // Actualizar datos del usuario en la base de datos
         $sql = "UPDATE usuarios 
                 SET NombreDeUsuario = ?, 
                     Nombre = ?, 
@@ -98,13 +71,10 @@ function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPa
         $stmt->bind_param("sssssi", $newUsername, $newName, $newLastname, $newEmail, $newPasswordHash, $userID);
 
         if ($stmt->execute()) {
-            // Actualizar variables de sesión
             $_SESSION['userName'] = $newUsername;
             $_SESSION['nombre'] = $newName;
             $_SESSION['apellido'] = $newLastname;
             $_SESSION['correoDeUsuario'] = $newEmail;
-
-            logUserChange($newUsername);
 
             echo "<script>
                     alert('Datos actualizados con éxito.');
@@ -122,3 +92,5 @@ function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPa
         exit;
     }
 }
+
+?>
