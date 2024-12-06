@@ -299,7 +299,7 @@ function tablasAdmin() {
         echo "<td>$row[7]</td>";
         echo "<td>$row[8]</td>";
         echo "<td class='action-buttons'>
-                <a href='#' class='action-button edit' onclick='openModal($row[0],
+                <a href='#' class='action-button edit' onclick='openModal_p($row[0],
                  \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\", \"$row[5]\", \"$row[6]\", \"$row[7]\")'>Editar</a>
                 
               </td>";
