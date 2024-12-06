@@ -100,55 +100,69 @@
     <script>
         // Validaciones dinámicas para los campos de registro
         document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('signupForm');
-            const loginForm = document.getElementById('loginForm');
+    const form = document.getElementById('signupForm');
 
-            // Validación de nombre
-            form.signupName.addEventListener('blur', function () {
-                if (/\d/.test(this.value)) {
-                    this.classList.add('is-invalid');
-                } else {
-                    this.classList.remove('is-invalid');
-                }
-            });
+    // Validación de nombre
+    form.signupName.addEventListener('blur', function () {
+        const feedback = this.nextElementSibling;
+        if (/\d/.test(this.value)) {
+            this.classList.add('is-invalid');
+            feedback.textContent = "El nombre no debe contener números.";
+        } else {
+            this.classList.remove('is-invalid');
+            feedback.textContent = "";
+        }
+    });
 
-            // Validación de apellido
-            form.signupApellido.addEventListener('blur', function () {
-                if (/\d/.test(this.value)) {
-                    this.classList.add('is-invalid');
-                } else {
-                    this.classList.remove('is-invalid');
-                }
-            });
+    // Validación de apellido
+    form.signupApellido.addEventListener('blur', function () {
+        const feedback = this.nextElementSibling;
+        if (/\d/.test(this.value)) {
+            this.classList.add('is-invalid');
+            feedback.textContent = "El apellido no debe contener números.";
+        } else {
+            this.classList.remove('is-invalid');
+            feedback.textContent = "";
+        }
+    });
 
-            // Validación de nombre de usuario
-            form.signupUsername.addEventListener('blur', function () {
-                if (this.value.length < 8) {
-                    this.classList.add('is-invalid');
-                } else {
-                    this.classList.remove('is-invalid');
-                }
-            });
+    // Validación de nombre de usuario
+    form.signupUsername.addEventListener('blur', function () {
+        const feedback = this.nextElementSibling;
+        if (this.value.length < 8) {
+            this.classList.add('is-invalid');
+            feedback.textContent = "El nombre de usuario debe tener al menos 8 caracteres.";
+        } else {
+            this.classList.remove('is-invalid');
+            feedback.textContent = "";
+        }
+    });
 
-            // Validación de correo
-            form.signupEmail.addEventListener('blur', function () {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(this.value)) {
-                    this.classList.add('is-invalid');
-                } else {
-                    this.classList.remove('is-invalid');
-                }
-            });
+    // Validación de correo
+    form.signupEmail.addEventListener('blur', function () {
+        const feedback = this.nextElementSibling;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(this.value)) {
+            this.classList.add('is-invalid');
+            feedback.textContent = "Por favor ingresa un correo válido.";
+        } else {
+            this.classList.remove('is-invalid');
+            feedback.textContent = "";
+        }
+    });
 
-            // Validación de contraseña
-            form.signupPassword.addEventListener('blur', function () {
-                if (this.value.length < 6) {
-                    this.classList.add('is-invalid');
-                } else {
-                    this.classList.remove('is-invalid');
-                }
-            });
-        });
+    // Validación de contraseña
+    form.signupPassword.addEventListener('blur', function () {
+        const feedback = this.nextElementSibling;
+        if (this.value.length < 6) {
+            this.classList.add('is-invalid');
+            feedback.textContent = "La contraseña debe tener al menos 6 caracteres.";
+        } else {
+            this.classList.remove('is-invalid');
+            feedback.textContent = "";
+        }
+    });
+});
     </script>
 
 </body>
