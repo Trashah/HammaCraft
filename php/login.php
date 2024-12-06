@@ -113,7 +113,7 @@
                 const feedback = this.nextElementSibling;
                 if (/\d/.test(this.value)) {
                     this.classList.add('is-invalid');
-                    
+                    feedback.textContent = "No debe contener números.";  
                 } else {
                     this.classList.remove('is-invalid');
                     feedback.textContent = "";
@@ -126,7 +126,7 @@
                 const feedback = this.nextElementSibling;
                 if (/\d/.test(this.value)) {
                     this.classList.add('is-invalid');
-                    
+                  feedback.textContent = "No debe contener números.";  
                 } else {
                     this.classList.remove('is-invalid');
                     feedback.textContent = "";
