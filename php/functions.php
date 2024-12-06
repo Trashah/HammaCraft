@@ -114,22 +114,179 @@ function getProductsCards($category1, $category2, $category3) {
 
 function tablasAdmin() {
 
-    $servidor="localhost";
-    $usuario="root";
-    $password="";
-    $bd="HammaCraft";
+    $servidor = "localhost";
+    $usuario = "root";
+    $password = "";
+    $bd = "HammaCraft";
 
-    $conexion=mysqli_connect($servidor,$usuario,$password,$bd);
+    $conexion = mysqli_connect($servidor, $usuario, $password, $bd);
 
-    $consulta="select * from productos";
-    $resultado=mysqli_query($conexion,$consulta);
+    // Estilos para el diseño
+    echo "
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            .section {
+                margin: 20px 0;
+            }
+            .section-header {
+                background-color: #DFFFFF; /* Color azul claro */
+                color: #808080;;
+                font-weight: bold;
+                padding: 10px;
+                text-transform: uppercase;
+            }
+            .table-container {
+                width: 100%;
+                margin: 0 auto;
+                border-collapse: collapse;
+            }
+            .table-container td {
+                padding: 10px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+            .action-buttons {
+                display: flex;
+                gap: 10px;
+            }
+            .action-button {
+                display: inline-flex;
+                align-items: center;
+                background-color: #f8f9fa; /* Fondo claro */
+                color: #333;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 5px 10px;
+                text-decoration: none;
+                font-size: 14px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .action-button:hover {
+                background-color: #e9ecef;
+            }
+            .action-button.add {
+                color: #ffc107; /* Verde */
+            }
+            .action-button.edit {
+                color: #ff6961; /* Amarillo */
+            }
 
-    echo "<table border=1>";
-    echo "<th align='center' colspan='9'>Productos</th>";
-    echo "<tr><td>ID_P</td><td>NombreProducto</td><td>Descripcion</td><td>Precio</td><td>Categoria1</td><td>Categoria2</td><td>Categoria3</td><td>Stock</td><td>Imagen</td></tr>";
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+                justify-content: center;
+                align-items: center;
+            }
 
-    while ($row=mysqli_fetch_array($resultado)) {
+            .modal-button {
+                display: inline-flex;
+                align-items: center;
+                background-color: #ffc107;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 15px;
+                font-size: 14px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .modal-button:hover {
+                background-color: #e0a800;
+            }
 
+            .modal-content {
+                background-color: white;
+                padding: 20px;
+                border-radius: 5px;
+                width: 50%;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            .modal-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            .modal-close {
+                float: right;
+                cursor: pointer;
+                color: #aaa;
+                font-size: 18px;
+            }
+            .modal-close:hover {
+                color: #000;
+            }
+        </style>
+    ";
+
+    // Script para manejar el modal
+    echo "
+    <script>
+        function openModal_p(id, nombre, descripcion, precio, categoria1, categoria2, categoria3, stock) {
+            const modal = document.getElementById('editModal_p');
+            modal.style.display = 'flex';
+            document.getElementById('editId').value = id;
+            document.getElementById('editNombre').value = nombre;
+            document.getElementById('editDescripcion').value = descripcion;
+            document.getElementById('editPrecio').value = precio;
+            document.getElementById('editCategoria1').value = categoria1;
+            document.getElementById('editCategoria2').value = categoria2;
+            document.getElementById('editCategoria3').value = categoria3;
+            document.getElementById('editStock').value = stock;
+        }
+        function closeModal_p() {
+            const modal = document.getElementById('editModal_p');
+            modal.style.display = 'none';
+        }
+    </script>
+";
+
+    // Modal Edicion Productos
+    echo "
+    <div id='editModal_p' class='modal'>
+        <div class='modal-content'>
+            <span class='modal-close' onclick='closeModal()'>&times;</span>
+            <div class='modal-header'>Editar Registro Producto</div>
+            <form action='Editar_p.php' method='POST'>
+                <input type='hidden' id='editId' name='id'>
+                <label for='editNombre'>Nombre del Producto:</label><br>
+                <input type='text' id='editNombre' name='nombre'><br><br>
+                <label for='editDescripcion'>Descripción:</label><br>
+                <textarea id='editDescripcion' name='descripcion'></textarea><br><br>
+                <label for='editPrecio'>Precio del Producto:</label><br>
+                <input type='text' id='editPrecio' name='precio'><br><br>
+                <label for='editCategoria1'>Primera Categoria del Producto:</label><br>
+                <input type='text' id='editCategoria1' name='categoria1'><br><br>
+                <label for='editCategoria2'>Segunda Categoria del Producto:</label><br>
+                <input type='text' id='editCategoria2' name='categoria2'><br><br>
+                <label for='editCategoria3'>Tercera Categoria del Producto:</label><br>
+                <input type='text' id='editCategoria3' name='categoria3'><br><br>
+                <label for='editStock'>Stock del Producto:</label><br>
+                <input type='text' id='editStock' name='stock'><br><br>
+                <button type='submit' class='modal-button'>Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+";
+
+    // Sección: Productos
+    echo "<div class='section'>";
+    echo "<div class='section-header'>Productos</div>";
+    echo "<table class='table-container'>";
+    echo "<tr><td>ID_P</td><td>NombreProducto</td><td>Descripcion</td><td>Acciones</td></tr>";
+
+    $consulta = "select * from productos";
+    $resultado = mysqli_query($conexion, $consulta);
+
+    while ($row = mysqli_fetch_array($resultado)) {
         echo "<tr>";
         echo "<td>$row[0]</td>";
         echo "<td>$row[1]</td>";
@@ -140,21 +297,27 @@ function tablasAdmin() {
         echo "<td>$row[6]</td>";
         echo "<td>$row[7]</td>";
         echo "<td>$row[8]</td>";
+        echo "<td class='action-buttons'>
+                <a href='#' class='action-button edit' onclick='openModal($row[0],
+                 \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\", \"$row[5]\", \"$row[6]\", \"$row[7]\")'>Editar</a>
+                <a href='funciones_mysql/Borrar.php?id=".$row['id']."' class='action-button edit'>Borrar</a>
+              </td>";
         echo "</tr>";
     }
 
     echo "</table>";
-    echo "<br><br>";
+    echo "</div>";
 
-    $consulta="select * from usuarios";
-    $resultado=mysqli_query($conexion,$consulta);
+    // Sección: Usuarios
+    echo "<div class='section'>";
+    echo "<div class='section-header'>Usuarios</div>";
+    echo "<table class='table-container'>";
+    echo "<tr><td>ID</td><td>NombreDeUsuario</td><td>Email</td><td>Acciones</td></tr>";
 
-    echo "<table border=1>";
-    echo "<th align='center' colspan='7'>Usuarios</th>";
-    echo "<tr><td>ID</td><td>NombreDeUsuario</td><td>Nombre</td><td>Apellido</td><td>Email</td><td>Password_Hash</td><td>Tipo</td></tr>";
+    $consulta = "select * from usuarios";
+    $resultado = mysqli_query($conexion, $consulta);
 
-    while ($row=mysqli_fetch_array($resultado)) {
-
+    while ($row = mysqli_fetch_array($resultado)) {
         echo "<tr>";
         echo "<td>$row[0]</td>";
         echo "<td>$row[1]</td>";
@@ -163,31 +326,39 @@ function tablasAdmin() {
         echo "<td>$row[4]</td>";
         echo "<td>$row[5]</td>";
         echo "<td>$row[6]</td>";
+        echo "<td class='action-buttons'>
+                <a href='#' class='action-button edit>Editar</a>
+                <a href='funciones_mysql/Borrar.php?id=".$row['id']."' class='action-button edit'>Borrar</a>
+              </td>";
         echo "</tr>";
     }
 
     echo "</table>";
-    echo "<br><br>";
+    echo "</div>";
 
-    $consulta="select * from bitacora";
-    $resultado=mysqli_query($conexion,$consulta);
+    //Seccion: Bitácora
+    echo "<div class='section'>";
+    echo "<div class='section-header'>Bitácora</div>";
+    echo "<table class='table-container'>";
+    echo "<tr><td>ID</td><td>Usuario</td><td>Fecha</td><td>Hora</td><td>Operación</td><td>Acciones</td></tr>";
 
-    echo "<table border=1>";
-    echo "<th align='center' colspan='5'>Bitacora</th>";
-    echo "<tr><td>ID</td><td>Usuario</td><td>Fecha</td><td>Hora</td><td>Operacion</td></tr>";
+    $consulta = "select * from bitacora";
+    $resultado = mysqli_query($conexion, $consulta);
 
-    while ($row=mysqli_fetch_array($resultado)) {
-
+    while ($row = mysqli_fetch_array($resultado)) {
         echo "<tr>";
         echo "<td>$row[0]</td>";
         echo "<td>$row[1]</td>";
         echo "<td>$row[2]</td>";
         echo "<td>$row[3]</td>";
         echo "<td>$row[4]</td>";
+        echo "<td class='action-buttons'>
+                <a href='#' class='action-button edit>Editar</a>
+                <a href='funciones_mysql/Borrar.php?id=".$row['id']."' class='action-button edit'>Borrar</a>
+              </td>";
         echo "</tr>";
     }
 
     echo "</table>";
-    echo "<br><br>";
-
+    echo "</div>";
 }
