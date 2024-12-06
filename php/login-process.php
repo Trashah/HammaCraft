@@ -8,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($_POST["action"] === "Regístrate") {
         $username = $_POST["signupUsername"];
-        $Nombre = $_POST["signupName"];
-        $Apellido = $_POST["signupApellido"];
+        $nombre = $_POST["signupName"];
+        $apellido = $_POST["signupApellido"];
         $email = $_POST["signupEmail"];
         $password = $_POST["signupPassword"];
         $passwordHash = password_hash($_POST["signupPassword"], PASSWORD_DEFAULT);
 
-        signupUser($username, $email, $password);
+        signupUser($username, $nombre, $apellido, $email, $password);
     } 
 
     else if ($_POST["action"] === "Inicia Sesión") {
@@ -67,21 +67,21 @@ function loginUser($username, $password) {
 }
 
 
-function signupUser($username, $email, $password) {
+function signupUser($username, $nombre, $apellido, $email, $password) {
     $passwordHash = password_hash($_POST["signupPassword"], PASSWORD_DEFAULT);
     $connection = connectToDatabase();
 
     checkEmptyInputs($username, $email, $password);
     checkValidEmail($email);
 
-    $sql = "INSERT INTO usuarios (NombreDeUsuario, Email, Password_Hash) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO usuarios (NombreDeUsuario, Nombre, Apellido, Email, Password_Hash) VALUES (?, ?, ?, ?, ?)";
     $stmt = $connection -> stmt_init();
 
     if (!$stmt -> prepare($sql)) {
         die("Error de SQL: " . $connection -> error);
     }
 
-    $stmt -> bind_param("sss", $username, $email, $passwordHash);
+    $stmt -> bind_param("sssss", $username, $nombre, $apellido, $email, $passwordHash);
 
     if($stmt -> execute()) {
         loginUser($username, $password);
