@@ -134,7 +134,7 @@ function tablasAdmin() {
                 background-color: #DFFFFF; /* Color azul claro */
                 color: #808080;;
                 font-weight: bold;
-                padding: 10px;
+                padding: 15px;
                 text-transform: uppercase;
             }
             .table-container {
@@ -281,7 +281,8 @@ function tablasAdmin() {
     echo "<div class='section'>";
     echo "<div class='section-header'>Productos</div>";
     echo "<table class='table-container'>";
-    echo "<tr><td>ID_P</td><td>NombreProducto</td><td>Descripcion</td><td>Acciones</td></tr>";
+    echo "<tr><td>ID_P</td><td>NombreProducto</td><td>Descripcion</td><td>Precio</td><td>Categoria1</td>
+    <td>Categoria2</td><td>Categoria3</td><td>Stock</td><td>Imagen</td><td>Acciones</td></tr>";
 
     $consulta = "select * from productos";
     $resultado = mysqli_query($conexion, $consulta);
@@ -312,7 +313,8 @@ function tablasAdmin() {
     echo "<div class='section'>";
     echo "<div class='section-header'>Usuarios</div>";
     echo "<table class='table-container'>";
-    echo "<tr><td>ID</td><td>NombreDeUsuario</td><td>Email</td><td>Acciones</td></tr>";
+    echo "<tr><td>ID</td><td>NombreDeUsuario</td><td>Nombre</td><td>Apellido</td><td>Email</td><td>Password_Hash</td>
+    <td>Tipo</td><td>Acciones</td></tr>";
 
     $consulta = "select * from usuarios";
     $resultado = mysqli_query($conexion, $consulta);
@@ -327,7 +329,7 @@ function tablasAdmin() {
         echo "<td>$row[5]</td>";
         echo "<td>$row[6]</td>";
         echo "<td class='action-buttons'>
-                <a href='#' class='action-button edit>Editar</a>
+                <a href='#' class='action-button edit'>Editar</a>
                 <a href='funciones_mysql/Borrar.php?id=".$row['id']."' class='action-button edit'>Borrar</a>
               </td>";
         echo "</tr>";
@@ -353,7 +355,7 @@ function tablasAdmin() {
         echo "<td>$row[3]</td>";
         echo "<td>$row[4]</td>";
         echo "<td class='action-buttons'>
-                <a href='#' class='action-button edit>Editar</a>
+                <a href='#' class='action-button edit'>Editar</a>
                 <a href='funciones_mysql/Borrar.php?id=".$row['id']."' class='action-button edit'>Borrar</a>
               </td>";
         echo "</tr>";
