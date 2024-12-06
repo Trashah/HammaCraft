@@ -113,7 +113,7 @@
                 const feedback = this.nextElementSibling;
                 if (/\d/.test(this.value)) {
                     this.classList.add('is-invalid');
-                    feedback.textContent = "El nombre no debe contener números.";
+                    
                 } else {
                     this.classList.remove('is-invalid');
                     feedback.textContent = "";
@@ -126,7 +126,7 @@
                 const feedback = this.nextElementSibling;
                 if (/\d/.test(this.value)) {
                     this.classList.add('is-invalid');
-                    feedback.textContent = "El apellido no debe contener números.";
+                    
                 } else {
                     this.classList.remove('is-invalid');
                     feedback.textContent = "";
@@ -139,7 +139,7 @@
                 const feedback = this.nextElementSibling;
                 if (this.value.length < 8) {
                     this.classList.add('is-invalid');
-                    feedback.textContent = "El nombre de usuario debe tener al menos 8 caracteres.";
+                    
                 } else {
                     this.classList.remove('is-invalid');
                     feedback.textContent = "";
@@ -153,7 +153,7 @@
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(this.value)) {
                     this.classList.add('is-invalid');
-                    feedback.textContent = "Por favor ingresa un correo válido.";
+                    
                 } else {
                     this.classList.remove('is-invalid');
                     feedback.textContent = "";
@@ -166,7 +166,7 @@
                 const feedback = this.nextElementSibling;
                 if (this.value.length < 6) {
                     this.classList.add('is-invalid');
-                    feedback.textContent = "La contraseña debe tener al menos 6 caracteres.";
+                   
                 } else {
                     this.classList.remove('is-invalid');
                     feedback.textContent = "";
