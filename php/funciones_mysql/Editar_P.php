@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($conexion) {
         $sql = "UPDATE productos SET NombreProducto = '$nombre', Descripcion = '$descripcion', Precio = $precio, 
-        Categoria1 = $categoria1, Categoria2 = $categoria2, Categoria3 = $categoria3, Stock = $stock WHERE ID_P = $id";
+        Categoria1 = '$categoria1', Categoria2 = '$categoria2', Categoria3 = '$categoria3', Stock = $stock WHERE ID_P = $id";
         if (mysqli_query($conexion, $sql)) {
             echo "Registro actualizado correctamente.";
         } else {
