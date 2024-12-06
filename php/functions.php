@@ -255,7 +255,7 @@ function tablasAdmin() {
         <div class='modal-content'>
             <span class='modal-close' onclick='closeModal()'>&times;</span>
             <div class='modal-header'>Editar Registro Producto</div>
-            <form action='Editar_p.php' method='POST'>
+            <form action='funciones_mysql/Editar_p.php' method='POST'>
                 <input type='hidden' id='editId' name='id'>
                 <label for='editNombre'>Nombre del Producto:</label><br>
                 <input type='text' id='editNombre' name='nombre'><br><br>
