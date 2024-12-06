@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     mysqli_close($conexion);
-    header("../admin.php");
+    header("Location: ../admin.php");
     exit;
 }
 ?>
