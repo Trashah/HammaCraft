@@ -39,6 +39,46 @@ function checkValidEmailUsuario($newEmail) {
     }
 }
 
+function checkValidName($name) {
+    if (preg_match('/\d/', $name)) {
+        echo "<script> 
+                alert('El nombre no puede contener números');
+                window.location.href = 'usuario.php';
+              </script>";
+        exit;
+    }
+}
+
+function checkValidLastname($lastname) {
+    if (preg_match('/\d/', $lastname)) {
+        echo "<script> 
+                alert('El apellido no puede contener números');
+                window.location.href = 'usuario.php';
+              </script>";
+        exit;
+    }
+}
+
+function checkUsernameLength($username) {
+    if (strlen($username) < 8) {
+        echo "<script> 
+                alert('El nombre de usuario debe tener al menos 8 caracteres');
+                window.location.href = 'usuario.php';
+              </script>";
+        exit;
+    }
+}
+
+function checkPasswordLength($password) {
+    if (strlen($password) < 6) {
+        echo "<script> 
+                alert('La contraseña debe tener al menos 6 caracteres');
+                window.location.href = 'usuario.php';
+              </script>";
+        exit;
+    }
+}
+
 function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPassword) {
     if (!isset($_SESSION['userID'])) {
         die("Error: No has iniciado sesión.");
@@ -52,6 +92,10 @@ function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPa
     // Validar entradas
     checkEmptyInputsUsuario($newUsername, $newName, $newLastname, $newEmail, $newPassword);
     checkValidEmailUsuario($newEmail);
+    checkValidName($newName);
+    checkValidLastname($newLastname);
+    checkUsernameLength($newUsername);
+    checkPasswordLength($newPassword);
 
     try {
         $sql = "UPDATE usuarios 
