@@ -301,7 +301,7 @@ function tablasAdmin() {
         echo "<td class='action-buttons'>
                 <a href='#' class='action-button edit' onclick='openModal($row[0],
                  \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\", \"$row[5]\", \"$row[6]\", \"$row[7]\")'>Editar</a>
-                <a href='funciones_mysql/Borrar.php?id=".$row['id']."' class='action-button edit'>Borrar</a>
+                
               </td>";
         echo "</tr>";
     }
@@ -330,7 +330,6 @@ function tablasAdmin() {
         echo "<td>$row[6]</td>";
         echo "<td class='action-buttons'>
                 <a href='#' class='action-button edit'>Editar</a>
-                <a href='funciones_mysql/Borrar.php?id=".$row['id']."' class='action-button edit'>Borrar</a>
               </td>";
         echo "</tr>";
     }
@@ -356,7 +355,6 @@ function tablasAdmin() {
         echo "<td>$row[4]</td>";
         echo "<td class='action-buttons'>
                 <a href='#' class='action-button edit'>Editar</a>
-                <a href='funciones_mysql/Borrar.php?id=".$row['id']."' class='action-button edit'>Borrar</a>
               </td>";
         echo "</tr>";
     }
