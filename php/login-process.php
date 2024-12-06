@@ -5,82 +5,50 @@ include __DIR__ . '/../.gitignore/config.php';
 $invalidLogin = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Verificar si es registro o inicio de sesión
+
     if ($_POST["action"] === "Regístrate") {
-        // Obtener los datos del formulario
         $username = $_POST["signupUsername"];
-        $nombre = $_POST["signupName"];
-        $apellido = $_POST["signupApellido"];
+        $Nombre = $_POST["signupName"];
+        $Apellido = $_POST["signupApellido"];
         $email = $_POST["signupEmail"];
         $password = $_POST["signupPassword"];
+        $passwordHash = password_hash($_POST["signupPassword"], PASSWORD_DEFAULT);
 
-        // Validaciones
-        validateInputs($nombre, $apellido, $username, $email, $password);
+        signupUser($username, $email, $password);
+    } 
 
-        // Crear hash de la contraseña
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-
-        // Registrar al usuario
-        signupUser($nombre, $apellido, $username, $email, $passwordHash);
-    } else if ($_POST["action"] === "Inicia Sesión") {
-        // Obtener los datos del formulario de inicio de sesión
+    else if ($_POST["action"] === "Inicia Sesión") {
         $username = $_POST["loginUsername"];
         $password = $_POST["loginPassword"];
 
-        // Validar y autenticar al usuario
         loginUser($username, $password);
     }
+
 }
 
-// Función para validar los datos del formulario
-function validateInputs($nombre, $apellido, $username, $email, $password) {
-    // Validar que no haya campos vacíos
-    if (empty($nombre) || empty($apellido) || empty($username) || empty($email) || empty($password)) {
+function checkEmptyInputs($username, $email, $password) {
+    if (empty($username) || ($email !== null && empty($email)) || empty($password)) {
         die("Por favor, llene todos los campos.");
     }
+}
 
-    // Validar que el nombre y apellido no contengan números
-    if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/", $nombre)) {
-        die("El nombre no debe contener números ni caracteres especiales.");
-    }
-
-    if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/", $apellido)) {
-        die("El apellido no debe contener números ni caracteres especiales.");
-    }
-
-    // Validar el nombre de usuario (mínimo 8 caracteres)
-    if (strlen($username) < 8) {
-        die("El nombre de usuario debe tener al menos 8 caracteres.");
-    }
-
-    // Validar la contraseña (mínimo 6 caracteres)
-    if (strlen($password) < 6) {
-        die("La contraseña debe tener al menos 6 caracteres.");
-    }
-
-    // Validar el correo electrónico
+function checkValidEmail($email) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die("Por favor, ingrese un correo electrónico válido.");
+        die("Por favor, ingrese un email válido.");
     }
 }
 
-// Función para iniciar sesión
 function loginUser($username, $password) {
     $connection = connectToDatabase();
+    checkEmptyInputs($username, NULL, $password);
 
-    // Validar que los campos no estén vacíos
-    if (empty($username) || empty($password)) {
-        die("Por favor, llene todos los campos.");
-    }
+    $sql = sprintf("SELECT * FROM usuarios WHERE NombreDeUsuario = '%s'", $connection -> real_escape_string($username));
+    
+    $result = $connection -> query($sql);
 
-    // Consulta para buscar el usuario
-    $sql = sprintf("SELECT * FROM usuarios WHERE NombreDeUsuario = '%s'", $connection->real_escape_string($username));
-    $result = $connection->query($sql);
-
-    $user = $result->fetch_assoc();
+    $user = $result -> fetch_assoc();
 
     if ($user) {
-        // Verificar la contraseña
         if (password_verify($password, $user["Password_Hash"])) {
             session_start();
             $_SESSION["userID"] = $user["ID"];
@@ -91,33 +59,34 @@ function loginUser($username, $password) {
             $_SESSION["correoDeUsuario"] = $user["Email"];
             header("Location: ../index.php");
             exit;
-        } else {
-            die("Contraseña incorrecta.");
         }
-    } else {
-        die("Usuario no encontrado.");
+        else {
+            die("Login inválido");
+        }
     }
 }
 
-// Función para registrar al usuario
-function signupUser($nombre, $apellido, $username, $email, $passwordHash) {
+
+function signupUser($username, $email, $password) {
+    $passwordHash = password_hash($_POST["signupPassword"], PASSWORD_DEFAULT);
     $connection = connectToDatabase();
 
-    // Consulta preparada para evitar inyección SQL
-    $sql = "INSERT INTO usuarios (Nombre, Apellido, NombreDeUsuario, Email, Password_Hash) VALUES (?, ?, ?, ?, ?)";
-    $stmt = $connection->stmt_init();
+    checkEmptyInputs($username, $email, $password);
+    checkValidEmail($email);
 
-    if (!$stmt->prepare($sql)) {
-        die("Error de SQL: " . $connection->error);
+    $sql = "INSERT INTO usuarios (NombreDeUsuario, Email, Password_Hash) VALUES (?, ?, ?)";
+    $stmt = $connection -> stmt_init();
+
+    if (!$stmt -> prepare($sql)) {
+        die("Error de SQL: " . $connection -> error);
     }
 
-    $stmt->bind_param("sssss", $nombre, $apellido, $username, $email, $passwordHash);
+    $stmt -> bind_param("sss", $username, $email, $passwordHash);
 
-    // Ejecutar la consulta
-    if ($stmt->execute()) {
-        // Iniciar sesión automáticamente después del registro
-        loginUser($username, $_POST["signupPassword"]);
-    } else {
-        die("Error al registrar al usuario: " . $connection->error);
+    if($stmt -> execute()) {
+        loginUser($username, $password);
+    }
+    else {
+        die("Error de SQL: " . $connection->error . " " . $connection->errno);
     }
 }
