@@ -4,6 +4,7 @@ include 'functions.php';
 
 session_start();
 
+$isAdmin = true;
 
 if (!isset($_SESSION["tipoDeUsuario"]) || $_SESSION["tipoDeUsuario"] != "Admin") {
     $isAdmin = false;
