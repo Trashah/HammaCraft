@@ -79,6 +79,25 @@ function checkPasswordLength($password) {
     }
 }
 
+function logUserChange($username) {
+    $connection = connectToDatabase();
+    $action = "UPDATE Usuarios";
+
+    $sql = "INSERT INTO Bitacora (Usuario, Operacion) VALUES (?, ?)";
+
+    $statement = $connection -> stmt_init();
+
+    if (!$statement -> prepare($sql)) {
+        die("Error de SQL al preparar la consulta de bitácora: " . $connection -> error);
+    }
+    
+    $statement -> bind_param("ss", $username, $action);
+
+    if (!$statement -> execute()) {
+        die("Error de SQL al ejecutar la consulta de bitácora: " . $connection -> error);
+    }
+}
+
 function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPassword) {
     if (!isset($_SESSION['userID'])) {
         die("Error: No has iniciado sesión.");
@@ -119,6 +138,8 @@ function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPa
             $_SESSION['nombre'] = $newName;
             $_SESSION['apellido'] = $newLastname;
             $_SESSION['correoDeUsuario'] = $newEmail;
+
+            logUserChange($newUsername);
 
             echo "<script>
                     alert('Datos actualizados con éxito.');
