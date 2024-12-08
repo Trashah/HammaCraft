@@ -1,3 +1,9 @@
+<script type="text/javacript">
+    function confirmar(){
+        return confirm('Estas Seguro?, se eliminaran los datos');
+    }
+</script>
+
 <?php
 
 include __DIR__ . '/../.gitignore/config.php';
@@ -167,11 +173,11 @@ function tablasAdmin() {
             .action-button:hover {
                 background-color: #e9ecef;
             }
-            .action-button.add {
-                color: #ffc107; /* Verde */
-            }
             .action-button.edit {
-                color: #ff6961; /* Amarillo */
+                color: #ffc107; /* Amarillo */
+            }
+            .action-button.delete {
+                color: #ff6961; /* Rojo */
             }
 
             .modal {
@@ -246,6 +252,21 @@ function tablasAdmin() {
             const modal = document.getElementById('editModal_p');
             modal.style.display = 'none';
         }
+
+        function openModal_u(id, nombredeusuario, nombre, apellido, email, tipo) {
+            const modal = document.getElementById('editModal_u');
+            modal.style.display = 'flex';
+            document.getElementById('editId').value = id;
+            document.getElementById('editNombreDeUsuario').value = nombredeusuario;
+            document.getElementById('editNombre').value = nombre;
+            document.getElementById('editApellido').value = apellido;
+            document.getElementById('editEmail').value = email;
+            document.getElementById('editTipo').value = tipo;
+        }
+        function closeModal_u() {
+            const modal = document.getElementById('editModal_u');
+            modal.style.display = 'none';
+        }
     </script>
 ";
 
@@ -253,7 +274,7 @@ function tablasAdmin() {
     echo "
     <div id='editModal_p' class='modal'>
         <div class='modal-content'>
-            <span class='modal-close' onclick='closeModal()'>&times;</span>
+            <span class='modal-close' onclick='closeModal_p()'>&times;</span>
             <div class='modal-header'>Editar Registro Producto</div>
             <form action='funciones_mysql/Editar_p.php' method='POST'>
                 <input type='hidden' id='editId' name='id'>
@@ -271,6 +292,27 @@ function tablasAdmin() {
                 <input type='text' id='editCategoria3' name='categoria3'><br><br>
                 <label for='editStock'>Stock del Producto:</label><br>
                 <input type='text' id='editStock' name='stock'><br><br>
+                <button type='submit' class='modal-button'>Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+";
+
+    echo "
+    <div id='editModal_u' class='modal'>
+        <div class='modal-content'>
+            <span class='modal-close' onclick='closeModal_u()'>&times;</span>
+            <div class='modal-header'>Editar Registro Usuario</div>
+            <form action='funciones_mysql/Editar_U.php' method='POST'>
+                <input type='hidden' id='editId' name='id'>
+                <label for='editNombreDeUsuario'>Nombre de usuario:</label><br>
+                <input type='text' id='editNombreDeUsuario' name='nombredeusuario'><br><br>
+                <label for='editNombre'>Nombre:</label><br>
+                <input type='text' id='editNombre' name='nombre'><br><br>
+                <label for='editApellido'>Apellido:</label><br>
+                <input type='text' id='editApellido' name='apellido'><br><br>
+                <label for='editEmail'>Direccion de correo:</label><br>
+                <input type='email' id='editEmail' name='email'><br><br>
                 <button type='submit' class='modal-button'>Guardar Cambios</button>
             </form>
         </div>
@@ -298,11 +340,11 @@ function tablasAdmin() {
         echo "<td>$row[6]</td>";
         echo "<td>$row[7]</td>";
         echo "<td>$row[8]</td>";
-        echo "<td class='action-buttons'>
-                <a href='#' class='action-button edit' onclick='openModal_p($row[0],
-                 \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\", \"$row[5]\", \"$row[6]\", \"$row[7]\")'>Editar</a>
-                
-              </td>";
+        echo "<td class='action-buttons'>";
+        echo    "<a href='#' class='action-button edit' onclick='openModal_p($row[0],
+                \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\", \"$row[5]\", \"$row[6]\", \"$row[7]\")'>Editar</a>";
+        echo    "<a href='funciones_mysql/Borrar_P.php?id=".$row[0]."' onclick='return confirmar()'>Eliminar</a>'";
+        echo "</td>";
         echo "</tr>";
     }
 
@@ -328,9 +370,11 @@ function tablasAdmin() {
         echo "<td>$row[4]</td>";
         echo "<td>$row[5]</td>";
         echo "<td>$row[6]</td>";
-        echo "<td class='action-buttons'>
-                <a href='#' class='action-button edit'>Editar</a>
-              </td>";
+        echo "<td class='action-buttons'>";
+        echo    "<a href='#' class='action-button edit' onclick='openModal_u($row[0],
+                 \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\")'>Editar</a>";
+        echo    "<a href='funciones_mysql/Borrar_U.php?id=".$row[0]."' onclick='return confirmar()'>Eliminar</a>'";
+        echo "</td>";
         echo "</tr>";
     }
 
@@ -341,7 +385,7 @@ function tablasAdmin() {
     echo "<div class='section'>";
     echo "<div class='section-header'>Bitácora</div>";
     echo "<table class='table-container'>";
-    echo "<tr><td>ID</td><td>Usuario</td><td>Fecha</td><td>Hora</td><td>Operación</td><td>Acciones</td></tr>";
+    echo "<tr><td>ID</td><td>Usuario</td><td>Fecha</td><td>Hora</td><td>Operación</td></tr>";
 
     $consulta = "select * from bitacora";
     $resultado = mysqli_query($conexion, $consulta);
@@ -353,9 +397,6 @@ function tablasAdmin() {
         echo "<td>$row[2]</td>";
         echo "<td>$row[3]</td>";
         echo "<td>$row[4]</td>";
-        echo "<td class='action-buttons'>
-                <a href='#' class='action-button edit'>Editar</a>
-              </td>";
         echo "</tr>";
     }
 
