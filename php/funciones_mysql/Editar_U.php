@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Usar consulta preparada
-    $sql = "UPDATE productos SET NombreDeUsuario = $nombredeusuario, Nombre = $nombreu, Apellido = $apellido, Email = $email WHERE ID = $id";
+    $sql = "UPDATE productos SET NombreDeUsuario = $nombredeusuario, Nombre = $nombre, Apellido = $apellido, Email = $email WHERE ID = $id";
     $stmt = mysqli_prepare($conexion, $sql);
     if (!$stmt) {
         die("Error al preparar la consulta: " . mysqli_error($conexion));
