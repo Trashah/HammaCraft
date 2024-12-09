@@ -110,7 +110,6 @@ $_SESSION["total"] = 0;
     </div>
 
     <div class="cart-buttons">
-        <button class="btn-cancel">Cancelar</button>
         <button class="btn-next" onclick="window.location.href='detalles_de_envio.php'">Siguiente</button>
     </div>
 </section>
