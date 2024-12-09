@@ -1,3 +1,9 @@
+<script type="text/javacript">
+    function confirmar(){
+        return confirm('Estas Seguro?, se eliminaran los datos');
+    }
+</script>
+
 <?php
 
 include __DIR__ . '/../.gitignore/config.php';
@@ -337,7 +343,7 @@ function tablasAdmin() {
         echo "<td class='action-buttons'>";
         echo    "<a href='#' class='action-button edit' onclick='openModal_p($row[0],
                 \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\", \"$row[5]\", \"$row[6]\", \"$row[7]\")'>Editar</a>";
-        echo    "<a href='funciones_mysql/Borrar_P.php?id=".$row[0]."'>Eliminar</a>'";
+        echo    "<a href='funciones_mysql/Borrar_P.php?id=".$row[0]."' onclick='return confirmar()'>Eliminar</a>'";
         echo "</td>";
         echo "</tr>";
     }
@@ -367,7 +373,7 @@ function tablasAdmin() {
         echo "<td class='action-buttons'>";
         echo    "<a href='#' class='action-button edit' onclick='openModal_u($row[0],
                  \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\")'>Editar</a>";
-        echo    "<a href='funciones_mysql/Borrar_U.php?id=".$row[0]."'>Eliminar</a>'";
+        echo    "<a href='funciones_mysql/Borrar_U.php?id=".$row[0]."' onclick='return confirmar()'>Eliminar</a>'";
         echo "</td>";
         echo "</tr>";
     }
