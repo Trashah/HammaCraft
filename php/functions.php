@@ -247,7 +247,7 @@ function tablasAdmin() {
             modal.style.display = 'none';
         }
 
-        function openModal_u(id, nombredeusuario, nombre, apellido, email, tipo) {
+        function openModal_u(id, nombredeusuario, nombre, apellido, email) {
             const modal = document.getElementById('editModal_u');
             modal.style.display = 'flex';
             document.getElementById('editId').value = id;
@@ -255,7 +255,6 @@ function tablasAdmin() {
             document.getElementById('editNombre').value = nombre;
             document.getElementById('editApellido').value = apellido;
             document.getElementById('editEmail').value = email;
-            document.getElementById('editTipo').value = tipo;
         }
         function closeModal_u() {
             const modal = document.getElementById('editModal_u');
@@ -366,7 +365,7 @@ function tablasAdmin() {
         echo "<td>$row[6]</td>";
         echo "<td class='action-buttons'>";
         echo    "<a href='#' class='action-button edit' onclick='openModal_u($row[0],
-                 \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\")'>Editar</a>";
+                 $row[1], $row[2], $row[3], $row[4])'>Editar</a>";
         echo    "<a href='funciones_mysql/Borrar_U.php?id=".$row[0]."' onclick='return confirmar()' class='action-button delete'>Eliminar</a>'";
         echo "</td>";
         echo "</tr>";
