@@ -38,6 +38,25 @@ function checkValidEmail($email) {
     }
 }
 
+function logUserCreation($username) {
+    $connection = connectToDatabase();
+    $action = "INSERT Usuarios";
+
+    $sql = "INSERT INTO Bitacora (Usuario, Operacion) VALUES (?, ?)";
+
+    $statement = $connection -> stmt_init();
+
+    if (!$statement -> prepare($sql)) {
+        die("Error de SQL al preparar la consulta de bitácora: " . $connection -> error);
+    }
+    
+    $statement -> bind_param("ss", $username, $action);
+
+    if (!$statement -> execute()) {
+        die("Error de SQL al ejecutar la consulta de bitácora: " . $connection -> error);
+    }
+}
+
 function loginUser($username, $password) {
     $connection = connectToDatabase();
     checkEmptyInputs($username, NULL, $password);
@@ -51,12 +70,16 @@ function loginUser($username, $password) {
     if ($user) {
         if (password_verify($password, $user["Password_Hash"])) {
             session_start();
+
             $_SESSION["userID"] = $user["ID"];
             $_SESSION["nombre"] = $user["Nombre"];
             $_SESSION["apellido"] = $user["Apellido"];
             $_SESSION["userName"] = $user["NombreDeUsuario"];
             $_SESSION["tipoDeUsuario"] = $user["Tipo"];
             $_SESSION["correoDeUsuario"] = $user["Email"];
+
+            logUserCreation($username);
+
             header("Location: ../index.php");
             exit;
         }
