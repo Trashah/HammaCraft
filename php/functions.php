@@ -423,7 +423,7 @@ echo "
         echo "<td>$row[5]</td>";
         echo "<td>$row[6]</td>";
         echo "<td class='action-buttons'>";
-        echo    "<a href='#' class='action-button edit' onclick='openModal_u(\"$row[0]\", \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\")'>Editar</a>";
+        echo "<a href='#' class='action-button edit' onclick='openModal_u(\"$row[0]\", \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\")'>Editar</a>";
         echo    "<a href='funciones_mysql/Borrar_U.php?id=".$row[0]."' class='action-button delete'>Eliminar</a>'";
         echo "</td>";
         echo "</tr>";
