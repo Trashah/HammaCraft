@@ -298,22 +298,24 @@ function tablasAdmin() {
 
 ";
 
-    echo "
-        function openModal_u(id, nombredeusuario, nombre, apellido, email) {
-            document.getElementById('editId').value = id;
-            document.getElementById('editNombreDeUsuario').value = nombredeusuario;
-            document.getElementById('editNombre').value = nombre;
-            document.getElementById('editApellido').value = apellido;
-            document.getElementById('editEmail').value = email;
+echo "
+<script>
+    function openModal_u(id, nombredeusuario, nombre, apellido, email) {
+        document.getElementById('editId').value = id;
+        document.getElementById('editNombreDeUsuario').value = nombredeusuario;
+        document.getElementById('editNombre').value = nombre;
+        document.getElementById('editApellido').value = apellido;
+        document.getElementById('editEmail').value = email;
 
-            document.getElementById('editModal_u').style.display = 'block';
-        }
-        function closeModal_u() {
-            const modal = document.getElementById('editModal_u');
-            modal.style.display = 'none';
-        }
-    </script>
-    ";
+        document.getElementById('editModal_u').style.display = 'block';
+    }
+
+    function closeModal_u() {
+        const modal = document.getElementById('editModal_u');
+        modal.style.display = 'none';
+    }
+</script>
+";
 
     // Modal Edicion Productos
     echo "
@@ -343,8 +345,8 @@ function tablasAdmin() {
     </div>
 ";
 
-    echo "
-    <div id='editModal_u' class='modal' role='dialog' aria-labelledby='modalTitle' aria-hidden='true'>
+echo "
+<div id='editModal_u' class='modal' role='dialog' aria-labelledby='modalTitle' aria-hidden='true'>
     <div class='modal-content'>
         <span class='modal-close' onclick='closeModal_u()' aria-label='Cerrar'>&times;</span>
         <h2 id='modalTitle' class='modal-header'>Editar Registro Usuario</h2>
@@ -366,7 +368,7 @@ function tablasAdmin() {
             <button type='submit' class='modal-button'>Guardar Cambios</button>
         </form>
     </div>
-    </div>
+</div>
 ";
 
     // Sección: Productos

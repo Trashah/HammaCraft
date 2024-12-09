@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
 
+    // Datos de conexión a la base de datos
     $servidor = "localhost";
     $usuario = "root";
     $password = "";
@@ -26,20 +27,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Correo electrónico inválido.");
     }
 
+    if (!is_numeric($id)) {
+        die("ID inválido.");
+    }
+
     // Usar consulta preparada
-    $sql = "UPDATE productos SET NombreDeUsuario = $nombredeusuario, Nombre = $nombre, Apellido = $apellido, Email = $email WHERE ID = $id";
+    $sql = "UPDATE usuarios SET NombreDeUsuario = ?, Nombre = ?, Apellido = ?, Email = ? WHERE ID = ?";
     $stmt = mysqli_prepare($conexion, $sql);
+
     if (!$stmt) {
         die("Error al preparar la consulta: " . mysqli_error($conexion));
     }
 
+    // Vincular parámetros a la consulta preparada
     mysqli_stmt_bind_param($stmt, "ssssi", $nombredeusuario, $nombre, $apellido, $email, $id);
+
+    // Ejecutar la consulta
     if (mysqli_stmt_execute($stmt)) {
         echo "Registro actualizado correctamente.";
     } else {
         echo "Error al actualizar el registro: " . mysqli_stmt_error($stmt);
     }
 
+    // Cerrar recursos
     mysqli_stmt_close($stmt);
     mysqli_close($conexion);
 
