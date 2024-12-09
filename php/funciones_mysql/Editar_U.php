@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
     $nombredeusuario = $_POST['nombredeusuario'];
-    $nombre = $_POST['nombreu'];
+    $nombreu = $_POST['nombreu'];
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
 
@@ -14,7 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conexion = mysqli_connect($servidor, $usuario, $password, $bd);
 
     if ($conexion) {
-        $sql = "UPDATE usuarios SET NombreDeUsuario = '$nombredeusuario', Nombre = '$nombre', Apellido = '$apellido', 
+        checkEmptyInputsUsuarioA($nombredeusuario, $nombreu, $apellido, $email);
+        checkValidEmailUsuarioA($email);
+        checkValidNameA($nombreu);
+        checkValidLastnameA($apellido);
+        checkUsernameLengthA($nombredeusuario);
+
+        $sql = "UPDATE productos SET NombreDeUsuario = '$nombredeusuario', Nombre = '$nombreu', Apellido = '$apellido', 
         Email = '$email' WHERE ID = $id";
         if (mysqli_query($conexion, $sql)) {
             echo "Registro actualizado correctamente.";

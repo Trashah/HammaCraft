@@ -111,6 +111,55 @@ function getProductsCards($category1, $category2, $category3) {
 
     return $output;
 }
+function checkEmptyInputsUsuarioA($newUsername, $newName, $newLastname, $newEmail) {
+    if (empty($newUsername) || empty($newName) || empty($newLastname) || empty($newEmail) || empty($newPassword)) {
+        echo "<script> 
+                alert('Por favor, rellene todos los campos');
+                window.location.href = 'admin.php';
+              </script>";
+        exit;
+    }
+}
+
+function checkValidEmailUsuarioA($newEmail) {
+    if (!filter_var($newEmail, FILTER_VALIDATE_EMAIL)) {
+        echo "<script> 
+                alert('Por favor, ingrese un correo válido');
+                window.location.href = 'admin.php';
+              </script>";
+        exit;
+    }
+}
+
+function checkValidNameA($name) {
+    if (preg_match('/\d/', $name)) {
+        echo "<script> 
+                alert('El nombre no puede contener números');
+                window.location.href = 'admin.php';
+              </script>";
+        exit;
+    }
+}
+
+function checkValidLastnameA($lastname) {
+    if (preg_match('/\d/', $lastname)) {
+        echo "<script> 
+                alert('El apellido no puede contener números');
+                window.location.href = 'admin.php';
+              </script>";
+        exit;
+    }
+}
+
+function checkUsernameLengthA($username) {
+    if (strlen($username) < 8) {
+        echo "<script> 
+                alert('El nombre de usuario debe tener al menos 8 caracteres');
+                window.location.href = 'admin.php';
+              </script>";
+        exit;
+    }
+}
 
 function tablasAdmin() {
 
