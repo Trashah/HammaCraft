@@ -111,55 +111,6 @@ function getProductsCards($category1, $category2, $category3) {
 
     return $output;
 }
-function checkEmptyInputsUsuarioA($newUsername, $newName, $newLastname, $newEmail) {
-    if (empty($newUsername) || empty($newName) || empty($newLastname) || empty($newEmail) || empty($newPassword)) {
-        echo "<script> 
-                alert('Por favor, rellene todos los campos');
-                window.location.href = 'admin.php';
-              </script>";
-        exit;
-    }
-}
-
-function checkValidEmailUsuarioA($newEmail) {
-    if (!filter_var($newEmail, FILTER_VALIDATE_EMAIL)) {
-        echo "<script> 
-                alert('Por favor, ingrese un correo válido');
-                window.location.href = 'admin.php';
-              </script>";
-        exit;
-    }
-}
-
-function checkValidNameA($name) {
-    if (preg_match('/\d/', $name)) {
-        echo "<script> 
-                alert('El nombre no puede contener números');
-                window.location.href = 'admin.php';
-              </script>";
-        exit;
-    }
-}
-
-function checkValidLastnameA($lastname) {
-    if (preg_match('/\d/', $lastname)) {
-        echo "<script> 
-                alert('El apellido no puede contener números');
-                window.location.href = 'admin.php';
-              </script>";
-        exit;
-    }
-}
-
-function checkUsernameLengthA($username) {
-    if (strlen($username) < 8) {
-        echo "<script> 
-                alert('El nombre de usuario debe tener al menos 8 caracteres');
-                window.location.href = 'admin.php';
-              </script>";
-        exit;
-    }
-}
 
 function tablasAdmin() {
 
@@ -296,25 +247,21 @@ function tablasAdmin() {
             modal.style.display = 'none';
         }
 
-";
-
-echo "
-<script>
-    function openModal_u(id, nombredeusuario, nombre, apellido, email) {
-        document.getElementById('editId').value = id;
-        document.getElementById('editNombreDeUsuario').value = nombredeusuario;
-        document.getElementById('editNombre').value = nombre;
-        document.getElementById('editApellido').value = apellido;
-        document.getElementById('editEmail').value = email;
-
-        document.getElementById('editModal_u').style.display = 'block';
-    }
-
-    function closeModal_u() {
-        const modal = document.getElementById('editModal_u');
-        modal.style.display = 'none';
-    }
-</script>
+        function openModal_u(id, nombredeusuario, nombre, apellido, email, tipo) {
+            const modal = document.getElementById('editModal_u');
+            modal.style.display = 'flex';
+            document.getElementById('editId').value = id;
+            document.getElementById('editNombreDeUsuario').value = nombredeusuario;
+            document.getElementById('editNombre').value = nombre;
+            document.getElementById('editApellido').value = apellido;
+            document.getElementById('editEmail').value = email;
+            document.getElementById('editTipo').value = tipo;
+        }
+        function closeModal_u() {
+            const modal = document.getElementById('editModal_u');
+            modal.style.display = 'none';
+        }
+    </script>
 ";
 
     // Modal Edicion Productos
@@ -345,30 +292,25 @@ echo "
     </div>
 ";
 
-echo "
-<div id='editModal_u' class='modal' role='dialog' aria-labelledby='modalTitle' aria-hidden='true'>
-    <div class='modal-content'>
-        <span class='modal-close' onclick='closeModal_u()' aria-label='Cerrar'>&times;</span>
-        <h2 id='modalTitle' class='modal-header'>Editar Registro Usuario</h2>
-        <form action='funciones_mysql/Editar_U.php' method='POST'>
-            <input type='hidden' id='editId' name='id'>
-
-            <label for='editNombreDeUsuario'>Nombre de usuario:</label><br>
-            <input type='text' id='editNombreDeUsuario' name='nombredeusuario' required><br><br>
-            
-            <label for='editNombre'>Nombre:</label><br>
-            <input type='text' id='editNombre' name='nombre' required><br><br>
-            
-            <label for='editApellido'>Apellido:</label><br>
-            <input type='text' id='editApellido' name='apellido' required><br><br>
-            
-            <label for='editEmail'>Dirección de correo:</label><br>
-            <input type='email' id='editEmail' name='email' required><br><br>
-            
-            <button type='submit' class='modal-button'>Guardar Cambios</button>
-        </form>
+    echo "
+    <div id='editModal_u' class='modal'>
+        <div class='modal-content'>
+            <span class='modal-close' onclick='closeModal_u()'>&times;</span>
+            <div class='modal-header'>Editar Registro Usuario</div>
+            <form action='funciones_mysql/Editar_U.php' method='POST'>
+                <input type='hidden' id='editId' name='id'>
+                <label for='editNombreDeUsuario'>Nombre de usuario:</label><br>
+                <input type='text' id='editNombreDeUsuario' name='nombredeusuario'><br><br>
+                <label for='editNombre'>Nombre:</label><br>
+                <input type='text' id='editNombre' name='nombre'><br><br>
+                <label for='editApellido'>Apellido:</label><br>
+                <input type='text' id='editApellido' name='apellido'><br><br>
+                <label for='editEmail'>Direccion de correo:</label><br>
+                <input type='email' id='editEmail' name='email'><br><br>
+                <button type='submit' class='modal-button'>Guardar Cambios</button>
+            </form>
+        </div>
     </div>
-</div>
 ";
 
     // Sección: Productos
@@ -376,7 +318,7 @@ echo "
     echo "<div class='section-header'>Productos</div>";
     echo "<table class='table-container'>";
     echo "<tr><td>ID_P</td><td>NombreProducto</td><td>Descripcion</td><td>Precio</td><td>Categoria1</td>
-    <td>Categoria2</td><td>Categoria3</td><td>Stock</td><td>Imagen</td><td>Acciones</td></tr>";
+    <td>Categoria2</td><td>Categoria3</td><td>Stock</td><td>zImagen</td><td>Acciones</td></tr>";
 
     $consulta = "select * from productos";
     $resultado = mysqli_query($conexion, $consulta);
@@ -395,7 +337,7 @@ echo "
         echo "<td class='action-buttons'>";
         echo    "<a href='#' class='action-button edit' onclick='openModal_p($row[0],
                 \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\", \"$row[5]\", \"$row[6]\", \"$row[7]\")'>Editar</a>";
-        echo    "<a href='funciones_mysql/Borrar_P.php?id=".$row[0]."' class='action-button delete'>Eliminar</a>'";
+        echo    "<a href='funciones_mysql/Borrar_P.php?id=".$row[0]."' onclick='return confirmar()'>Eliminar</a>'";
         echo "</td>";
         echo "</tr>";
     }
@@ -423,8 +365,9 @@ echo "
         echo "<td>$row[5]</td>";
         echo "<td>$row[6]</td>";
         echo "<td class='action-buttons'>";
-        echo "<a href='#' class='action-button edit' onclick='openModal_u(\"$row[0]\", \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\")'>Editar</a>";
-        echo    "<a href='funciones_mysql/Borrar_U.php?id=".$row[0]."' class='action-button delete'>Eliminar</a>'";
+        echo    "<a href='#' class='action-button edit' onclick='openModal_u($row[0],
+                 \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\")'>Editar</a>";
+        echo    "<a href='funciones_mysql/Borrar_U.php?id=".$row[0]."' onclick='return confirmar()'>Eliminar</a>'";
         echo "</td>";
         echo "</tr>";
     }
