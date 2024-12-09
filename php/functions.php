@@ -296,6 +296,9 @@ function tablasAdmin() {
             modal.style.display = 'none';
         }
 
+";
+
+    echo "
         function openModal_u(id, nombredeusuario, nombreu, apellido, email, tipo) {
             const modal = document.getElementById('editModal_u');
             modal.style.display = 'flex';
@@ -311,7 +314,7 @@ function tablasAdmin() {
             modal.style.display = 'none';
         }
     </script>
-";
+    ";
 
     // Modal Edicion Productos
     echo "
