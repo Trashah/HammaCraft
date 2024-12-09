@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
     $nombredeusuario = $_POST['nombredeusuario'];
-    $nombre = $_POST['nombre'];
+    $nombre = $_POST['nombreu'];
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
 

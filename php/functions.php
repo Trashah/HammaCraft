@@ -253,12 +253,12 @@ function tablasAdmin() {
             modal.style.display = 'none';
         }
 
-        function openModal_u(id, nombredeusuario, nombre, apellido, email, tipo) {
+        function openModal_u(id, nombredeusuario, nombreu, apellido, email, tipo) {
             const modal = document.getElementById('editModal_u');
             modal.style.display = 'flex';
             document.getElementById('editId').value = id;
             document.getElementById('editNombreDeUsuario').value = nombredeusuario;
-            document.getElementById('editNombre').value = nombre;
+            document.getElementById('editNombreu').value = nombreu;
             document.getElementById('editApellido').value = apellido;
             document.getElementById('editEmail').value = email;
             document.getElementById('editTipo').value = tipo;
@@ -307,8 +307,8 @@ function tablasAdmin() {
                 <input type='hidden' id='editId' name='id'>
                 <label for='editNombreDeUsuario'>Nombre de usuario:</label><br>
                 <input type='text' id='editNombreDeUsuario' name='nombredeusuario'><br><br>
-                <label for='editNombre'>Nombre:</label><br>
-                <input type='text' id='editNombre' name='nombre'><br><br>
+                <label for='editNombreu'>Nombre:</label><br>
+                <input type='text' id='editNombreu' name='nombreu'><br><br>
                 <label for='editApellido'>Apellido:</label><br>
                 <input type='text' id='editApellido' name='apellido'><br><br>
                 <label for='editEmail'>Direccion de correo:</label><br>
