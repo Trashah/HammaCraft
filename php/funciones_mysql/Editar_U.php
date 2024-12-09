@@ -30,10 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "UPDATE usuarios SET NombreDeUsuario = '$nombredeusuario', Nombre = '$nombre', Apellido = '$apellido', 
     Email = '$email' WHERE ID = $id";
 
-    $sql2 = "INSERT INTO BITACORA(Usuario,Fecha,Hora,Operacion) VALUES('superadmin',CURDATE(),DATETIME(),'UPDATE Usuarios')";
-
     // Ejecutar la consulta
     if (mysqli_query($conexion, $sql)) {
+        $sql2 = "INSERT INTO BITACORA(Usuario,Fecha,Hora,Operacion) VALUES('superadmin',CURDATE(),DATETIME(),'UPDATE Usuarios')";
+        mysqli_query($conexion,$sql2);
         echo "Registro actualizado correctamente.";
 
         // Redirigir antes de cualquier salida
