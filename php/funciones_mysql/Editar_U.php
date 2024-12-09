@@ -14,12 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conexion = mysqli_connect($servidor, $usuario, $password, $bd);
 
     if ($conexion) {
-        checkEmptyInputsUsuarioA($nombredeusuario, $nombreu, $apellido, $email);
-        checkValidEmailUsuarioA($email);
-        checkValidNameA($nombreu);
-        checkValidLastnameA($apellido);
-        checkUsernameLengthA($nombredeusuario);
-
         $sql = "UPDATE productos SET NombreDeUsuario = '$nombredeusuario', Nombre = '$nombreu', Apellido = '$apellido', 
         Email = '$email' WHERE ID = $id";
         if (mysqli_query($conexion, $sql)) {
