@@ -102,13 +102,13 @@
             const form = document.getElementById('signupForm');
             const registerBtn = document.getElementById('registerBtn');
 
-            // Función para verificar todas las validaciones
+
             function validateForm() {
                 const isInvalid = document.querySelectorAll('.is-invalid').length > 0;
                 registerBtn.disabled = isInvalid;
             }
 
-            // Validación de nombre
+
             form.signupName.addEventListener('blur', function () {
                 const feedback = this.nextElementSibling;
                 if (/\d/.test(this.value)) {
@@ -121,7 +121,7 @@
                 validateForm();
             });
 
-            // Validación de apellido
+
             form.signupApellido.addEventListener('blur', function () {
                 const feedback = this.nextElementSibling;
                 if (/\d/.test(this.value)) {
@@ -134,7 +134,7 @@
                 validateForm();
             });
 
-            // Validación de nombre de usuario
+
             form.signupUsername.addEventListener('blur', function () {
                 const feedback = this.nextElementSibling;
                 if (this.value.length < 8) {
@@ -147,7 +147,7 @@
                 validateForm();
             });
 
-            // Validación de correo
+
             form.signupEmail.addEventListener('blur', function () {
                 const feedback = this.nextElementSibling;
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -161,7 +161,6 @@
                 validateForm();
             });
 
-            // Validación de contraseña
             form.signupPassword.addEventListener('blur', function () {
                 const feedback = this.nextElementSibling;
                 if (this.value.length < 6) {
