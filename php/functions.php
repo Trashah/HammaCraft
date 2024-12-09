@@ -299,10 +299,10 @@ function tablasAdmin() {
 ";
 
     echo "
-        function openModal_u(id, nombreDeUsuario, nombreu, apellido, email) {
+        function openModal_u(id, nombredeusuario, nombre, apellido, email) {
             document.getElementById('editId').value = id;
-            document.getElementById('editNombreDeUsuario').value = nombreDeUsuario;
-            document.getElementById('editNombreu').value = nombreu;
+            document.getElementById('editNombreDeUsuario').value = nombredeusuario;
+            document.getElementById('editNombre').value = nombre;
             document.getElementById('editApellido').value = apellido;
             document.getElementById('editEmail').value = email;
 
@@ -354,8 +354,8 @@ function tablasAdmin() {
             <label for='editNombreDeUsuario'>Nombre de usuario:</label><br>
             <input type='text' id='editNombreDeUsuario' name='nombredeusuario' required><br><br>
             
-            <label for='editNombreu'>Nombre:</label><br>
-            <input type='text' id='editNombreu' name='nombreu' required><br><br>
+            <label for='editNombre'>Nombre:</label><br>
+            <input type='text' id='editNombre' name='nombre' required><br><br>
             
             <label for='editApellido'>Apellido:</label><br>
             <input type='text' id='editApellido' name='apellido' required><br><br>
@@ -422,7 +422,7 @@ function tablasAdmin() {
         echo "<td>$row[6]</td>";
         echo "<td class='action-buttons'>";
         echo    "<a href='#' class='action-button edit' onclick='openModal_u($row[0],
-                 \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\")'>Editar</a>";
+                \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\")'>Editar</a>";
         echo    "<a href='funciones_mysql/Borrar_U.php?id=".$row[0]."' class='action-button delete'>Eliminar</a>'";
         echo "</td>";
         echo "</tr>";

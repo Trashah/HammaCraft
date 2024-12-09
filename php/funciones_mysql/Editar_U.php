@@ -3,7 +3,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     var_dump($_POST); // Muestra todos los datos enviados
     $id = $_POST['id'];
     $nombredeusuario = $_POST['nombredeusuario'];
-    $nombreu = $_POST['nombreu'];
+    $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
 
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Validar entradas
-    if (empty($id) || empty($nombredeusuario) || empty($nombreu) || empty($apellido) || empty($email)) {
+    if (empty($id) || empty($nombredeusuario) || empty($nombre) || empty($apellido) || empty($email)) {
         die("Todos los campos son obligatorios.");
     }
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Error al preparar la consulta: " . mysqli_error($conexion));
     }
 
-    mysqli_stmt_bind_param($stmt, "ssssi", $nombredeusuario, $nombreu, $apellido, $email, $id);
+    mysqli_stmt_bind_param($stmt, "ssssi", $nombredeusuario, $nombre, $apellido, $email, $id);
     if (mysqli_stmt_execute($stmt)) {
         echo "Registro actualizado correctamente.";
     } else {
