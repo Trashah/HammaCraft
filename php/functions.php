@@ -300,7 +300,7 @@ function tablasAdmin() {
             <span class='modal-close' onclick='closeModal_u()'>&times;</span>
             <div class='modal-header'>Editar Registro Usuario</div>
             <form action='funciones_mysql/Editar_U.php' method='POST'>
-                <input type='hidden' id='editId' name='id'>
+                <input type='hidden' id='editId_u' name='id_u'>
                 <label for='editNombreDeUsuario'>Nombre de usuario:</label><br>
                 <input type='text' id='editNombreDeUsuario' name='nombredeusuario'><br><br>
                 <label for='editNombre'>Nombre:</label><br>
