@@ -1,6 +1,5 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    var_dump($_POST); // Muestra todos los datos enviados
     $id = $_POST['id'];
     $nombredeusuario = $_POST['nombredeusuario'];
     $nombre = $_POST['nombre'];
