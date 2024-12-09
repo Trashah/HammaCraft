@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Ejecutar la consulta
     if (mysqli_query($conexion, $sql)) {
-        $sql2 = "INSERT INTO BITACORA(Usuario,Hora,Operacion) VALUES('superadmin',DATETIME(),'UPDATE Usuarios')";
+        $sql2 = "INSERT INTO BITACORA(Usuario,Operacion) VALUES('superadmin','UPDATE Usuarios')";
         mysqli_query($conexion,$sql2);
         echo "Registro actualizado correctamente.";
 
