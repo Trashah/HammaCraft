@@ -299,15 +299,14 @@ function tablasAdmin() {
 ";
 
     echo "
-        function openModal_u(id, nombredeusuario, nombreu, apellido, email, tipo) {
-            const modal = document.getElementById('editModal_u');
-            modal.style.display = 'flex';
+        function openModal_u(id, nombreDeUsuario, nombreu, apellido, email) {
             document.getElementById('editId').value = id;
-            document.getElementById('editNombreDeUsuario').value = nombredeusuario;
+            document.getElementById('editNombreDeUsuario').value = nombreDeUsuario;
             document.getElementById('editNombreu').value = nombreu;
             document.getElementById('editApellido').value = apellido;
             document.getElementById('editEmail').value = email;
-            document.getElementById('editTipo').value = tipo;
+
+            document.getElementById('editModal_u').style.display = 'block';
         }
         function closeModal_u() {
             const modal = document.getElementById('editModal_u');
@@ -345,23 +344,28 @@ function tablasAdmin() {
 ";
 
     echo "
-    <div id='editModal_u' class='modal'>
-        <div class='modal-content'>
-            <span class='modal-close' onclick='closeModal_u()'>&times;</span>
-            <div class='modal-header'>Editar Registro Usuario</div>
-            <form action='funciones_mysql/Editar_U.php' method='POST'>
-                <input type='hidden' id='editId' name='id'>
-                <label for='editNombreDeUsuario'>Nombre de usuario:</label><br>
-                <input type='text' id='editNombreDeUsuario' name='nombredeusuario'><br><br>
-                <label for='editNombreu'>Nombre:</label><br>
-                <input type='text' id='editNombreu' name='nombreu'><br><br>
-                <label for='editApellido'>Apellido:</label><br>
-                <input type='text' id='editApellido' name='apellido'><br><br>
-                <label for='editEmail'>Direccion de correo:</label><br>
-                <input type='email' id='editEmail' name='email'><br><br>
-                <button type='submit' class='modal-button'>Guardar Cambios</button>
-            </form>
-        </div>
+    <div id='editModal_u' class='modal' role='dialog' aria-labelledby='modalTitle' aria-hidden='true'>
+    <div class='modal-content'>
+        <span class='modal-close' onclick='closeModal_u()' aria-label='Cerrar'>&times;</span>
+        <h2 id='modalTitle' class='modal-header'>Editar Registro Usuario</h2>
+        <form action='funciones_mysql/Editar_U.php' method='POST'>
+            <input type='hidden' id='editId' name='id'>
+
+            <label for='editNombreDeUsuario'>Nombre de usuario:</label><br>
+            <input type='text' id='editNombreDeUsuario' name='nombredeusuario' required><br><br>
+            
+            <label for='editNombreu'>Nombre:</label><br>
+            <input type='text' id='editNombreu' name='nombreu' required><br><br>
+            
+            <label for='editApellido'>Apellido:</label><br>
+            <input type='text' id='editApellido' name='apellido' required><br><br>
+            
+            <label for='editEmail'>Dirección de correo:</label><br>
+            <input type='email' id='editEmail' name='email' required><br><br>
+            
+            <button type='submit' class='modal-button'>Guardar Cambios</button>
+        </form>
+    </div>
     </div>
 ";
 
