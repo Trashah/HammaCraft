@@ -1,8 +1,8 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id'];
+    $idu = $_POST['idu'];
     $nombredeusuario = $_POST['nombredeusuario'];
-    $nombre = $_POST['nombre'];
+    $nombreu = $_POST['nombreu'];
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
 
@@ -20,15 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Sanitización de entradas para evitar SQL injection
-    $id = intval($id); // Para asegurarse de que el ID sea un número
+    $idu = intval($idu); // Para asegurarse de que el ID sea un número
     $nombredeusuario = mysqli_real_escape_string($conexion, $nombredeusuario);
-    $nombre = mysqli_real_escape_string($conexion, $nombre);
+    $nombreu = mysqli_real_escape_string($conexion, $nombreu);
     $apellido = mysqli_real_escape_string($conexion, $apellido);
     $email = mysqli_real_escape_string($conexion, $email);
 
     // Construir la consulta SQL
-    $sql = "UPDATE usuarios SET NombreDeUsuario = '$nombredeusuario', Nombre = '$nombre', Apellido = '$apellido', 
-    Email = '$email' WHERE ID = $id";
+    $sql = "UPDATE usuarios SET NombreDeUsuario = '$nombredeusuario', Nombre = '$nombreu', Apellido = '$apellido', 
+    Email = '$email' WHERE ID = $idu";
 
     // Ejecutar la consulta
     if (mysqli_query($conexion, $sql)) {
