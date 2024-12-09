@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Ejecutar la consulta
     if (mysqli_query($conexion, $sql)) {
+        echo "Registro actualizado correctamente.";
         // Redirigir antes de cualquier salida
         header("Location: ../admin.php");
         exit; // Asegúrate de que el script se detenga después de la redirección
