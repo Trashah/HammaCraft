@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id_u'];
+    $id = $_POST['id'];
     $nombredeusuario = $_POST['nombredeusuario'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];

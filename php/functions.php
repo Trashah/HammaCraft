@@ -250,10 +250,10 @@ function tablasAdmin() {
 ";
 // Script para manejar el modal usuarios
     echo "
-        function openModal_u(id_u, nombredeusuario, nombre, apellido, email) {
+        function openModal_u(id, nombredeusuario, nombre, apellido, email) {
             const modal = document.getElementById('editModal_u');
             modal.style.display = 'flex';
-            document.getElementById('editId_U').value = id_u;
+            document.getElementById('editId').value = id;
             document.getElementById('editNombreDeUsuario').value = nombredeusuario;
             document.getElementById('editNombre').value = nombre;
             document.getElementById('editApellido').value = apellido;
@@ -300,7 +300,7 @@ function tablasAdmin() {
             <span class='modal-close' onclick='closeModal_u()'>&times;</span>
             <div class='modal-header'>Editar Registro Usuario</div>
             <form action='funciones_mysql/Editar_U.php' method='POST'>
-                <input type='hidden' id='editId_u' name='id_u'>
+                <input type='hidden' id='editId' name='id'>
                 <label for='editNombreDeUsuario'>Nombre de usuario:</label><br>
                 <input type='text' id='editNombreDeUsuario' name='nombredeusuario'><br><br>
                 <label for='editNombre'>Nombre:</label><br>
