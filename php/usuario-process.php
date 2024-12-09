@@ -2,7 +2,6 @@
 
 include __DIR__ . '/../.gitignore/config.php';
 
-// Asegurarse de que la sesión esté activa
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -108,7 +107,6 @@ function saveNewUserData($newUsername, $newName, $newLastname, $newEmail, $newPa
 
     $connection = connectToDatabase();
 
-    // Validar entradas
     checkEmptyInputsUsuario($newUsername, $newName, $newLastname, $newEmail, $newPassword);
     checkValidEmailUsuario($newEmail);
     checkValidName($newName);

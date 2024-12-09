@@ -126,7 +126,6 @@ if (!$loggedIn) {
             const form = document.getElementById('userForm');
             const submitBtn = document.getElementById('submitBtn');
 
-            // Función de validación
             function validateField(input, condition, message) {
                 const feedback = input.nextElementSibling;
                 if (!condition(input.value)) {
@@ -139,13 +138,11 @@ if (!$loggedIn) {
                 validateForm();
             }
 
-            // Revisión general
             function validateForm() {
                 const isInvalid = document.querySelectorAll('.is-invalid').length > 0;
                 submitBtn.disabled = isInvalid;
             }
 
-            // Campos específicos
             document.getElementById('nuevoUsuario').addEventListener('blur', function () {
                 validateField(this, val => val.length >= 8, 'Debe tener al menos 8 caracteres.');
             });
