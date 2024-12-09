@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($conexion) {
         $sql = "UPDATE usuarios SET NombreDeUsuario = '$nombredeusuario', Nombre = '$nombre', Apellido = '$apellido', 
-        Email = '$email' WHERE ID_P = $id";
+        Email = '$email' WHERE ID = $id";
         if (mysqli_query($conexion, $sql)) {
             echo "Registro actualizado correctamente.";
         } else {
