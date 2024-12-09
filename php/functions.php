@@ -227,7 +227,7 @@ function tablasAdmin() {
         </style>
     ";
 
-    // Script para manejar el modal
+    // Script para manejar el modal productos
     echo "
     <script>
         function openModal_p(id, nombre, descripcion, precio, categoria1, categoria2, categoria3, stock) {
@@ -247,10 +247,13 @@ function tablasAdmin() {
             modal.style.display = 'none';
         }
 
-        function openModal_u(id, nombredeusuario, nombre, apellido, email) {
+";
+// Script para manejar el modal usuarios
+    echo "
+        function openModal_u(id_u, nombredeusuario, nombre, apellido, email) {
             const modal = document.getElementById('editModal_u');
             modal.style.display = 'flex';
-            document.getElementById('editId').value = id;
+            document.getElementById('editId_U').value = id_u;
             document.getElementById('editNombreDeUsuario').value = nombredeusuario;
             document.getElementById('editNombre').value = nombre;
             document.getElementById('editApellido').value = apellido;
@@ -365,7 +368,7 @@ function tablasAdmin() {
         echo "<td>$row[6]</td>";
         echo "<td class='action-buttons'>";
         echo    "<a href='#' class='action-button edit' onclick='openModal_u($row[0],
-                 $row[1], $row[2], $row[3], $row[4])'>Editar</a>";
+                 \"$row[1]\", \"$row[2]\", \"$row[3]\", \"$row[4]\")'>Editar</a>";
         echo    "<a href='funciones_mysql/Borrar_U.php?id=".$row[0]."' onclick='return confirmar()' class='action-button delete'>Eliminar</a>'";
         echo "</td>";
         echo "</tr>";
