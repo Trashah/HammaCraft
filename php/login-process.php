@@ -78,8 +78,6 @@ function loginUser($username, $password) {
             $_SESSION["tipoDeUsuario"] = $user["Tipo"];
             $_SESSION["correoDeUsuario"] = $user["Email"];
 
-            logUserCreation($username);
-
             header("Location: ../index.php");
             exit;
         }
@@ -107,6 +105,7 @@ function signupUser($username, $nombre, $apellido, $email, $password) {
     $stmt -> bind_param("sssss", $username, $nombre, $apellido, $email, $passwordHash);
 
     if($stmt -> execute()) {
+        logUserCreation($username);
         loginUser($username, $password);
     }
     else {

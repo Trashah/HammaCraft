@@ -8,7 +8,7 @@
 
     $conexion = mysqli_connect($servidor, $usuario, $password, $bd);
 
-    $sql="delete from productos where id='".$id."'";
+    $sql="delete from productos where id_p='".$id."'";
     $resultado=mysqli_query($conexion,$sql);
 
     if($resultado){

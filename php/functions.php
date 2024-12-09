@@ -320,7 +320,7 @@ function tablasAdmin() {
     echo "<div class='section-header'>Productos</div>";
     echo "<table class='table-container'>";
     echo "<tr><td>ID_P</td><td>NombreProducto</td><td>Descripcion</td><td>Precio</td><td>Categoria1</td>
-    <td>Categoria2</td><td>Categoria3</td><td>Stock</td><td>zImagen</td><td>Acciones</td></tr>";
+    <td>Categoria2</td><td>Categoria3</td><td>Stock</td><td>Imagen</td><td>Acciones</td></tr>";
 
     $consulta = "select * from productos";
     $resultado = mysqli_query($conexion, $consulta);
@@ -346,6 +346,47 @@ function tablasAdmin() {
 
     echo "</table>";
     echo "</div>";
+
+    echo "<br>";
+
+    echo "<h4> Insertar nuevo producto </h4>";
+    echo "<form class = 'form' action = 'funciones_mysql/Add_P.php' method = 'POST'>";
+    echo "<p>Nombre de producto:<br>
+          <input type='text' name='nombreProducto' size='30'>
+          </p>
+
+          <p>Descripcion:<br>
+          <input type='text' name='descripcion' size='30'>
+          </p>
+
+          <p>Precio:<br>
+          <input name='precio' size='30'>
+          </p>
+                        
+          <p>Categoria 1:<br>
+          <input name='categoria1' size='30'>
+          </p>
+
+          <p>Categoria 2:<br>
+          <input name='categoria2' size='30'>
+          </p>
+
+          <p>Categoria 3:<br>
+          <input name='categoria3' size='30'>
+          </p>
+
+          <p>Stock:<br>
+          <input name='stock' size='30'>
+          </p>
+
+          <p>Imagen:<br>
+          <input name='imagen' size='30'>
+          </p>
+
+          <input type = 'submit' value = 'Insertar producto'>
+
+          </form>
+        ";
 
     // Sección: Usuarios
     echo "<div class='section'>";
@@ -376,6 +417,39 @@ function tablasAdmin() {
 
     echo "</table>";
     echo "</div>";
+
+    echo "<br>";
+
+    echo "<h4> Insertar nuevo usuario </h4>";
+    echo "<form class = 'form' action = 'funciones_mysql/Add_U.php' method = 'POST'>";
+    echo "<p>Nombre de usuario (mínimo 8 carácteres):<br>
+          <input type='text' name = 'nombreDeUsuario' size = '30' required minlegth = '8'>
+          </p>
+
+          <p>Nombre (no debé contener números):<br>
+          <input type='text' name = 'nombreU' size = '30' required pattern = '^[^\d]*$'>
+          </p>
+
+          <p>Apellido (no debé contener números):<br>
+          <input name = 'apellido' size = '30' required pattern = '^[^\d]*$'>
+          </p>
+                        
+          <p>Email:<br>
+          <input name = 'email' size = '30'>
+          </p>
+
+          <p>Contraseña (mínimo 6 carácteres):<br>
+          <input name = 'password' size = '30' required minlegth = '6'>
+          </p>
+
+          <p>Tipo:<br>
+          <input name = 'tipo' size = '30'>
+          </p>
+
+          <input type = 'submit' value = 'Insertar usuario'>
+
+          </form?
+        ";
 
     //Seccion: Bitácora
     echo "<div class='section'>";

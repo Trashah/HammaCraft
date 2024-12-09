@@ -10,7 +10,7 @@ if (!isset($_SESSION["userID"])) {
     $loggedIn = false;
 }
 
-$devMode = true;
+$devMode = false;
 
 if ($devMode && !$loggedIn) {
     $loggedIn = true;

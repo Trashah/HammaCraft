@@ -10,7 +10,7 @@ if (!isset($_SESSION["tipoDeUsuario"]) || $_SESSION["tipoDeUsuario"] != "Admin")
     $isAdmin = false;
 }
 
-$devMode = true;
+$devMode = false;
 
 if ($devMode) {
     $isAdmin = true;
