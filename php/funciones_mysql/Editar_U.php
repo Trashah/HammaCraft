@@ -1,10 +1,11 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id'] ?? null;
-    $nombredeusuario = $_POST['nombredeusuario'] ?? null;
-    $nombreu = $_POST['nombreu'] ?? null;
-    $apellido = $_POST['apellido'] ?? null;
-    $email = $_POST['email'] ?? null;
+    var_dump($_POST); // Muestra todos los datos enviados
+    $id = $_POST['id'];
+    $nombredeusuario = $_POST['nombredeusuario'];
+    $nombreu = $_POST['nombreu'];
+    $apellido = $_POST['apellido'];
+    $email = $_POST['email'];
 
     $servidor = "localhost";
     $usuario = "root";
@@ -27,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Usar consulta preparada
-    $sql = "UPDATE productos SET NombreDeUsuario = ?, Nombre = ?, Apellido = ?, Email = ? WHERE ID = ?";
+    $sql = "UPDATE productos SET NombreDeUsuario = $nombredeusuario, Nombre = $nombreu, Apellido = $apellido, Email = $email WHERE ID = $id";
     $stmt = mysqli_prepare($conexion, $sql);
     if (!$stmt) {
         die("Error al preparar la consulta: " . mysqli_error($conexion));
